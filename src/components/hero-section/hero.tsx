@@ -25,15 +25,15 @@ export default function Hero() {
               style={{
                 borderBottom: "0.2px solid transparent",
                 borderImage:
-                  "linear-gradient(to right, transparent, gray, transparent) 1",
+                  "linear-gradient(to right, transparent, white, transparent) 1",
               }}
             />
           </div>
-          <h1 className="text-zinc-500 pt-6 text-xs">Saiba mais</h1>
+          <h1 className="text-zinc-50 pt-6 text-xs">Saiba mais</h1>
           <ArrowDown
             size={10}
             strokeWidth={2}
-            className="text-zinc-500 items-center text-center mt-2"
+            className="text-zinc-300 items-center text-center mt-1"
           />
         </div>
         <div className="relative flex flex-col px-2 pt-8">
