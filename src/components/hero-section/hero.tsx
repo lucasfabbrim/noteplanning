@@ -11,7 +11,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-screen overflow-hidden transform-gpu"
+      className="relative w-full h-auto overflow-hidden transform-gpu mb-4"
     >
       <Gradient />
       <div className="relative flex flex-col items-center text-center px-3.5 pt-24">

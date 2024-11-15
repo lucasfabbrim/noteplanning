@@ -9,11 +9,11 @@ export function ButtonPhone() {
         className="relative bg-zinc-900 border border-zinc-800/40 text-zinc-200 rounded-full flex"
       >
         <h1 className="flex px-2 gap-2 items-center">
-          Pré-venda
+          Entre na lista de pré-venda
           <ChevronRight
             size={3}
             strokeWidth={3}
-            className="text-zinc-600 h-2 w-2"
+            className="text-zinc-400 h-2 w-2"
           />
         </h1>
       </Button>
