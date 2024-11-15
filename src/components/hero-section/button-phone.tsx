@@ -17,6 +17,14 @@ export function ButtonPhone() {
           />
         </h1>
       </Button>
+      <div
+        className="absolute inset-0 mx-4"
+        style={{
+          borderBottom: "1px solid transparent",
+          borderImage:
+            "linear-gradient(to right, transparent, white, transparent) 1",
+        }}
+      />
     </div>
   );
 }

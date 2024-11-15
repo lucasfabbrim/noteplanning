@@ -18,18 +18,8 @@ export default function Hero() {
         <Title />
         <SubTitle />
         <div className="flex flex-col items-center">
-          <div className="flex relative">
-            <ButtonPhone />
-            <div
-              className="absolute inset-0 mx-4"
-              style={{
-                borderBottom: "0.2px solid transparent",
-                borderImage:
-                  "linear-gradient(to right, transparent, white, transparent) 1",
-              }}
-            />
-          </div>
-          <h1 className="text-zinc-50 pt-6 text-xs">Saiba mais</h1>
+          <ButtonPhone />
+          <h1 className="text-zinc-300 pt-6 text-xs">Saiba mais</h1>
           <ArrowDown
             size={10}
             strokeWidth={2}
