@@ -1,8 +1,10 @@
-import { ChevronRight, Subtitles } from "lucide-react";
-import { Gradient } from "./gradient";
 import { Title } from "./title";
 import { SubTitle } from "./subtitle";
 import { ButtonPhone } from "./button-phone";
+import Image from "next/image";
+
+import ProductImage from "@/assets/note-private.png";
+import { ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -10,10 +12,28 @@ export default function Hero() {
       id="hero"
       className="relative w-full h-screen overflow-hidden transform-gpu"
     >
-      <div className="flex flex-col items-center text-center px-3.5 pt-10">
+      <div className="relative flex flex-col items-center text-center px-3.5 pt-10">
         <Title />
         <SubTitle />
-        <ButtonPhone />
+        <div className="flex flex-col items-center">
+          <ButtonPhone />
+          <h1 className="text-zinc-500 pt-6 text-xs">Saiba mais</h1>
+          <ChevronDown
+            size={14}
+            strokeWidth={3}
+            className="text-zinc-500 items-center text-center mt-1"
+          />
+        </div>
+        <div className="relative flex flex-col px-2 pt-8">
+          <Image
+            src={ProductImage}
+            alt=""
+            width={0}
+            height={0}
+            className="w-full rounded-[10px] relative opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+        </div>
       </div>
     </section>
   );
