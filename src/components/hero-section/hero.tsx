@@ -4,7 +4,7 @@ import { ButtonPhone } from "./button-phone";
 import Image from "next/image";
 
 import ProductImage from "@/assets/note-private.png";
-import { ChevronDown } from "lucide-react";
+import { ArrowDown, ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -18,9 +18,9 @@ export default function Hero() {
         <div className="flex flex-col items-center">
           <ButtonPhone />
           <h1 className="text-zinc-500 pt-6 text-xs">Saiba mais</h1>
-          <ChevronDown
+          <ArrowDown
             size={14}
-            strokeWidth={3}
+            strokeWidth={2}
             className="text-zinc-500 items-center text-center mt-1"
           />
         </div>
