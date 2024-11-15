@@ -31,9 +31,9 @@ export default function Hero() {
           </div>
           <h1 className="text-zinc-500 pt-6 text-xs">Saiba mais</h1>
           <ArrowDown
-            size={14}
+            size={10}
             strokeWidth={2}
-            className="text-zinc-500 items-center text-center mt-1"
+            className="text-zinc-500 items-center text-center mt-2"
           />
         </div>
         <div className="relative flex flex-col px-2 pt-8">
