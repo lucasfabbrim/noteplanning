@@ -14,7 +14,7 @@ export default function Hero() {
       className="relative w-full h-screen overflow-hidden transform-gpu"
     >
       <Gradient />
-      <div className="relative flex flex-col items-center text-center px-3.5 pt-32">
+      <div className="relative flex flex-col items-center text-center px-3.5 pt-24">
         <Title />
         <SubTitle />
         <div className="flex flex-col items-center">
