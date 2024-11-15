@@ -10,7 +10,7 @@ export default function Hero() {
       id="hero"
       className="relative w-full h-screen overflow-hidden transform-gpu"
     >
-      <div className="flex flex-col items-center text-start px-3.5 pt-10">
+      <div className="flex flex-col items-center text-center px-3.5 pt-10">
         <Title />
         <SubTitle />
         <ButtonPhone />
