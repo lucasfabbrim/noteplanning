@@ -4,7 +4,8 @@ import { ButtonPhone } from "./button-phone";
 import Image from "next/image";
 
 import ProductImage from "@/assets/note-private.png";
-import { ArrowDown, ChevronDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
+import { Gradient } from "./gradient";
 
 export default function Hero() {
   return (
@@ -12,11 +13,22 @@ export default function Hero() {
       id="hero"
       className="relative w-full h-screen overflow-hidden transform-gpu"
     >
-      <div className="relative flex flex-col items-center text-center px-3.5 pt-10">
+      <Gradient />
+      <div className="relative flex flex-col items-center text-center px-3.5 pt-32">
         <Title />
         <SubTitle />
         <div className="flex flex-col items-center">
-          <ButtonPhone />
+          <div className="flex relative">
+            <ButtonPhone />
+            <div
+              className="absolute inset-0 mx-4"
+              style={{
+                borderBottom: "0.2px solid transparent",
+                borderImage:
+                  "linear-gradient(to right, transparent, gray, transparent) 1",
+              }}
+            />
+          </div>
           <h1 className="text-zinc-500 pt-6 text-xs">Saiba mais</h1>
           <ArrowDown
             size={14}
