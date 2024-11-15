@@ -42,7 +42,7 @@ export default function Hero() {
             alt=""
             width={0}
             height={0}
-            className="w-full rounded-[10px] relative opacity-80"
+            className="w-full rounded-[10px] relative"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         </div>
