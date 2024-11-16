@@ -14,16 +14,16 @@ export default function Hero() {
       className="relative w-full h-auto overflow-hidden transform-gpu mb-4"
     >
       <Gradient />
-      <div className="relative flex flex-col items-center text-center px-3.5 pt-24">
+      <div className="relative flex flex-col items-center text-center px-4 pt-24">
         <Title />
         <SubTitle />
         <div className="flex flex-col items-center">
           <ButtonPhone />
-          <h1 className="text-zinc-300 pt-6 text-xs">Saiba mais</h1>
+          <h1 className="text-zinc-400 pt-6 text-xs font-medium">Saiba mais</h1>
           <ArrowDown
-            size={10}
+            size={12}
             strokeWidth={2}
-            className="text-zinc-300 items-center text-center mt-1"
+            className="text-zinc-400 items-center text-center mt-1"
           />
         </div>
         <div className="relative flex flex-col px-2 pt-8">
@@ -34,7 +34,7 @@ export default function Hero() {
             height={0}
             className="w-full rounded-[10px] relative"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
         </div>
       </div>
     </section>
