@@ -1,3 +1,6 @@
+import { LucideIcon, Wallet } from "lucide-react";
+import { Card, CardContent, CardFooter } from "../ui/card";
+
 export default function Intro() {
   return (
     <section
@@ -20,6 +23,37 @@ export default function Intro() {
           Diga não às planilhas e ferramentas projetadas nos anos 80.
         </span>
       </div>
+      <div className="grid grid-cols-1 pt-24">
+        <CardTemplate
+          title="Finanças"
+          description="Organize sua vida Financeira."
+          icon={Wallet}
+        />
+      </div>
     </section>
+  );
+}
+
+interface CardProps {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+function CardTemplate({ title, icon: Icon, description }: CardProps) {
+  return (
+    <Card className="rounded-2xl flex flex-col h-[300px] overflow-hidden bg-zinc-900/20 border-zinc-900/40 shadow-2xl shadow-zinc-300/5">
+      <CardContent className="flex flex-col relative">
+        <div className="bg-white py-12 mt-10 rounded-l-[20px] flex items-center text-center justify-center gap-4 left-6 relative opacity-75 shadow-2xl shadow-white/10">
+          <Icon className="w-7 h-7 text-black" strokeWidth={2.5} />
+          <h2 className="text-2xl font-extrabold text-black">{title}</h2>
+          <div className="absolute inset-0 bg-gradient-to-l from-black/95 via-zinc-900/50 to-zinc-900/5" />
+        </div>
+      </CardContent>
+      <CardFooter className="justify-center flex flex-col gap-1.5">
+        <p className="text-white/80 font-bold text-2xl">{title}</p>
+        <p className="text-zinc-400/90 text-sm">{description}</p>
+      </CardFooter>
+    </Card>
   );
 }
