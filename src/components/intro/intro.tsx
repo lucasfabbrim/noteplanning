@@ -17,15 +17,28 @@ export default function Intro() {
           gerenciar a organização da sua vida é fácil. Nosso template simplifica
           sua tomada de decisões e coloca o poder da organização na ponta dos
           seus dedos.
+          <span className="text-zinc-200/90 font-medium text-start text-sm">
+            {" "}
+            Diga não às planilhas e ferramentas projetadas nos anos 80.
+          </span>
         </h3>
-        <span className="text-zinc-200/90 font-medium text-start text-sm -mt-2">
-          {" "}
-          Diga não às planilhas e ferramentas projetadas nos anos 80.
-        </span>
       </div>
-      <div className="grid grid-cols-1 pt-24">
+      <div className="grid grid-cols-1 lg:grid-cols-3 pt-24 gap-10">
         <CardTemplate
           title="Finanças"
+          subtitle="Organize sua vida financeira."
+          description="Organize sua vida Financeira."
+          icon={Wallet}
+        />
+        <CardTemplate
+          title="Finanças"
+          subtitle="Organize sua vida financeira."
+          description="Organize sua vida Financeira."
+          icon={Wallet}
+        />
+        <CardTemplate
+          title="Finanças"
+          subtitle="Organize sua vida financeira."
           description="Organize sua vida Financeira."
           icon={Wallet}
         />
@@ -36,11 +49,12 @@ export default function Intro() {
 
 interface CardProps {
   title: string;
+  subtitle: string;
   description: string;
   icon: LucideIcon;
 }
 
-function CardTemplate({ title, icon: Icon, description }: CardProps) {
+function CardTemplate({ title, subtitle, icon: Icon, description }: CardProps) {
   return (
     <Card className="rounded-2xl flex flex-col h-[300px] overflow-hidden bg-zinc-900/20 border-zinc-900/40 shadow-2xl shadow-zinc-300/5">
       <CardContent className="flex flex-col relative">
@@ -50,8 +64,8 @@ function CardTemplate({ title, icon: Icon, description }: CardProps) {
           <div className="absolute inset-0 bg-gradient-to-l from-black/95 via-zinc-900/50 to-zinc-900/5" />
         </div>
       </CardContent>
-      <CardFooter className="justify-center flex flex-col gap-1.5">
-        <p className="text-white/80 font-bold text-2xl">{title}</p>
+      <CardFooter className="justify-start items-start flex flex-col gap-1">
+        <p className="text-white/80 font-semibold text-lg">{subtitle}</p>
         <p className="text-zinc-400/90 text-sm">{description}</p>
       </CardFooter>
     </Card>
