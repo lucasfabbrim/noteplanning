@@ -1,15 +1,15 @@
-import { LucideIcon, Wallet } from "lucide-react";
+import { Clock, LucideIcon, Wallet } from "lucide-react";
 import { Card, CardContent, CardFooter } from "../ui/card";
 
 export default function Intro() {
   return (
     <section
       id="Intro"
-      className="mx-auto max-w-7xl p-8 mt-10 py-16 md:py-24 lg:px-8 mb-96"
+      className="mx-auto max-w-7xl p-8 mt-10 py-16 md:py-24 lg:px-8"
     >
       <div className="grid items-center justify-between gap-5 md:grid-cols-2">
         <h1 className="leading-none bg-clip-text text-transparent bg-gradient-to-br from-white to-zinc-500  text-3xl font-bold md:text-5xl/[1.07] text-start">
-          Quem disse que organização tem que ser chato?
+          Quem disse que organização tem que ser chato
         </h1>
         <h3 className="pt-2 text-sm text-zinc-400/80 font-medium text-start">
           Com o{" "}
@@ -31,13 +31,13 @@ export default function Intro() {
           icon={Wallet}
         />
         <CardTemplate
-          title="Finanças"
-          subtitle="Organize sua vida financeira."
-          description="Organize sua vida Financeira."
-          icon={Wallet}
+          title="Rotina"
+          subtitle="Organize sua Rotina."
+          description="Organize sua vida Rotina."
+          icon={Clock}
         />
         <CardTemplate
-          title="Finanças"
+          title="Estudos"
           subtitle="Organize sua vida financeira."
           description="Organize sua vida Financeira."
           icon={Wallet}
