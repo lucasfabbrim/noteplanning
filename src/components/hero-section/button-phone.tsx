@@ -12,10 +12,10 @@ export function ButtonPhone() {
         onClick={() =>
           sendGAEvent("event", "buttonClicked", { value: "myButton" })
         }
-        className="relative h-10 bg-rose-700 text-white rounded-[10px] flex font-semibold"
+        className="relative h-10 bg-rose-800 text-white rounded-[13px] flex font-semibold"
       >
         <h1 className="flex px-2 gap-2 items-center">
-          Compre agora na pré-venda
+          Entre na lista de pré-venda
           <ChevronRight
             size={3}
             strokeWidth={3}
