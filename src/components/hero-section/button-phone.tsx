@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { sendGAEvent } from "@next/third-parties/google";
