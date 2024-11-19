@@ -17,13 +17,13 @@ export default function Hero() {
         <SubTitle />
         <div className="flex flex-col items-center">
           <ButtonPhone />
-          <h1 className="text-zinc-200/90 pt-6 text-xs font-medium">
+          <h1 className="text-zinc-100/90 pt-6 text-xs font-medium">
             Saiba mais
           </h1>
           <ArrowDown
             size={12}
             strokeWidth={2}
-            className="text-zinc-200/90 items-center text-center mt-1"
+            className="text-zinc-100/90 items-center text-center mt-1"
           />
         </div>
         <div className="relative flex flex-col px-2 pt-8">
