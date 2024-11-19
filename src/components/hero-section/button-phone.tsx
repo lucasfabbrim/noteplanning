@@ -12,7 +12,7 @@ export function ButtonPhone() {
         onClick={() =>
           sendGAEvent("event", "buttonClicked", { value: "myButton" })
         }
-        className="relative bg-blue-700 text-white rounded-[10px] flex"
+        className="relative h-10 bg-rose-600 text-white rounded-[10px] flex font-semibold"
       >
         <h1 className="flex px-2 gap-2 items-center">
           Compre agora na pré-venda
@@ -23,6 +23,14 @@ export function ButtonPhone() {
           />
         </h1>
       </Button>
+      <div
+        className="absolute inset-0 mx-4"
+        style={{
+          borderBottom: "1px solid transparent",
+          borderImage:
+            "linear-gradient(to right, transparent, white, transparent) 1",
+        }}
+      />
     </div>
   );
 }

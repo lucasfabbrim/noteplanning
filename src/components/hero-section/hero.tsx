@@ -5,7 +5,6 @@ import Image from "next/image";
 
 import ProductImage from "@/assets/note-private.png";
 import { ArrowDown } from "lucide-react";
-import { Gradient } from "./gradient";
 
 export default function Hero() {
   return (
@@ -13,7 +12,7 @@ export default function Hero() {
       id="hero"
       className="relative w-full h-auto overflow-hidden transform-gpu mb-4"
     >
-      <div className="relative flex flex-col items-center text-center px-4 pt-24">
+      <div className="relative flex flex-col items-center text-center px-4 pt-16">
         <Title />
         <SubTitle />
         <div className="flex flex-col items-center">
