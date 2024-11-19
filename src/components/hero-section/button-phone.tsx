@@ -12,25 +12,17 @@ export function ButtonPhone() {
         onClick={() =>
           sendGAEvent("event", "buttonClicked", { value: "myButton" })
         }
-        className="relative bg-zinc-900 border border-zinc-800/40 text-zinc-200 rounded-full flex"
+        className="relative bg-blue-700 text-white rounded-[10px] flex"
       >
         <h1 className="flex px-2 gap-2 items-center">
-          Entre na lista de pré-venda
+          Compre agora na pré-venda
           <ChevronRight
             size={3}
             strokeWidth={3}
-            className="text-zinc-400 h-2 w-2"
+            className="text-white h-2 w-2"
           />
         </h1>
       </Button>
-      <div
-        className="absolute inset-0 mx-4"
-        style={{
-          borderBottom: "1px solid transparent",
-          borderImage:
-            "linear-gradient(to right, transparent, white, transparent) 1",
-        }}
-      />
     </div>
   );
 }
