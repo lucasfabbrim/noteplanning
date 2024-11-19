@@ -12,7 +12,7 @@ export function ButtonPhone() {
         onClick={() =>
           sendGAEvent("event", "buttonClicked", { value: "myButton" })
         }
-        className="relative h-10 bg-rose-700 text-white rounded-[13px] flex font-medium text-base"
+        className="relative h-10 bg-[#0582FF] text-white rounded-[13px] flex font-medium text-base"
       >
         <h1 className="flex px-2 gap-2 items-center">
           Garanta sua vaga agora
@@ -28,7 +28,7 @@ export function ButtonPhone() {
         style={{
           borderBottom: "1px solid transparent",
           borderImage:
-            "linear-gradient(to right, transparent, white, transparent) 1",
+            "linear-gradient(to right, transparent, cyan, transparent) 1",
         }}
       />
     </div>
