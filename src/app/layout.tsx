@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = localFont({
   src: [
@@ -90,6 +91,7 @@ export default function RootLayout({
       <body className={` ${inter.variable} font-inter antialiased bg-black`}>
         {children}
         <Analytics />
+        <GoogleAnalytics gaId="G-Q7L1FTGB2K" />
       </body>
     </html>
   );
