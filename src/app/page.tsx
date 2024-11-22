@@ -111,15 +111,15 @@ export default function Home() {
 
 function WhatsappPromo() {
   return (
-    <div className="py-4 bg-black px-6 relative ">
+    <div className="py-4 bg-black px-2 relative ">
       <div className="max-w-md mx-auto relative">
-        <Card className="bg-zinc-900/70 border-none overflow-visible relative h-[650px] rounded-[30px]">
+        <Card className="bg-zinc-900/70 border-none overflow-visible relative h-[690px] rounded-[30px]">
           <CardContent className="p-5 mt-4">
             <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold text-lg">
               #DesafioPlanning
             </span>
 
-            <h2 className="text-2xl text-white font-semibold mt-7">
+            <h2 className="text-2xl text-white font-bold mt-7 px-2">
               Um grupo{" "}
               <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text">
                 exclusivo{" "}
@@ -131,7 +131,7 @@ function WhatsappPromo() {
               Faça parte da nossa comunidade e acompanhe novidades e desafios
               exclusivos para Dezembro!
             </p>
-            <div className="flex justify-center items-center pt-10 pb-10">
+            <div className="flex justify-center items-center pt-10 pb-20">
               <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-11 rounded-full text-sm text-white">
                 <span className="px-4 flex items-center gap-4">
                   Participe da pré-venda
@@ -139,7 +139,7 @@ function WhatsappPromo() {
                 </span>
               </Button>
             </div>
-            <div className="mt-2 relative">
+            <div className="-mt-3 relative">
               <Image
                 src={cell}
                 alt="WhatsApp chat preview"
