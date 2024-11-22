@@ -15,7 +15,7 @@ export default function Home() {
       <GoogleAnalytics gaId="G-FXZJ4HXH96" />
 
       <div
-        className="absolute top-10 right-60 lg:top-0 lg:left-0  lg:w-[600px] w-[300px] h-[230px] bg-sky-500 blur[300px] opacity-50"
+        className="absolute top-10 right-60 lg:top-0 lg:left-0  lg:w-[600px] w-[300px] h-[230px] bg-sky-500 blur[300px] opacity-20"
         style={{
           filter: "blur(170px)",
         }}
@@ -26,7 +26,7 @@ export default function Home() {
           <div className="flex flex-col justify-between">
             <div className="flex flex-col">
               <h1 className="text-white text-3xl font-bold ">
-                Organize e produza{" "}
+                Organize-se e produza{" "}
                 <span className="bg-gradient-to-l from-blue-700 to-cyan-300 text-transparent bg-clip-text">
                   mais
                 </span>
