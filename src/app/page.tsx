@@ -103,15 +103,14 @@ export default function Home() {
             </div>
           </div>
           <WhatsappPromo />
-          <div className="flex flex-col pt-20">
+          <div className="flex flex-col pt-32">
+            <h3 className="bg-gradient-to-l from-zinc-500 to-zinc-50 text-transparent bg-clip-text text-lg font-semibold">
+              Note Private
+            </h3>
             <h1 className="text-white text-3xl font-semibold">
-              Mate sua{" "}
-              <span className="bg-gradient-to-l from-zinc-500 to-zinc-300 text-transparent bg-clip-text">
-                curiosidade
-              </span>
-              .
+              Mate sua curiosidade.
             </h1>
-            <p className="text-zinc-400/90 text-sm pt-4 px-4">
+            <p className="text-zinc-400/90 text-base pt-4 px-1">
               Inspire-se nos exemplos do template pré-configuradas que deixamos
               criados para você.
             </p>
