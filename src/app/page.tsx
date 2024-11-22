@@ -25,14 +25,14 @@ export default function Home() {
         <section id="hero" className="pt-10 px-6 text-center">
           <div className="flex flex-col justify-between">
             <div className="flex flex-col">
-              <h1 className="text-white text-3xl font-bold px-1">
+              <h1 className="text-white text-3xl font-bold ">
                 Organize e produza{" "}
                 <span className="bg-gradient-to-l from-blue-700 to-cyan-300 text-transparent bg-clip-text">
                   mais
                 </span>
                 .
               </h1>
-              <h3 className="text-zinc-400/90 text-base text-center px-4 pt-5 font-medium">
+              <h3 className="text-zinc-400/90 text-base text-center pt-5 font-medium">
                 Seu novo planejamento totalmente personalizado está a um clique
                 de distância.
               </h3>
