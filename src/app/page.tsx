@@ -8,6 +8,7 @@ import { ArrowRight, ArrowRightCircle } from "lucide-react";
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
+import Hand from "@/assets/hand.png";
 
 export default function Home() {
   return (
@@ -70,6 +71,34 @@ export default function Home() {
             <DiscordIcon />
             <FigmaIcon />
           </div>
+          <div className="flex flex-col justify-center items-center relative pt-14 ">
+            <Image
+              src={Hand}
+              alt="MacBook"
+              width={400}
+              height={400}
+              className="object-contain relative"
+              priority
+            />
+            <h3 className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-2xl font-semibold pt-8 z-0">
+              Widgets
+            </h3>
+            <h1 className="text-3xl text-white pt-2 font-semibold px-1">
+              Tudo ao seu alcance, simplificado para você.
+            </h1>
+            <p className="text-zinc-400/90 px-3 pt-3 ">
+              Acesse tudo de forma rápida e organizada com widgets inteligentes.
+            </p>
+            <div className="flex justify-center items-center pt-8 pb-10">
+              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
+                <span className="px-4 flex items-center gap-4">
+                  Participe da pré-venda
+                  <ArrowRight size={8} strokeWidth={2.5} />
+                </span>
+              </Button>
+            </div>
+          </div>
+          <div className="py-20 bg-[#0F0F0F]">10</div>
         </section>
       </main>
       <Footer />
