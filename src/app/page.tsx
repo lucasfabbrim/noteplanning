@@ -75,12 +75,12 @@ export default function Home() {
             <Image
               src={Hand}
               alt="MacBook"
-              width={2000}
+              width={400}
               height={400}
               className="object-contain relative scale-150"
               priority
             />
-            <h3 className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-14 z-0">
+            <h3 className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-20 z-0">
               Widgets
             </h3>
             <h1 className="text-2xl text-white pt-2 font-semibold px-1">
