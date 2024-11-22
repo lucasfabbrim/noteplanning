@@ -36,7 +36,7 @@ export default function Home() {
                 de distância.
               </h3>
               <div className="flex justify-center items-center pt-6">
-                <Button className="bg-zinc-300/10 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
+                <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
                   <span className="px-4 flex items-center gap-4">
                     Participe da pré-venda
                     <ArrowRight size={8} strokeWidth={2.5} />
