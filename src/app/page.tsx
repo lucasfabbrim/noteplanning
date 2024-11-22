@@ -4,6 +4,7 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Macbook from "@/assets/macbook.png";
 import Image from "next/image";
 import { ArrowRight, ArrowRightCircle } from "lucide-react";
+import NotePrivate from "@/assets/note-private.png";
 
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
@@ -74,7 +75,7 @@ export default function Home() {
             <DiscordIcon />
             <FigmaIcon />
           </div>
-          <div className="flex flex-col justify-center items-center relative pt-14 ">
+          <div className="flex flex-col justify-center items-center relative pt-32 pb-20">
             <Image
               src={Hand}
               alt="MacBook"
@@ -102,6 +103,37 @@ export default function Home() {
             </div>
           </div>
           <WhatsappPromo />
+          <div className="flex flex-col pt-20">
+            <h1 className="text-white text-3xl font-semibold">
+              Mate sua{" "}
+              <span className="bg-gradient-to-l from-zinc-500 to-zinc-300 text-transparent bg-clip-text">
+                curiosidade
+              </span>
+              .
+            </h1>
+            <p className="text-zinc-400/90 text-sm pt-4 px-4">
+              Inspire-se nos exemplos do template pré-configuradas que deixamos
+              criados para você.
+            </p>
+            <div className="flex justify-center items-center relative pt-10 px-4">
+              <Image
+                src={NotePrivate}
+                alt="MacBook"
+                width={400}
+                height={400}
+                className="object-contain relative rounded-[12px]"
+                priority
+              />
+            </div>
+            <div className="flex justify-center items-center pt-8 pb-10">
+              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
+                <span className="px-4 flex items-center gap-4">
+                  Participe da pré-venda
+                  <ArrowRight size={8} strokeWidth={2.5} />
+                </span>
+              </Button>
+            </div>
+          </div>
         </section>
       </main>
       <Footer />
@@ -143,8 +175,8 @@ function WhatsappPromo() {
               <Image
                 src={cell}
                 alt="WhatsApp chat preview"
-                width={300} // Define a largura
-                height={400} // Define a altura
+                width={300}
+                height={400}
                 className="rounded-2xl mx-auto shadow-lg absolute left-0 w-full"
                 priority
               />
