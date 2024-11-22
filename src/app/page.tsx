@@ -32,7 +32,7 @@ export default function Home() {
                 </span>
                 .
               </h1>
-              <h3 className="text-zinc-400/90 text-base text-center pt-5 font-medium">
+              <h3 className="text-zinc-300/90 text-base text-center pt-3 font-medium">
                 Seu novo planejamento totalmente personalizado está a um clique
                 de distância.
               </h3>
@@ -57,7 +57,7 @@ export default function Home() {
             </div>
           </div>
           <div className="text-2xl text-white pt-16 font-semibold px-2">
-            Faça como os líderes de mercado organize-se usando o{" "}
+            Faça como empresas líderes do mercado organize usando o{" "}
             <span className="bg-gradient-to-l from-blue-700 to-cyan-300 text-transparent bg-clip-text">
               Notion
             </span>
