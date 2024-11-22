@@ -9,6 +9,9 @@ import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
 import Hand from "@/assets/hand.png";
+import cell from "@/assets/cell.png";
+
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -98,10 +101,57 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className="py-20 bg-[#0F0F0F]">10</div>
+          <WhatsappPromo />
         </section>
       </main>
       <Footer />
+    </div>
+  );
+}
+
+function WhatsappPromo() {
+  return (
+    <div className="py-20 bg-[#0F0F0F]/50 px-6 relative ">
+      <div className="max-w-md mx-auto relative">
+        <Card className="bg-zinc-700/15 border-zinc-800 overflow-visible relative">
+          <CardContent className="p-5 mt-4">
+            <span className="bg-gradient-to-l from-blue-700 via-sky-400 to-cyan-300 text-transparent bg-clip-text font-semibold text-base">
+              #DesafioPlanning
+            </span>
+
+            <h2 className="text-xl text-white font-semibold mt-4">
+              Um grupo{" "}
+              <span className="bg-gradient-to-l from-blue-700 via-sky-400 to-cyan-300 text-transparent bg-clip-text">
+                exclusivo{" "}
+              </span>
+              para quem adquirir pré-vendas!
+            </h2>
+
+            <p className="text-zinc-400/90 text-sm mt-3">
+              Faça parte da nossa comunidade e acompanhe novidades e desafios
+              exclusivos para Dezembro!
+            </p>
+            <div className="flex justify-center items-center pt-8 pb-10">
+              <Button className="bg-gradient-to-tl from-blue-900 via-blue-800 to-blue-900 border border-blue-700 w-auto h-14 rounded-full text-base text-white">
+                <span className="px-4 flex items-center gap-4">
+                  Participe da pré-venda
+                  <ArrowRight size={8} strokeWidth={2.5} />
+                </span>
+              </Button>
+            </div>
+            <div className="mt-8 relative">
+              <Image
+                src={cell}
+                alt="WhatsApp chat preview"
+                width={300}
+                height={400}
+                className="rounded-2xl mx-auto shadow-lg z-0 top-10"
+                priority
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   );
 }
