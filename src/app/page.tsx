@@ -111,17 +111,17 @@ export default function Home() {
 
 function WhatsappPromo() {
   return (
-    <div className="py-20 bg-[#0F0F0F]/50 px-6 relative ">
+    <div className="py-4 bg-[#0F0F0F] px-6 relative ">
       <div className="max-w-md mx-auto relative">
-        <Card className="bg-zinc-700/15 border-zinc-800 overflow-visible relative">
+        <Card className="bg-zinc-700/25 border-none overflow-visible relative">
           <CardContent className="p-5 mt-4">
-            <span className="bg-gradient-to-l from-blue-700 via-sky-400 to-cyan-300 text-transparent bg-clip-text font-semibold text-base">
+            <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold text-base">
               #DesafioPlanning
             </span>
 
             <h2 className="text-xl text-white font-semibold mt-4">
               Um grupo{" "}
-              <span className="bg-gradient-to-l from-blue-700 via-sky-400 to-cyan-300 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text">
                 exclusivo{" "}
               </span>
               para quem adquirir pré-vendas!
@@ -132,14 +132,14 @@ function WhatsappPromo() {
               exclusivos para Dezembro!
             </p>
             <div className="flex justify-center items-center pt-8 pb-10">
-              <Button className="bg-gradient-to-tl from-blue-700 via-blue-500 to-blue-700 border border-blue-700 w-auto h-11 rounded-full text-sm text-white">
+              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-11 rounded-full text-sm text-white">
                 <span className="px-4 flex items-center gap-4">
                   Participe da pré-venda
                   <ArrowRight size={8} strokeWidth={2.5} />
                 </span>
               </Button>
             </div>
-            <div className="mt-8 relative">
+            <div className="mt-2 relative">
               <Image
                 src={cell}
                 alt="WhatsApp chat preview"
