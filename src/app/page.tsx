@@ -111,36 +111,27 @@ export default function Home() {
 
 function WhatsappPromo() {
   return (
-    <div className="py-4 bg-[#0F0F0F] px-6 relative ">
-      <div className="py-3">
-        <h1 className="text-white text-xl px-7">
-          Você acompanha e participa{" "}
-          <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold">
-            a todo momento
-          </span>
-          !
-        </h1>
-      </div>
+    <div className="py-4 bg-black px-6 relative ">
       <div className="max-w-md mx-auto relative">
-        <Card className="bg-zinc-700/20 border-none overflow-visible relative">
+        <Card className="bg-zinc-900/70 border-none overflow-visible relative h-[650px] rounded-[30px]">
           <CardContent className="p-5 mt-4">
-            <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold text-base">
+            <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold text-lg">
               #DesafioPlanning
             </span>
 
-            <h2 className="text-xl text-white font-semibold mt-4">
+            <h2 className="text-2xl text-white font-semibold mt-7">
               Um grupo{" "}
               <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text">
                 exclusivo{" "}
               </span>
-              para quem adquirir pré-vendas!
+              para quem adquirir pré-venda!
             </h2>
 
-            <p className="text-zinc-400/90 text-sm mt-3">
+            <p className="text-zinc-400/90 text-xs mt-3">
               Faça parte da nossa comunidade e acompanhe novidades e desafios
               exclusivos para Dezembro!
             </p>
-            <div className="flex justify-center items-center pt-8 pb-10">
+            <div className="flex justify-center items-center pt-10 pb-10">
               <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-11 rounded-full text-sm text-white">
                 <span className="px-4 flex items-center gap-4">
                   Participe da pré-venda
@@ -152,9 +143,9 @@ function WhatsappPromo() {
               <Image
                 src={cell}
                 alt="WhatsApp chat preview"
-                width={300}
-                height={400}
-                className="rounded-2xl mx-auto shadow-lg z-0 top-10"
+                width={300} // Define a largura
+                height={400} // Define a altura
+                className="rounded-2xl mx-auto shadow-lg absolute left-0 w-full"
                 priority
               />
             </div>
