@@ -75,18 +75,18 @@ export default function Home() {
             <Image
               src={Hand}
               alt="MacBook"
-              width={400}
+              width={2000}
               height={400}
-              className="object-contain relative"
+              className="object-contain relative scale-150"
               priority
             />
-            <h3 className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-2xl font-semibold pt-8 z-0">
+            <h3 className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-14 z-0">
               Widgets
             </h3>
-            <h1 className="text-3xl text-white pt-2 font-semibold px-1">
+            <h1 className="text-2xl text-white pt-2 font-semibold px-1">
               Tudo ao seu alcance, simplificado para você.
             </h1>
-            <p className="text-zinc-400/90 px-3 pt-3 ">
+            <p className="text-zinc-400/90 px-3 pt-3 text-sm">
               Acesse tudo de forma rápida e organizada com widgets inteligentes.
             </p>
             <div className="flex justify-center items-center pt-8 pb-10">
