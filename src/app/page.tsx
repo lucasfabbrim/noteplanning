@@ -132,7 +132,7 @@ function WhatsappPromo() {
               exclusivos para Dezembro!
             </p>
             <div className="flex justify-center items-center pt-8 pb-10">
-              <Button className="bg-gradient-to-tl from-blue-900 via-blue-800 to-blue-900 border border-blue-700 w-auto h-14 rounded-full text-base text-white">
+              <Button className="bg-gradient-to-tl from-blue-700 via-blue-500 to-blue-700 border border-blue-700 w-auto h-11 rounded-full text-sm text-white">
                 <span className="px-4 flex items-center gap-4">
                   Participe da pré-venda
                   <ArrowRight size={8} strokeWidth={2.5} />
