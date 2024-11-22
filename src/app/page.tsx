@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Macbook from "@/assets/macbook.png";
 import Image from "next/image";
-import { ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowRightCircle } from "lucide-react";
 
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
@@ -36,10 +36,10 @@ export default function Home() {
                 de distância.
               </h3>
               <div className="flex justify-center items-center pt-6">
-                <Button className="bg-transparent border border-zinc-700 w-auto h-14 rounded-full text-lg text-white">
-                  <span className="px-4 flex items-center gap-2">
-                    Quero organizar minha vida
-                    <ChevronRight size={12} strokeWidth={3} />
+                <Button className="bg-zinc-300/10 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
+                  <span className="px-4 flex items-center gap-4">
+                    Participe da pré-venda
+                    <ArrowRight size={8} strokeWidth={2.5} />
                   </span>
                 </Button>
               </div>
