@@ -112,8 +112,17 @@ export default function Home() {
 function WhatsappPromo() {
   return (
     <div className="py-4 bg-[#0F0F0F] px-6 relative ">
+      <div className="py-3">
+        <h1 className="text-white text-xl px-7">
+          Você acompanha e participa{" "}
+          <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold">
+            a todo momento
+          </span>
+          !
+        </h1>
+      </div>
       <div className="max-w-md mx-auto relative">
-        <Card className="bg-zinc-700/25 border-none overflow-visible relative">
+        <Card className="bg-zinc-700/20 border-none overflow-visible relative">
           <CardContent className="p-5 mt-4">
             <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold text-base">
               #DesafioPlanning
