@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from "@/components/footer/footer";
 import { Button } from "@/components/ui/button";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -132,6 +134,7 @@ export default function Home() {
                 </span>
               </Button>
             </div>
+            <BlackNovember />
           </div>
         </section>
       </main>
@@ -183,6 +186,228 @@ function WhatsappPromo() {
           </CardContent>
         </Card>
       </div>
+    </div>
+  );
+}
+
+import { motion } from "framer-motion";
+import {
+  ChevronDown,
+  LayoutGrid,
+  NotebookPen,
+  PenLine,
+  Play,
+  Settings,
+} from "lucide-react";
+import { useState, useEffect } from "react";
+
+const plans = [
+  {
+    name: "Note Private",
+    price: "R$ 127,98",
+    features: [
+      {
+        titulo: "Template Note Private",
+        icon: LayoutGrid,
+      },
+      {
+        titulo: "Aulas de como utilizar",
+        icon: Play,
+      },
+      {
+        titulo: "Template Canva",
+        icon: PenLine,
+      },
+      {
+        titulo: "Ferramentas Extras",
+        icon: Settings,
+      },
+      {
+        titulo: "Desafio de 21 dias de Organização",
+        icon: NotebookPen,
+      },
+    ],
+  },
+];
+
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+interface Feature {
+  icon: React.ElementType;
+  titulo: string;
+}
+
+interface Plan {
+  name: string;
+  features: Feature[];
+}
+
+export function BlackNovember() {
+  const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
+    days: 25,
+    hours: 4,
+    minutes: 1,
+    seconds: 21,
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => {
+        if (prev.seconds > 0) {
+          return { ...prev, seconds: prev.seconds - 1 };
+        } else if (prev.minutes > 0) {
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+        } else if (prev.hours > 0) {
+          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
+        } else if (prev.days > 0) {
+          return {
+            ...prev,
+            days: prev.days - 1,
+            hours: 23,
+            minutes: 59,
+            seconds: 59,
+          };
+        }
+        return prev;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-zinc-900/40 via-zinc-950 to-black text-white py-12 px-4 border-t border-t-zinc-800">
+      <motion.div
+        className="max-w-2xl mx-auto space-y-12"
+        initial="initial"
+        animate="animate"
+      >
+        <motion.div className="text-center justify-center space-y-2">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
+            <span className="mx-6 text-white">DEZEMBER</span>
+          </h1>
+          <p className="text-zinc-300 text-sm md:text-base pt-10">
+            CONDIÇÃO ESPECIAL SOMENTE PARA{" "}
+            <span className="font-bold">PRÉ-VENDA</span>!
+          </p>
+          <div className="flex items-center text-xs text-zinc-400 md:text-sm ">
+            <p className="flex-1">
+              Essa condição terá uma duração até o dia{" "}
+              <span className="font-semibold text-zinc-300 ">
+                30 de Dezembro de 2024
+              </span>
+              !
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div className="grid grid-cols-4 text-center px-8 md:px-40">
+          {[
+            { value: timeLeft.days, label: "Dias" },
+            { value: timeLeft.hours, label: "Horas" },
+            { value: timeLeft.minutes, label: "Minutos" },
+            { value: timeLeft.seconds, label: "Segundos" },
+          ].map((item, index) => (
+            <div key={index} className="space-y-2">
+              <div className="text-3xl md:text-4xl font-bold">
+                {String(item.value).padStart(2, "0")}
+              </div>
+              <div className="text-sm text-neutral-400">{item.label}</div>
+            </div>
+          ))}
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:px-40 py-2">
+          {plans.map((plan, index) => (
+            <motion.div
+              key={plan.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="relative"
+              onHoverStart={() => setHoveredPlan(plan.name)}
+              onHoverEnd={() => setHoveredPlan(null)}
+            >
+              <motion.div
+                className={`h-full bg-zinc-900/50 rounded-[10px] px-6 py-6 border-2 ${
+                  plan.name === "Note Private"
+                    ? "border-zinc-900/85"
+                    : "border-zinc-950"
+                } transition-all duration-300`}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.3)",
+                }}
+              >
+                <h3 className="gap-3 flex text-2xl font-semibold text-white mb-2 text-start items-center">
+                  {plan.name}
+                  <div className="w-auto bg-white border border-white/5 text-black text-xs font-medium py-1 px-3 rounded-full">
+                    Popular
+                  </div>
+                </h3>
+                <p className="text-[#A1A1A1] text-sm w-60">
+                  Compre agora e tenha seu template para{" "}
+                  <span className="text-white">sempre</span>!
+                </p>
+                <p className="flex gap-2 items-center text-white text-sm pt-7">
+                  Tudo o que você terá acesso
+                  <ChevronDown size={14} strokeWidth={3} />
+                </p>
+                <ul className="space-y-2 mb-8 pt-4">
+                  {plan.features.map((feature, idx) => (
+                    <motion.li
+                      key={idx}
+                      className="flex items-center text-[#A1A1A1] text-sm"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: idx * 0.1 }}
+                    >
+                      <feature.icon className="w-4 h-4 text-white mr-3" />
+                      {feature.titulo}
+                    </motion.li>
+                  ))}
+                </ul>
+                <div className="pt-2 flex flex-col text-2xl font-bold text-white mb-2 text-center justify-center items-center">
+                  <h1>10x de R$ 12,79</h1>
+                  <h1 className="text-sm pt-1 text-zinc-400 font-normal">
+                    R$ 127,98
+                  </h1>
+                </div>
+              </motion.div>
+              {hoveredPlan === plan.name && (
+                <motion.div
+                  className="absolute inset-0 -z-10 bg-zinc-300 rounded-2xl opacity-20 blur-xl"
+                  layoutId="hoverBackground"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.2 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
+              )}
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div className="text-center space-y-6">
+          <p className="text-sm text-[#A1A1A1]">
+            Entre na página de vendas clicando no botão abaixo, garanta seu
+            template.
+          </p>
+          <Button
+            className="bg-white text-black font-semibold hover:bg-white/95 px-8 py-4 rounded-full"
+            variant="default"
+          >
+            QUERO APROVEITAR A CONDIÇÃO
+          </Button>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
