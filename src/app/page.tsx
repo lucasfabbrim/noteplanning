@@ -5,7 +5,15 @@ import { Button } from "@/components/ui/button";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Macbook from "@/assets/macbook.png";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronDown,
+  LayoutGrid,
+  NotebookPen,
+  PenLine,
+  Play,
+  Settings,
+} from "lucide-react";
 import NotePrivate from "@/assets/note-private.png";
 
 import DiscordIcon from "@/assets/discord-gr.svg";
@@ -15,6 +23,7 @@ import Hand from "@/assets/hand.png";
 import cell from "@/assets/cell.png";
 
 import { Card, CardContent } from "@/components/ui/card";
+import { useState, useEffect } from "react";
 
 export default function Home() {
   return (
@@ -190,17 +199,6 @@ function WhatsappPromo() {
   );
 }
 
-import { motion } from "framer-motion";
-import {
-  ChevronDown,
-  LayoutGrid,
-  NotebookPen,
-  PenLine,
-  Play,
-  Settings,
-} from "lucide-react";
-import { useState, useEffect } from "react";
-
 const plans = [
   {
     name: "Note Private",
@@ -283,12 +281,12 @@ export function BlackNovember() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-900/40 via-zinc-950 to-black text-white py-12 px-4 border-t border-t-zinc-800">
-      <motion.div
+      <div
         className="max-w-2xl mx-auto space-y-12"
         initial="initial"
         animate="animate"
       >
-        <motion.div className="text-center justify-center space-y-2">
+        <div className="text-center justify-center space-y-2">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
             <span className="mx-6 text-white">DEZEMBER</span>
           </h1>
@@ -305,9 +303,9 @@ export function BlackNovember() {
               !
             </p>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div className="grid grid-cols-4 text-center px-8 md:px-40">
+        <div className="grid grid-cols-4 text-center px-8 md:px-40">
           {[
             { value: timeLeft.days, label: "Dias" },
             { value: timeLeft.hours, label: "Horas" },
@@ -321,11 +319,11 @@ export function BlackNovember() {
               <div className="text-sm text-neutral-400">{item.label}</div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:px-40 py-2">
           {plans.map((plan, index) => (
-            <motion.div
+            <div
               key={plan.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -335,7 +333,7 @@ export function BlackNovember() {
               onHoverStart={() => setHoveredPlan(plan.name)}
               onHoverEnd={() => setHoveredPlan(null)}
             >
-              <motion.div
+              <div
                 className={`h-full bg-zinc-900/50 rounded-[10px] px-6 py-6 border-2 ${
                   plan.name === "Note Private"
                     ? "border-zinc-900/85"
@@ -362,7 +360,7 @@ export function BlackNovember() {
                 </p>
                 <ul className="space-y-2 mb-8 pt-4">
                   {plan.features.map((feature, idx) => (
-                    <motion.li
+                    <li
                       key={idx}
                       className="flex items-center text-[#A1A1A1] text-sm"
                       initial={{ opacity: 0, x: -20 }}
@@ -371,7 +369,7 @@ export function BlackNovember() {
                     >
                       <feature.icon className="w-4 h-4 text-white mr-3" />
                       {feature.titulo}
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
                 <div className="pt-2 flex flex-col text-2xl font-bold text-white mb-2 text-center justify-center items-center">
@@ -380,9 +378,9 @@ export function BlackNovember() {
                     R$ 127,98
                   </h1>
                 </div>
-              </motion.div>
+              </div>
               {hoveredPlan === plan.name && (
-                <motion.div
+                <div
                   className="absolute inset-0 -z-10 bg-zinc-300 rounded-2xl opacity-20 blur-xl"
                   layoutId="hoverBackground"
                   initial={{ opacity: 0 }}
@@ -391,11 +389,11 @@ export function BlackNovember() {
                   transition={{ duration: 0.3 }}
                 />
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <motion.div className="text-center space-y-6">
+        <div className="text-center space-y-6">
           <p className="text-sm text-[#A1A1A1]">
             Entre na página de vendas clicando no botão abaixo, garanta seu
             template.
@@ -406,8 +404,8 @@ export function BlackNovember() {
           >
             QUERO APROVEITAR A CONDIÇÃO
           </Button>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </div>
   );
 }
