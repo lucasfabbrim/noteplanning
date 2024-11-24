@@ -235,11 +235,6 @@ interface TimeLeft {
   seconds: number;
 }
 
-interface Feature {
-  icon: React.ElementType;
-  titulo: string;
-}
-
 function BlackNovember() {
   const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
@@ -275,7 +270,7 @@ function BlackNovember() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-900/40 via-zinc-950 to-black text-white py-12 px-4 border-t border-t-zinc-800">
+    <div className="min-h-screen bg-gradient-to-b mt-14 from-zinc-900/40 via-zinc-950 to-black text-white py-12 px-4">
       <div className="max-w-2xl mx-auto space-y-12">
         <div className="text-center justify-center space-y-2">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
