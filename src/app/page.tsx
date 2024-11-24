@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Macbook from "@/assets/macbook.png";
 import Image from "next/image";
-import { ArrowRight, ArrowRightCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import NotePrivate from "@/assets/note-private.png";
 
 import DiscordIcon from "@/assets/discord-gr.svg";
