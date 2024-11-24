@@ -240,12 +240,7 @@ interface Feature {
   titulo: string;
 }
 
-interface Plan {
-  name: string;
-  features: Feature[];
-}
-
-export function BlackNovember() {
+function BlackNovember() {
   const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 25,
@@ -281,11 +276,7 @@ export function BlackNovember() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-zinc-900/40 via-zinc-950 to-black text-white py-12 px-4 border-t border-t-zinc-800">
-      <div
-        className="max-w-2xl mx-auto space-y-12"
-        initial="initial"
-        animate="animate"
-      >
+      <div className="max-w-2xl mx-auto space-y-12">
         <div className="text-center justify-center space-y-2">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
             <span className="mx-6 text-white">DEZEMBER</span>
@@ -323,26 +314,13 @@ export function BlackNovember() {
 
         <div className="grid grid-cols-1 md:px-40 py-2">
           {plans.map((plan, index) => (
-            <div
-              key={plan.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="relative"
-              onHoverStart={() => setHoveredPlan(plan.name)}
-              onHoverEnd={() => setHoveredPlan(null)}
-            >
+            <div key={plan.name} className="relative">
               <div
                 className={`h-full bg-zinc-900/50 rounded-[10px] px-6 py-6 border-2 ${
                   plan.name === "Note Private"
                     ? "border-zinc-900/85"
                     : "border-zinc-950"
                 } transition-all duration-300`}
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.3)",
-                }}
               >
                 <h3 className="gap-3 flex text-2xl font-semibold text-white mb-2 text-start items-center">
                   {plan.name}
@@ -363,9 +341,6 @@ export function BlackNovember() {
                     <li
                       key={idx}
                       className="flex items-center text-[#A1A1A1] text-sm"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: idx * 0.1 }}
                     >
                       <feature.icon className="w-4 h-4 text-white mr-3" />
                       {feature.titulo}
@@ -380,14 +355,7 @@ export function BlackNovember() {
                 </div>
               </div>
               {hoveredPlan === plan.name && (
-                <div
-                  className="absolute inset-0 -z-10 bg-zinc-300 rounded-2xl opacity-20 blur-xl"
-                  layoutId="hoverBackground"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.2 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
+                <div className="absolute inset-0 -z-10 bg-zinc-300 rounded-2xl opacity-20 blur-xl" />
               )}
             </div>
           ))}
