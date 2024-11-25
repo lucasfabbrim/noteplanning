@@ -1,5 +1,5 @@
 import Footer from "@/components/footer/footer";
-import { PreSaleForm } from "@/components/pre-order/PreSaleForm";
+import PreVendaForm from "@/components/pre-order/PreSaleForm";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         <h3 className="text-sm font-normal mb-8 text-center text-zinc-400">
           Preencha o formulário com suas informações.
         </h3>
-        <PreSaleForm />
+        <PreVendaForm />
       </main>
       <Footer />
     </div>

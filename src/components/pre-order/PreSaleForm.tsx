@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Form,
   FormControl,
@@ -15,253 +13,250 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { cn } from "@/lib/utils";
-import { AlertCircle } from "lucide-react";
+import { ArrowRight, AlertCircle } from "lucide-react";
 
-interface FieldErrorMessageProps {
-  fieldName: string;
-  errors: any;
-}
-
-const functionalityOptions = [
-  { id: "finances", label: "Finanças" },
-  { id: "routine", label: "Rotina" },
-  { id: "books", label: "Livros" },
-  { id: "studies", label: "Estudos" },
-  { id: "projects", label: "Projetos" },
-  { id: "workout", label: "Treino" },
-  { id: "accounts", label: "Contas" },
-];
-
-const FieldErrorMessage = ({ fieldName, errors }: FieldErrorMessageProps) => {
-  const error = errors?.[fieldName];
-
-  if (!error) return null;
-
-  return (
-    <div className="flex items-center text-rose-600 mt-2">
-      <AlertCircle size={16} className="mr-1" />
-      {error.message}
-    </div>
-  );
-};
+const funcionalidades = [
+  { id: "financas", label: "Finanças" },
+  { id: "rotina", label: "Rotina" },
+  { id: "livros", label: "Livros" },
+  { id: "estudos", label: "Estudos" },
+  { id: "projetos", label: "Projetos" },
+  { id: "treinos", label: "Treinos" },
+  { id: "contas", label: "Contas" },
+] as const;
 
 const formSchema = z.object({
+  email: z.string().email({ message: "Informe um e-mail válido, por favor." }),
   fullName: z
     .string()
-    .min(2, {
-      message: "Nome e sobrenome devem ter pelo menos 2 caracteres.",
-    })
-    .refine((value) => value.trim().includes(" "), {
-      message: "Por favor, insira nome e sobrenome.",
-    }),
-  phone: z.string().regex(/^\+55 $$\d{2}$$ \d{5}-\d{4}$/, {
-    message: "Telefone deve estar no formato +55 (XX) XXXXX-XXXX",
+    .min(1, { message: "Informe um nome válido, por favor." }),
+  phone: z.string().regex(/^\(\d{2}\) \d{5}-\d{4}$/, {
+    message: "Informe um número telefone válido, por favor.",
   }),
-  email: z.string().email({
-    message: "Por favor, insira um endereço de e-mail válido.",
-  }),
-  functionalities: z.array(z.string()).refine((value) => value.length > 0, {
+  funcionalidades: z.array(z.string()).refine((value) => value.length > 0, {
     message: "Selecione pelo menos uma funcionalidade.",
   }),
 });
 
-export function PreSaleForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
+export default function PreVendaForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullName: "",
-      phone: "+55 ",
       email: "",
-      functionalities: [],
+      fullName: "",
+      phone: "",
+      funcionalidades: [],
     },
-    mode: "onChange",
   });
 
-  const formatPhoneNumber = (value: string) => {
-    const digits = value.replace(/\D/g, "").substring(2);
-    const areaCode = digits.slice(0, 2);
-    const part1 = digits.slice(2, 7);
-    const part2 = digits.slice(7, 11);
-    let formatted = "+55 ";
-    if (areaCode) formatted += `(${areaCode}) `;
-    if (part1) formatted += part1;
-    if (part2) formatted += `-${part2}`;
-    return formatted;
-  };
-
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formatted = formatPhoneNumber(e.target.value);
-    form.setValue("phone", formatted, { shouldValidate: true });
-  };
-
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    setIsSubmitting(true);
-    // Simula uma chamada de API
-    setTimeout(() => {
-      console.log(values);
-      setIsSubmitting(false);
-      form.reset();
-    }, 2000);
-  };
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log(values);
+    // Aqui você pode adicionar a lógica para enviar os dados para o servidor
+  }
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 border-t border-zinc-900 pt-10 pb-4"
-      >
-        {/* Nome e Sobrenome */}
-        <FormField
-          control={form.control}
-          name="fullName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="font-bold">Nome e Sobrenome</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Informe seu nome completo."
-                  {...field}
-                  className={cn(
-                    "transition-colors duration-200 h-11 border-zinc-900 text-zinc-300/90",
-                    form.formState.errors.fullName &&
-                      "border-rose-600 focus-visible:ring-rose-600",
-                  )}
-                />
-              </FormControl>
-              <FieldErrorMessage
-                fieldName="fullName"
-                errors={form.formState.errors}
-              />
-            </FormItem>
-          )}
-        />
-
-        {/* Telefone */}
-        <FormField
-          control={form.control}
-          name="phone"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="font-bold">Número de Telefone</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Informe seu número de telefone."
-                  {...field}
-                  value={field.value}
-                  onChange={handlePhoneChange}
-                  className={cn(
-                    "transition-colors duration-200 border-zinc-900 h-10 text-zinc-300/90",
-                    form.formState.errors.phone &&
-                      "border-rose-600 focus-visible:ring-rose-600",
-                  )}
-                />
-              </FormControl>
-              <FieldErrorMessage
-                fieldName="phone"
-                errors={form.formState.errors}
-              />
-            </FormItem>
-          )}
-        />
-
-        {/* Email */}
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="font-bold">E-mail</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Informe seu e-mail de contato."
-                  {...field}
-                  className={cn(
-                    "transition-colors duration-200 border-zinc-900 h-10 text-zinc-300/90",
-                    form.formState.errors.email &&
-                      "border-rose-600 focus-visible:ring-rose-600",
-                  )}
-                />
-              </FormControl>
-              <FieldErrorMessage
-                fieldName="email"
-                errors={form.formState.errors}
-              />
-            </FormItem>
-          )}
-        />
-
-        {/* Funcionalidades */}
-        <FormField
-          control={form.control}
-          name="functionalities"
-          render={() => (
-            <FormItem>
-              <div className="mb-4">
-                <FormLabel className="text-lg font-semibold">
-                  Quais funcionalidades você mais utilizará?
+    <div className="max-w-md mx-auto mt-8 border-t border-t-zinc-900 pt-8">
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          {/* Nome e Sobrenome */}
+          <FormField
+            control={form.control}
+            name="fullName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-zinc-300 font-semibold text-sm">
+                  Nome e Sobrenome
                 </FormLabel>
-                <FormDescription>
-                  Selecione as opções que melhor se adequam às suas
-                  necessidades.
-                </FormDescription>
-              </div>
-              {functionalityOptions.map((option) => (
-                <FormField
-                  key={option.id}
-                  control={form.control}
-                  name="functionalities"
-                  render={({ field }) => {
-                    return (
+                <FormControl>
+                  <div className="relative">
+                    <Input
+                      placeholder="John Doe"
+                      {...field}
+                      className={cn(
+                        "bg-black border-zinc-900 text-zinc-400 placeholder-zinc-600",
+                        form.formState.errors.fullName && "border-red-500",
+                      )}
+                    />
+                    {form.formState.errors.fullName && (
+                      <AlertCircle
+                        size={16}
+                        className="absolute top-1/2 right-3 -translate-y-1/2 text-red-500"
+                      />
+                    )}
+                  </div>
+                </FormControl>
+                <FormMessage className="text-red-500 flex items-center gap-1">
+                  {form.formState.errors.fullName && (
+                    <AlertCircle size={12} className="text-red-500" />
+                  )}
+                  {form.formState.errors.fullName?.message}
+                </FormMessage>
+              </FormItem>
+            )}
+          />
+
+          {/* E-mail */}
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-zinc-300 font-semibold text-sm">
+                  E-mail
+                </FormLabel>
+                <FormControl>
+                  <div className="relative">
+                    <Input
+                      placeholder="seu@email.com"
+                      {...field}
+                      className={cn(
+                        "bg-black border-zinc-900 text-zinc-400 placeholder-zinc-600",
+                        form.formState.errors.email && "border-red-500",
+                      )}
+                    />
+                    {form.formState.errors.email && (
+                      <AlertCircle
+                        size={16}
+                        className="absolute top-1/2 right-3 -translate-y-1/2 text-red-500"
+                      />
+                    )}
+                  </div>
+                </FormControl>
+                <FormMessage className="text-red-500 flex items-center gap-1">
+                  {form.formState.errors.email && (
+                    <AlertCircle size={12} className="text-red-500" />
+                  )}
+                  {form.formState.errors.email?.message}
+                </FormMessage>
+              </FormItem>
+            )}
+          />
+
+          {/* Número de Telefone */}
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-zinc-300 font-semibold text-sm">
+                  Número de telefone
+                </FormLabel>
+                <FormControl>
+                  <div className="relative">
+                    <Input
+                      placeholder="(00) 00000-0000"
+                      {...field}
+                      className={cn(
+                        "bg-black border-zinc-900 text-zinc-400 placeholder-zinc-600",
+                        form.formState.errors.phone && "border-red-500",
+                      )}
+                      onChange={(e) => {
+                        let value = e.target.value.replace(/\D/g, "");
+                        if (value.length > 0) {
+                          if (value.length <= 2) {
+                            value = `(${value}`;
+                          } else if (value.length <= 7) {
+                            value = value.replace(
+                              /^(\d{2})(\d{0,5})/,
+                              "($1) $2",
+                            );
+                          } else {
+                            value = value.replace(
+                              /^(\d{2})(\d{5})(\d{0,4})/,
+                              "($1) $2-$3",
+                            );
+                          }
+                        }
+                        field.onChange(value);
+                      }}
+                    />
+                    {form.formState.errors.phone && (
+                      <AlertCircle
+                        size={16}
+                        className="absolute top-1/2 right-3 -translate-y-1/2 text-red-500"
+                      />
+                    )}
+                  </div>
+                </FormControl>
+                <FormMessage className="text-red-500 flex items-center gap-1">
+                  {form.formState.errors.phone && (
+                    <AlertCircle size={12} className="text-red-500" />
+                  )}
+                  {form.formState.errors.phone?.message}
+                </FormMessage>
+              </FormItem>
+            )}
+          />
+
+          {/* Funcionalidades */}
+          <FormField
+            control={form.control}
+            name="funcionalidades"
+            render={() => (
+              <FormItem>
+                <div className="mb-4">
+                  <FormLabel className="text-base text-zinc-300 font-semibold">
+                    Funcionalidades que mais utilizará?
+                  </FormLabel>
+                  <FormDescription className="text-zinc-600">
+                    Selecione as funcionalidades que você mais utilizará.
+                  </FormDescription>
+                </div>
+                {funcionalidades.map((item) => (
+                  <FormField
+                    key={item.id}
+                    control={form.control}
+                    name="funcionalidades"
+                    render={({ field }) => (
                       <FormItem
-                        key={option.id}
-                        className="flex flex-row items-start space-x-3 space-y-0 pb-0.5 "
+                        key={item.id}
+                        className="flex flex-row items-start space-x-3 space-y-0 "
                       >
                         <FormControl>
                           <Checkbox
-                            checked={field.value?.includes(option.id)}
+                            checked={field.value?.includes(item.id)}
                             onCheckedChange={(checked) => {
                               return checked
-                                ? field.onChange([...field.value, option.id])
+                                ? field.onChange([...field.value, item.id])
                                 : field.onChange(
                                     field.value?.filter(
-                                      (value) => value !== option.id,
+                                      (value) => value !== item.id,
                                     ),
                                   );
                             }}
+                            className="border-zinc-900 data-[state=checked]:bg-zinc-900 data-[state=checked]:text-white"
                           />
                         </FormControl>
-                        <FormLabel className="font-normal">
-                          {option.label}
+                        <FormLabel className="font-normal text-zinc-200">
+                          {item.label}
                         </FormLabel>
                       </FormItem>
-                    );
-                  }}
-                />
-              ))}
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+                    )}
+                  />
+                ))}
+                <FormMessage className="text-red-500 flex items-center gap-1">
+                  {form.formState.errors.funcionalidades && (
+                    <AlertCircle size={12} className="text-red-500" />
+                  )}
+                  {form.formState.errors.funcionalidades?.message}
+                </FormMessage>
+              </FormItem>
+            )}
+          />
 
-        {/* Botão de envio */}
-        <Button
-          type="submit"
-          disabled={
-            isSubmitting || Object.keys(form.formState.errors).length > 0
-          }
-          className={cn(
-            "w-full transition-colors duration-200 h-12 text-base bg-white text-black",
-            (isSubmitting || Object.keys(form.formState.errors).length > 0) &&
-              "bg-white/60 text-black cursor-not-allowed",
-          )}
-        >
-          {isSubmitting ? "Confirmando..." : "Confirmar"}
-        </Button>
-      </form>
-    </Form>
+          {/* Botão de Envio */}
+          <Button
+            type="submit"
+            className="bg-white/5 border-zinc-900 border text-white text-base hover:opacity-70 transition-all w-full h-12 rounded-full flex items-center gap-4 "
+          >
+            Confirmar
+            <ArrowRight size={12} />
+          </Button>
+        </form>
+      </Form>
+    </div>
   );
 }
