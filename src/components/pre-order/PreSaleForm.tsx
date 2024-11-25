@@ -60,7 +60,7 @@ export default function PreVendaForm() {
   return (
     <div className="max-w-md mx-auto mt-8 border-t border-t-zinc-900 pt-8">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-7">
           {/* Nome e Sobrenome */}
           <FormField
             control={form.control}
@@ -76,7 +76,7 @@ export default function PreVendaForm() {
                       placeholder="John Doe"
                       {...field}
                       className={cn(
-                        "bg-black border-zinc-900 text-zinc-400 placeholder-zinc-600",
+                        "bg-black border-zinc-900/80 text-zinc-400 placeholder-zinc-600 text-xs",
                         form.formState.errors.fullName && "border-red-500",
                       )}
                     />
@@ -110,10 +110,10 @@ export default function PreVendaForm() {
                 <FormControl>
                   <div className="relative">
                     <Input
-                      placeholder="seu@email.com"
+                      placeholder="endereço@email.com"
                       {...field}
                       className={cn(
-                        "bg-black border-zinc-900 text-zinc-400 placeholder-zinc-600",
+                        "bg-black border-zinc-900/80 text-zinc-400 placeholder-zinc-600 text-xs",
                         form.formState.errors.email && "border-red-500",
                       )}
                     />
@@ -150,7 +150,7 @@ export default function PreVendaForm() {
                       placeholder="(00) 00000-0000"
                       {...field}
                       className={cn(
-                        "bg-black border-zinc-900 text-zinc-400 placeholder-zinc-600",
+                        "bg-black border-zinc-900/80 text-zinc-400 placeholder-zinc-600 text-xs",
                         form.formState.errors.phone && "border-red-500",
                       )}
                       onChange={(e) => {
@@ -199,10 +199,11 @@ export default function PreVendaForm() {
               <FormItem>
                 <div className="mb-4">
                   <FormLabel className="text-base text-zinc-300 font-semibold">
-                    Funcionalidades que mais utilizará?
+                    Quais funcionalidades você mais utilizará?
                   </FormLabel>
                   <FormDescription className="text-zinc-600">
-                    Selecione as funcionalidades que você mais utilizará.
+                    Selecione as opções que melhor se adequam às suas
+                    necessidades.
                   </FormDescription>
                 </div>
                 {funcionalidades.map((item) => (
@@ -227,7 +228,7 @@ export default function PreVendaForm() {
                                     ),
                                   );
                             }}
-                            className="border-zinc-900 data-[state=checked]:bg-zinc-900 data-[state=checked]:text-white"
+                            className="border-zinc-900/80 data-[state=checked]:bg-zinc-900 data-[state=checked]:text-white"
                           />
                         </FormControl>
                         <FormLabel className="font-normal text-zinc-200">
@@ -248,13 +249,15 @@ export default function PreVendaForm() {
           />
 
           {/* Botão de Envio */}
-          <Button
-            type="submit"
-            className="bg-white/5 border-zinc-900 border text-white text-base hover:opacity-70 transition-all w-full h-12 rounded-full flex items-center gap-4 "
-          >
-            Confirmar
-            <ArrowRight size={12} />
-          </Button>
+          <div className="pt-10">
+            <Button
+              type="submit"
+              className="bg-white/5 border-zinc-900 border text-white text-base hover:opacity-70 transition-all w-full h-12 rounded-full flex items-center gap-4 "
+            >
+              Confirmar
+              <ArrowRight size={12} />
+            </Button>
+          </div>
         </form>
       </Form>
     </div>
