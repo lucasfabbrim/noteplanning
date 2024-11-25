@@ -228,7 +228,7 @@ export default function PreVendaForm() {
                                     ),
                                   );
                             }}
-                            className="border-zinc-900/80 data-[state=checked]:bg-zinc-900 data-[state=checked]:text-white"
+                            className="border-zinc-900 data-[state=checked]:bg-zinc-900 data-[state=checked]:text-white"
                           />
                         </FormControl>
                         <FormLabel className="font-normal text-zinc-200">
@@ -252,7 +252,7 @@ export default function PreVendaForm() {
           <div className="pt-10">
             <Button
               type="submit"
-              className="bg-white/5 border-zinc-900 border text-white text-base hover:opacity-70 transition-all w-full h-12 rounded-full flex items-center gap-4 "
+              className="bg-white/5 border-zinc-950 border text-zinc-300 text-base hover:bg-white/10 transition-all w-full h-12 rounded-full flex items-center gap-4 "
             >
               Confirmar
               <ArrowRight size={12} />
