@@ -218,7 +218,7 @@ export function PreSaleForm() {
                     return (
                       <FormItem
                         key={option.id}
-                        className="flex flex-row items-start space-x-3 space-y-0"
+                        className="flex flex-row items-start space-x-3 space-y-0 pb-0.5 "
                       >
                         <FormControl>
                           <Checkbox
