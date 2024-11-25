@@ -270,7 +270,7 @@ function BlackNovember() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b mt-14 from-zinc-900/40 via-zinc-950 to-black text-white py-12 px-4">
+    <div className="min-h-screen bg-black text-white py-12 px-4">
       <div className="max-w-2xl mx-auto space-y-12">
         <div className="text-center justify-center space-y-2">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
