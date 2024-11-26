@@ -22,7 +22,6 @@ import NetflixIcon from "@/assets/netflix-gr.svg";
 import Hand from "@/assets/hand.png";
 import cell from "@/assets/cell.png";
 import { Card, CardContent } from "@/components/ui/card";
-import { AnimatePresence, motion } from "framer-motion";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -31,11 +30,6 @@ const fadeInUp = {
 };
 
 export default function Home() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
   return (
     <motion.div
       className="relative h-screen bg-black font-inter"
@@ -188,7 +182,7 @@ export default function Home() {
               </Button>
             </motion.div>
           </motion.div>
-          <WhatsappPromo openModal={openModal} />
+          <WhatsappPromo />
           <motion.div className="flex flex-col pt-32" variants={fadeInUp}>
             <motion.h3
               className="bg-gradient-to-l from-zinc-500 to-zinc-50 text-transparent bg-clip-text text-lg font-semibold"
@@ -233,25 +227,16 @@ export default function Home() {
                 </span>
               </Button>
             </motion.div>
-            <BlackNovember openModal={openModal} />
+            <BlackNovember />
           </motion.div>
         </motion.section>
       </motion.main>
       <Footer />
-      <AnimatePresence>
-        {isModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          ></motion.div>
-        )}
-      </AnimatePresence>
     </motion.div>
   );
 }
 
-function WhatsappPromo({ openModal }: { openModal: () => void }) {
+function WhatsappPromo() {
   return (
     <motion.div
       className="py-4 bg-black px-2 relative"
@@ -364,7 +349,7 @@ interface TimeLeft {
   seconds: number;
 }
 
-function BlackNovember({ openModal }: { openModal: () => void }) {
+function BlackNovember() {
   const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 25,
@@ -538,7 +523,6 @@ function BlackNovember({ openModal }: { openModal: () => void }) {
             template.
           </p>
           <Button
-            onClick={openModal}
             className="bg-white text-black font-semibold hover:bg-white/95 px-8 py-4 rounded-full"
             variant="default"
           >
