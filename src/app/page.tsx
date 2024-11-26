@@ -84,9 +84,9 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
                 >
-                  <span className="px-4 flex items-center gap-4">
+                  <span className="px-4 flex items-center gap-3">
                     Participe da pré-venda
-                    <ArrowRight size={8} strokeWidth={2.5} />
+                    <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
                   </span>
                 </motion.button>
               </motion.div>
