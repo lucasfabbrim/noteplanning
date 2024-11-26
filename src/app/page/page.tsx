@@ -34,9 +34,9 @@ export default function Home() {
             />
           </div>
         </section>
-        <div className="py-3 mt-12 mb-8 bg-black border border-zinc-900 items-center text-zinc-300 justify-center text-center text-xs flex gap-2">
+        <div className="py-3 mt-12 mb-8 bg-black border-t border-b border-zinc-900/70 items-center text-zinc-400 justify-center text-center text-xs flex gap-2">
           Aproveite as condições da pré-venda
-          <ArrowDown size={10} className="text-zinc-400" />
+          <ArrowDown size={10} className="text-zinc-600" strokeWidth={4} />
         </div>
         <section id="widgets" className="px-2 text-center pt-10">
           <div className="flex flex-col justify-between">
@@ -46,7 +46,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <section id="community" className="px-10 pt-10 text-center">
+        <section id="community" className="px-10 pt-6 text-center">
           <div className="flex flex-col justify-between">
             <Community
               hashtag="DesafioPlanning"
@@ -152,7 +152,7 @@ interface CommunityProps {
 
 function Community({ hashtag, subtitle, title }: CommunityProps) {
   return (
-    <div className="bg-neutral-950 w-auto  border border-neutral-900 flex flex-col mb-20 rounded-[50px]">
+    <div className="bg-neutral-900/70 w-auto flex flex-col mb-20 rounded-[50px]">
       <div className="flex flex-col justify-center text-center py-4 gap-4">
         <h4 className="pt-4 text-sm bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tight">
           #{hashtag}
@@ -164,9 +164,6 @@ function Community({ hashtag, subtitle, title }: CommunityProps) {
           <h3 className="text-xs text-neutral-400/90 font-medium pt-4 tracking-tighter">
             {subtitle}
           </h3>
-        </div>
-        <div className="pt-4 px-6">
-          <ButtonCommunity />
         </div>
       </div>
       <div className="mt-auto pt-10">
@@ -196,23 +193,6 @@ function ButtonPrimary() {
           Quero organizar minha vida
         </span>
         <ArrowRight size={16} className="text-zinc-400" strokeWidth={3} />
-      </motion.button>
-    </div>
-  );
-}
-function ButtonCommunity() {
-  return (
-    <div className="flex justify-center items-center pt-4">
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 1.1 }}
-        whileInView={{ opacity: 1 }}
-        className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 rounded-full h-10 flex items-center gap-3 px-8 shadow-xl shadow-zinc-600/15"
-      >
-        <span className="bg-white bg-clip-text text-transparent font-semibold text-xs">
-          Quero organizar minha vida
-        </span>
-        <ArrowRight size={10} className="text-zinc-400" strokeWidth={3} />
       </motion.button>
     </div>
   );
