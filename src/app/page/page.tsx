@@ -285,7 +285,7 @@ function Dezember() {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 text-center px-6 md:px-40 gap-4">
+        <div className="grid grid-cols-4 text-center px-6 md:px-40">
           {[
             { value: timeLeft.days, label: "Dias" },
             { value: timeLeft.hours, label: "Horas" },
