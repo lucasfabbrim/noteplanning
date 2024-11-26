@@ -60,7 +60,7 @@ export default function Home() {
           >
             <div className="flex flex-col">
               <motion.h1
-                className="text-white text-3xl font-bold"
+                className="text-white text-3xl font-bold md:text-5xl"
                 variants={fadeInUp}
               >
                 Organize-se e produza{" "}
@@ -69,7 +69,7 @@ export default function Home() {
                 </span>
               </motion.h1>
               <motion.h3
-                className="text-zinc-300/90 text-base text-center pt-3 font-medium"
+                className="text-zinc-300/90 text-base text-center pt-3 font-medium md:text-xl"
                 variants={fadeInUp}
               >
                 Seu novo planejamento totalmente personalizado está a um clique
@@ -84,7 +84,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
                 >
-                  <span className="px-4 flex items-center gap-3">
+                  <span className="px-8 flex items-center gap-3">
                     Participe da pré-venda
                     <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
                   </span>
@@ -106,7 +106,7 @@ export default function Home() {
             </div>
           </motion.div>
           <motion.div
-            className="text-2xl text-white pt-16 font-semibold px-2"
+            className="text-2xl text-white pt-16 font-semibold px-2 md:text-4xl"
             variants={fadeInUp}
           >
             Faça como empresas líderes do mercado organize usando o{" "}
@@ -115,7 +115,7 @@ export default function Home() {
             </span>
           </motion.div>
           <motion.div
-            className="text-sm text-zinc-400/90 font-medium px-4 pt-4"
+            className="text-sm text-zinc-400/90 font-medium px-4 pt-4 md:text-lg"
             variants={fadeInUp}
           >
             O nosso template facilita o controle da sua produtividade e
@@ -142,19 +142,19 @@ export default function Home() {
               priority
             />
             <motion.h3
-              className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-3 z-0"
+              className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-3 z-0 md:text-3xl"
               variants={fadeInUp}
             >
               Widgets
             </motion.h3>
             <motion.h1
-              className="text-2xl text-white pt-2 font-semibold px-1"
+              className="text-2xl text-white pt-2 font-semibold px-1 md:text-4xl"
               variants={fadeInUp}
             >
-              Tudo ao seu alcance, simplificado para você.
+              Tudo ao na palma da sua mão!
             </motion.h1>
             <motion.p
-              className="text-zinc-400/90 px-3 pt-3 text-sm"
+              className="text-zinc-400/90 px-3 pt-3 text-sm md:text-lg"
               variants={fadeInUp}
             >
               Acesse tudo de forma rápida e organizada com widgets inteligentes.
@@ -168,7 +168,7 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
               >
-                <span className="px-4 flex items-center gap-3">
+                <span className="px-8 flex items-center gap-3">
                   Participe da pré-venda
                   <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
                 </span>
@@ -218,7 +218,7 @@ export default function Home() {
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
               >
-                <span className="px-4 flex items-center gap-3">
+                <span className="px-8 flex items-center gap-3">
                   Participe da pré-venda
                   <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
                 </span>
@@ -236,13 +236,13 @@ export default function Home() {
 function WhatsappPromo() {
   return (
     <motion.div
-      className="py-4 bg-black px-2 relative"
+      className="py-4 bg-black px-2 relative pb-10"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-md mx-auto relative">
-        <Card className="bg-zinc-900/70 border-none overflow-visible relative h-[690px] rounded-[30px]">
+        <Card className="bg-zinc-900/70 border-none overflow-visible relative h-[633px] rounded-[30px]">
           <CardContent className="p-5 mt-4">
             <motion.span
               className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold text-lg"
@@ -276,24 +276,7 @@ function WhatsappPromo() {
               exclusivos para Dezembro!
             </motion.p>
             <motion.div
-              className="flex justify-center items-center pt-10 pb-20"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-11 rounded-full text-sm text-white"
-              >
-                <span className="px-4 flex items-center gap-3">
-                  Participe da pré-venda
-                  <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
-                </span>
-              </motion.button>
-            </motion.div>
-            <motion.div
-              className="-mt-3 relative"
+              className="pt-20 relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
