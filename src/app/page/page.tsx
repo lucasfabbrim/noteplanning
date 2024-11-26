@@ -3,11 +3,12 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Macbook from "@/assets/macbook.png";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
 import { motion } from "framer-motion";
+import Widget from "@/assets/hand.png";
 
 export default function Home() {
   return (
@@ -29,6 +30,18 @@ export default function Home() {
             <Brands
               title="Faça como as grandes empresas do mercado utilizando Notion."
               subtitle="Com o nosso template, manter sua produtividade e organização nunca foi tão fácil!"
+            />
+          </div>
+        </section>
+        <div className="py-3 mt-12 mb-8 bg-black border border-zinc-950 items-center text-zinc-300 justify-center text-center text-xs flex gap-2">
+          Aproveite as condições da pré-venda
+          <ArrowDown size={10} className="text-zinc-400" />
+        </div>
+        <section id="widgets" className="px-2 text-center">
+          <div className="flex flex-col justify-between">
+            <Widgets
+              title="Tudo ao na palma da sua mão!"
+              subtitle="Acesse tudo de forma rápida e organizada com widgets inteligentes."
             />
           </div>
         </section>
@@ -84,6 +97,38 @@ function Brands({ title, subtitle }: BrandsProps) {
         <NetflixIcon />
         <DiscordIcon />
         <FigmaIcon />
+      </div>
+    </div>
+  );
+}
+
+interface WidgetsProps {
+  title: string;
+  subtitle: string;
+}
+
+function Widgets({ title, subtitle }: WidgetsProps) {
+  return (
+    <div className="flex flex-col gap-2.5 pt-4 relative">
+      <Image
+        src={Widget}
+        alt="Widget"
+        width={300}
+        height={400}
+        className="object-contain relative ml-12"
+        priority
+      />
+      <h3 className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-3 z-0 md:text-3xl">
+        Widgets
+      </h3>
+      <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+        {title}
+      </h1>
+      <h3 className="text-sm text-neutral-400/90 font-medium px-5 tracking-tighter">
+        {subtitle}
+      </h3>
+      <div className="pb-20">
+        <ButtonPrimary />
       </div>
     </div>
   );
