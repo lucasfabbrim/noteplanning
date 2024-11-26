@@ -7,6 +7,7 @@ import {
   ArrowDown,
   ArrowRight,
   ChevronDown,
+  Instagram,
   LayoutGrid,
   NotebookPen,
   PenLine,
@@ -376,8 +377,30 @@ function Dezember() {
 
 function Footer() {
   return (
-    <footer className="py-4 bg-zinc-900">
-      <div className="flex flex-col"></div>
+    <footer className="px-4 py-4 bg-zinc-900">
+      <div className="flex flex-col justify-between text-center">
+        <div className="flex flex-col gap-2 py-4">
+          <h1 className="text-white font-bold text-lg">Links</h1>
+          <ul className="text-zinc-400 gap-0.5">
+            <li>Central de Ajuda</li>
+            <span className="hidden md:block">|</span>
+            <li>Canal de Ideias</li>
+          </ul>
+          <h1 className="text-white pt-4 font-bold text-lg">
+            Siga o Note Planning!
+          </h1>
+          <ul className="text-zinc-400 gap-2 flex text-center justify-center items-center pt-2">
+            <li>
+              <Instagram size={16} />
+            </li>
+          </ul>
+          <div className="items-center text-center">
+            <p className="font-semibold text-sm text-white pt-6">
+              Copyright © 2024 Todos os direitos reservados - Note Planning.
+            </p>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }
