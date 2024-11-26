@@ -369,7 +369,7 @@ function BlackNovember() {
 
   return (
     <motion.div
-      className="min-h-screen bg-black text-white py-12 px-4"
+      className="min-h-screen bg-black text-white py-12 px-4 pt-28"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
