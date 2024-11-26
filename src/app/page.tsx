@@ -22,7 +22,13 @@ import NetflixIcon from "@/assets/netflix-gr.svg";
 import Hand from "@/assets/hand.png";
 import cell from "@/assets/cell.png";
 import { Card, CardContent } from "@/components/ui/card";
-import { ModalForm } from "@/components/Modal";
+import { AnimatePresence, motion } from "framer-motion";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, ease: "easeOut" },
+};
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,42 +37,80 @@ export default function Home() {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="relative h-screen bg-black font-inter">
+    <motion.div
+      className="relative h-screen bg-black font-inter"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
       <GoogleAnalytics gaId="G-FXZJ4HXH96" />
 
-      <div
+      <motion.div
         className="absolute top-10 right-60 lg:top-0 lg:left-0 lg:w-[600px] w-[300px] h-[230px] bg-zinc-200 blur[300px] opacity-20"
         style={{
           filter: "blur(170px)",
         }}
+        animate={{
+          opacity: [0.1, 0.2, 0.1],
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
       />
 
-      <main className="flex flex-col relative z-10">
-        <section id="hero" className="pt-10 px-6 text-center">
-          <div className="flex flex-col justify-between">
+      <motion.main className="flex flex-col relative z-10">
+        <motion.section
+          id="hero"
+          className="pt-10 px-6 text-center"
+          initial="initial"
+          animate="animate"
+          variants={{
+            animate: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+        >
+          <motion.div
+            className="flex flex-col justify-between"
+            variants={fadeInUp}
+          >
             <div className="flex flex-col">
-              <h1 className="text-white text-3xl font-bold ">
+              <motion.h1
+                className="text-white text-3xl font-bold"
+                variants={fadeInUp}
+              >
                 Organize-se e produza{" "}
                 <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text">
                   mais
                 </span>
-              </h1>
-              <h3 className="text-zinc-300/90 text-base text-center pt-3 font-medium">
+              </motion.h1>
+              <motion.h3
+                className="text-zinc-300/90 text-base text-center pt-3 font-medium"
+                variants={fadeInUp}
+              >
                 Seu novo planejamento totalmente personalizado está a um clique
                 de distância.
-              </h3>
-              <div className="flex justify-center items-center pt-6">
-                <Button
-                  onClick={openModal}
-                  className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
-                >
+              </motion.h3>
+              <motion.div
+                className="flex justify-center items-center pt-6"
+                variants={fadeInUp}
+              >
+                <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
                   <span className="px-4 flex items-center gap-4">
                     Participe da pré-venda
                     <ArrowRight size={8} strokeWidth={2.5} />
                   </span>
                 </Button>
-              </div>
-              <div className="flex justify-center items-center relative pt-14">
+              </motion.div>
+              <motion.div
+                className="flex justify-center items-center relative pt-14"
+                variants={fadeInUp}
+              >
                 <Image
                   src={Macbook}
                   alt="MacBook"
@@ -75,25 +119,37 @@ export default function Home() {
                   className="object-contain relative"
                   priority
                 />
-              </div>
+              </motion.div>
             </div>
-          </div>
-          <div className="text-2xl text-white pt-16 font-semibold px-2">
+          </motion.div>
+          <motion.div
+            className="text-2xl text-white pt-16 font-semibold px-2"
+            variants={fadeInUp}
+          >
             Faça como empresas líderes do mercado organize usando o{" "}
             <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text">
               Notion
             </span>
-          </div>
-          <div className="text-sm text-zinc-400/90 font-medium px-4 pt-4">
+          </motion.div>
+          <motion.div
+            className="text-sm text-zinc-400/90 font-medium px-4 pt-4"
+            variants={fadeInUp}
+          >
             O nosso template facilita o controle da sua produtividade e
             organização.{" "}
-          </div>
-          <div className="flex items-center text-center justify-center gap-5 pt-4">
+          </motion.div>
+          <motion.div
+            className="flex items-center text-center justify-center gap-5 pt-4"
+            variants={fadeInUp}
+          >
             <NetflixIcon />
             <DiscordIcon />
             <FigmaIcon />
-          </div>
-          <div className="flex flex-col justify-center items-center relative pt-32 pb-20">
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center items-center relative pt-32 pb-20"
+            variants={fadeInUp}
+          >
             <Image
               src={Hand}
               alt="MacBook"
@@ -102,40 +158,61 @@ export default function Home() {
               className="object-contain relative "
               priority
             />
-            <h3 className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-3 z-0">
+            <motion.h3
+              className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-3 z-0"
+              variants={fadeInUp}
+            >
               Widgets
-            </h3>
-            <h1 className="text-2xl text-white pt-2 font-semibold px-1">
+            </motion.h3>
+            <motion.h1
+              className="text-2xl text-white pt-2 font-semibold px-1"
+              variants={fadeInUp}
+            >
               Tudo ao seu alcance, simplificado para você.
-            </h1>
-            <p className="text-zinc-400/90 px-3 pt-3 text-sm">
+            </motion.h1>
+            <motion.p
+              className="text-zinc-400/90 px-3 pt-3 text-sm"
+              variants={fadeInUp}
+            >
               Acesse tudo de forma rápida e organizada com widgets inteligentes.
-            </p>
-            <div className="flex justify-center items-center pt-8 pb-10">
-              <Button
-                onClick={openModal}
-                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
-              >
+            </motion.p>
+            <motion.div
+              className="flex justify-center items-center pt-8 pb-10"
+              variants={fadeInUp}
+            >
+              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
                 <span className="px-4 flex items-center gap-4">
                   Participe da pré-venda
                   <ArrowRight size={8} strokeWidth={2.5} />
                 </span>
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           <WhatsappPromo openModal={openModal} />
-          <div className="flex flex-col pt-32">
-            <h3 className="bg-gradient-to-l from-zinc-500 to-zinc-50 text-transparent bg-clip-text text-lg font-semibold">
+          <motion.div className="flex flex-col pt-32" variants={fadeInUp}>
+            <motion.h3
+              className="bg-gradient-to-l from-zinc-500 to-zinc-50 text-transparent bg-clip-text text-lg font-semibold"
+              variants={fadeInUp}
+            >
               Note Private
-            </h3>
-            <h1 className="text-white text-3xl font-semibold">
+            </motion.h3>
+            <motion.h1
+              className="text-white text-3xl font-semibold"
+              variants={fadeInUp}
+            >
               Mate sua curiosidade.
-            </h1>
-            <p className="text-zinc-400/90 text-base pt-4 px-1">
+            </motion.h1>
+            <motion.p
+              className="text-zinc-400/90 text-base pt-4 px-1"
+              variants={fadeInUp}
+            >
               Inspire-se nos exemplos do template pré-configuradas que deixamos
               criados para você.
-            </p>
-            <div className="flex justify-center items-center relative pt-10 px-4">
+            </motion.p>
+            <motion.div
+              className="flex justify-center items-center relative pt-10 px-4"
+              variants={fadeInUp}
+            >
               <Image
                 src={NotePrivate}
                 alt="MacBook"
@@ -144,62 +221,97 @@ export default function Home() {
                 className="object-contain relative rounded-[12px]"
                 priority
               />
-            </div>
-            <div className="flex justify-center items-center pt-8 pb-10">
-              <Button
-                onClick={openModal}
-                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
-              >
+            </motion.div>
+            <motion.div
+              className="flex justify-center items-center pt-8 pb-10"
+              variants={fadeInUp}
+            >
+              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
                 <span className="px-4 flex items-center gap-4">
                   Participe da pré-venda
                   <ArrowRight size={8} strokeWidth={2.5} />
                 </span>
               </Button>
-            </div>
+            </motion.div>
             <BlackNovember openModal={openModal} />
-          </div>
-        </section>
-      </main>
+          </motion.div>
+        </motion.section>
+      </motion.main>
       <Footer />
-      <ModalForm isOpen={isModalOpen} onClose={closeModal} />
-    </div>
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          ></motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 
 function WhatsappPromo({ openModal }: { openModal: () => void }) {
   return (
-    <div className="py-4 bg-black px-2 relative ">
+    <motion.div
+      className="py-4 bg-black px-2 relative"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="max-w-md mx-auto relative">
         <Card className="bg-zinc-900/70 border-none overflow-visible relative h-[690px] rounded-[30px]">
           <CardContent className="p-5 mt-4">
-            <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold text-lg">
+            <motion.span
+              className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold text-lg"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+            >
               #DesafioPlanning
-            </span>
+            </motion.span>
 
-            <h2 className="text-2xl text-white font-bold mt-7 px-2">
+            <motion.h2
+              className="text-2xl text-white font-bold mt-7 px-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
               Um grupo{" "}
               <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text">
                 exclusivo{" "}
               </span>
               para quem adquirir pré-venda!
-            </h2>
+            </motion.h2>
 
-            <p className="text-zinc-400/90 text-xs mt-3">
+            <motion.p
+              className="text-zinc-400/90 text-xs mt-3"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
               Faça parte da nossa comunidade e acompanhe novidades e desafios
               exclusivos para Dezembro!
-            </p>
-            <div className="flex justify-center items-center pt-10 pb-20">
-              <Button
-                onClick={openModal}
-                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-11 rounded-full text-sm text-white"
-              >
+            </motion.p>
+            <motion.div
+              className="flex justify-center items-center pt-10 pb-20"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+            >
+              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-11 rounded-full text-sm text-white">
                 <span className="px-4 flex items-center gap-4">
                   Participe da pré-venda
                   <ArrowRight size={8} strokeWidth={2.5} />
                 </span>
               </Button>
-            </div>
-            <div className="-mt-3 relative">
+            </motion.div>
+            <motion.div
+              className="-mt-3 relative"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+            >
               <Image
                 src={cell}
                 alt="WhatsApp chat preview"
@@ -208,11 +320,11 @@ function WhatsappPromo({ openModal }: { openModal: () => void }) {
                 className="rounded-2xl mx-auto shadow-lg absolute left-0 w-full"
                 priority
               />
-            </div>
+            </motion.div>
           </CardContent>
         </Card>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -287,9 +399,19 @@ function BlackNovember({ openModal }: { openModal: () => void }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white py-12 px-4">
+    <motion.div
+      className="min-h-screen bg-black text-white py-12 px-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       <div className="max-w-2xl mx-auto space-y-12">
-        <div className="text-center justify-center space-y-2">
+        <motion.div
+          className="text-center justify-center space-y-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
             <span className="mx-6 text-white">DEZEMBER</span>
           </h1>
@@ -306,27 +428,48 @@ function BlackNovember({ openModal }: { openModal: () => void }) {
               !
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-4 text-center px-8 md:px-40">
+        <motion.div
+          className="grid grid-cols-4 text-center px-8 md:px-40"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           {[
             { value: timeLeft.days, label: "Dias" },
             { value: timeLeft.hours, label: "Horas" },
             { value: timeLeft.minutes, label: "Minutos" },
             { value: timeLeft.seconds, label: "Segundos" },
           ].map((item, index) => (
-            <div key={index} className="space-y-2">
+            <motion.div
+              key={index}
+              className="space-y-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 * index }}
+            >
               <div className="text-3xl md:text-4xl font-bold">
                 {String(item.value).padStart(2, "0")}
               </div>
               <div className="text-sm text-neutral-400">{item.label}</div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:px-40 py-2">
+        <motion.div
+          className="grid grid-cols-1 md:px-40 py-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           {plans.map((plan, index) => (
-            <div key={plan.name} className="relative">
+            <motion.div
+              key={plan.name}
+              className="relative"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
               <div
                 className={`h-full bg-zinc-900/50 rounded-[10px] px-6 py-6 border-2 ${
                   plan.name === "Note Private"
@@ -352,13 +495,16 @@ function BlackNovember({ openModal }: { openModal: () => void }) {
                 </p>
                 <ul className="space-y-2 mb-8 pt-4">
                   {plan.features.map((feature, idx) => (
-                    <li
+                    <motion.li
                       key={idx}
                       className="flex items-center text-[#A1A1A1] text-sm"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.1 * idx }}
                     >
                       <feature.icon className="w-4 h-4 text-white mr-3" />
                       {feature.titulo}
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
                 <div className="pt-2 flex flex-col text-2xl font-bold text-white mb-2 text-center justify-center items-center">
@@ -369,13 +515,24 @@ function BlackNovember({ openModal }: { openModal: () => void }) {
                 </div>
               </div>
               {hoveredPlan === plan.name && (
-                <div className="absolute inset-0 -z-10 bg-zinc-300 rounded-2xl opacity-20 blur-xl" />
+                <motion.div
+                  className="absolute inset-0 -z-10 bg-zinc-300 rounded-2xl opacity-20 blur-xl"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.2 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="text-center space-y-6">
+        <motion.div
+          className="text-center space-y-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
           <p className="text-sm text-[#A1A1A1]">
             Entre na página de vendas clicando no botão abaixo, garanta seu
             template.
@@ -387,8 +544,8 @@ function BlackNovember({ openModal }: { openModal: () => void }) {
           >
             QUERO APROVEITAR A CONDIÇÃO
           </Button>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
