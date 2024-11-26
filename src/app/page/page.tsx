@@ -27,7 +27,7 @@ export default function Home() {
         <section id="brands" className="px-2 text-center">
           <div className="flex flex-col justify-between">
             <Brands
-              title="Organize-se como as grandes empresas do mercado utilizando Notion."
+              title="Faça como as grandes empresas do mercado utilizando Notion."
               subtitle="Com o nosso template, manter sua produtividade e organização nunca foi tão fácil!"
             />
           </div>
