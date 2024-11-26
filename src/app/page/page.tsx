@@ -9,6 +9,7 @@ import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
 import { motion } from "framer-motion";
 import Widget from "@/assets/hand.png";
+import CommunityPhoto from "@/assets/cell.png";
 
 export default function Home() {
   return (
@@ -37,11 +38,20 @@ export default function Home() {
           Aproveite as condições da pré-venda
           <ArrowDown size={10} className="text-zinc-400" />
         </div>
-        <section id="widgets" className="px-2 text-center">
+        <section id="widgets" className="px-2 text-center pt-10">
           <div className="flex flex-col justify-between">
             <Widgets
               title="Tudo ao na palma da sua mão!"
               subtitle="Acesse tudo de forma rápida e organizada com widgets inteligentes."
+            />
+          </div>
+        </section>
+        <section id="community" className="px-10 pt-10 text-center">
+          <div className="flex flex-col justify-between">
+            <Community
+              hashtag="DesafioPlanning"
+              title="Um grupo exclusivo para quem adquirir pré-venda"
+              subtitle="Faça parte da nossa comunidade e acompanhe novidades e desafios exclusivos para Dezembro!"
             />
           </div>
         </section>
@@ -134,6 +144,45 @@ function Widgets({ title, subtitle }: WidgetsProps) {
   );
 }
 
+interface CommunityProps {
+  hashtag: string;
+  title: string;
+  subtitle: string;
+}
+
+function Community({ hashtag, subtitle, title }: CommunityProps) {
+  return (
+    <div className="bg-neutral-950 w-auto  border border-neutral-900 flex flex-col mb-20 rounded-[50px]">
+      <div className="flex flex-col justify-center text-center py-4 gap-4">
+        <h4 className="pt-4 text-sm bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tight">
+          #{hashtag}
+        </h4>
+        <div className="px-4 pt-2">
+          <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+            {title}!
+          </h1>
+          <h3 className="text-xs text-neutral-400/90 font-medium pt-4 tracking-tighter">
+            {subtitle}
+          </h3>
+        </div>
+        <div className="pt-4 px-6">
+          <ButtonCommunity />
+        </div>
+      </div>
+      <div className="mt-auto pt-10">
+        <Image
+          src={CommunityPhoto}
+          alt="Community"
+          width={260}
+          height={0}
+          className="rounded-b-[14px] mx-auto shadow-lg"
+          priority
+        />
+      </div>
+    </div>
+  );
+}
+
 function ButtonPrimary() {
   return (
     <div className="flex justify-center items-center pt-4">
@@ -147,6 +196,23 @@ function ButtonPrimary() {
           Quero organizar minha vida
         </span>
         <ArrowRight size={16} className="text-zinc-400" strokeWidth={3} />
+      </motion.button>
+    </div>
+  );
+}
+function ButtonCommunity() {
+  return (
+    <div className="flex justify-center items-center pt-4">
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 1.1 }}
+        whileInView={{ opacity: 1 }}
+        className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 rounded-full h-10 flex items-center gap-3 px-8 shadow-xl shadow-zinc-600/15"
+      >
+        <span className="bg-white bg-clip-text text-transparent font-semibold text-xs">
+          Quero organizar minha vida
+        </span>
+        <ArrowRight size={10} className="text-zinc-400" strokeWidth={3} />
       </motion.button>
     </div>
   );
