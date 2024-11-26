@@ -391,7 +391,7 @@ function Footer() {
           </h1>
           <ul className="text-zinc-400 gap-2 flex text-center justify-center items-center pt-1">
             <li>
-              <Instagram size={16} />
+              <Instagram size={12} />
             </li>
           </ul>
           <div className="items-center text-center">
