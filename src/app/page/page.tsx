@@ -45,7 +45,7 @@ interface HeroHeaderProps {
 function HeroHeader({ title, subtitle }: HeroHeaderProps) {
   return (
     <div className="flex flex-col gap-3">
-      <h1 className="text-4xl text-white font-extrabold tracking-tighter">
+      <h1 className="text-4xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
         {title}
       </h1>
       <h3 className="text-base text-neutral-400/90 font-medium px-5 tracking-tighter">
@@ -74,7 +74,7 @@ interface BrandsProps {
 function Brands({ title, subtitle }: BrandsProps) {
   return (
     <div className="flex flex-col gap-2.5 pt-8">
-      <h1 className="text-2xl text-white font-extrabold tracking-tighter">
+      <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
         {title}
       </h1>
       <h3 className="text-sm text-neutral-400/90 font-medium px-5 tracking-tighter">
