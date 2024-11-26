@@ -79,12 +79,16 @@ export default function Home() {
                 className="flex justify-center items-center pt-6"
                 variants={fadeInUp}
               >
-                <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
+                >
                   <span className="px-4 flex items-center gap-4">
                     Participe da pré-venda
                     <ArrowRight size={8} strokeWidth={2.5} />
                   </span>
-                </Button>
+                </motion.button>
               </motion.div>
               <motion.div
                 className="flex justify-center items-center relative pt-14"
@@ -159,12 +163,16 @@ export default function Home() {
               className="flex justify-center items-center pt-8 pb-10"
               variants={fadeInUp}
             >
-              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
-                <span className="px-4 flex items-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
+              >
+                <span className="px-4 flex items-center gap-3">
                   Participe da pré-venda
-                  <ArrowRight size={8} strokeWidth={2.5} />
+                  <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
                 </span>
-              </Button>
+              </motion.button>
             </motion.div>
           </motion.div>
           <WhatsappPromo />
@@ -205,12 +213,16 @@ export default function Home() {
               className="flex justify-center items-center pt-8 pb-10"
               variants={fadeInUp}
             >
-              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
-                <span className="px-4 flex items-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
+              >
+                <span className="px-4 flex items-center gap-3">
                   Participe da pré-venda
-                  <ArrowRight size={8} strokeWidth={2.5} />
+                  <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
                 </span>
-              </Button>
+              </motion.button>
             </motion.div>
             <BlackNovember />
           </motion.div>
@@ -269,12 +281,16 @@ function WhatsappPromo() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-11 rounded-full text-sm text-white">
-                <span className="px-4 flex items-center gap-4">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-11 rounded-full text-sm text-white"
+              >
+                <span className="px-4 flex items-center gap-3">
                   Participe da pré-venda
-                  <ArrowRight size={8} strokeWidth={2.5} />
+                  <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
                 </span>
-              </Button>
+              </motion.button>
             </motion.div>
             <motion.div
               className="-mt-3 relative"
@@ -437,8 +453,7 @@ function BlackNovember() {
             <motion.div
               key={plan.name}
               className="relative"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.1 }}
             >
               <div
                 className={`h-full bg-zinc-900/50 rounded-[10px] px-6 py-6 border-2 ${
@@ -455,7 +470,7 @@ function BlackNovember() {
                     Popular
                   </div>
                 </h3>
-                <p className="text-[#A1A1A1] text-sm w-60">
+                <p className="text-[#A1A1A1] text-sm w-60 text-start">
                   Compre agora e tenha seu template para{" "}
                   <span className="text-white">sempre</span>!
                 </p>
@@ -480,7 +495,8 @@ function BlackNovember() {
                 <div className="pt-2 flex flex-col text-2xl font-bold text-white mb-2 text-center justify-center items-center">
                   <h1>10x de R$ 12,79</h1>
                   <h1 className="text-sm pt-1 text-zinc-400 font-normal">
-                    R$ 127,98
+                    Ou <span className="font-bold">R$ 96,99</span> no{" "}
+                    <span className="font-bold">PIX</span>.
                   </h1>
                 </div>
               </div>
@@ -507,12 +523,16 @@ function BlackNovember() {
             Entre na página de vendas clicando no botão abaixo, garanta seu
             template.
           </p>
-          <Button
-            className="bg-white text-black font-semibold hover:bg-white/95 px-8 py-4 rounded-full"
-            variant="default"
-          >
-            QUERO APROVEITAR A CONDIÇÃO
-          </Button>
+          <div className="flex justify-center items-center text-center w-full ">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-black font-semibold hover:bg-white/95 px-8 py-4 rounded-full h-12 flex items-center text-center gap-2 text-sm"
+            >
+              QUERO APROVEITAR A CONDIÇÃO
+              <ArrowRight size={14} />
+            </motion.button>
+          </div>
         </motion.div>
       </div>
     </motion.div>
