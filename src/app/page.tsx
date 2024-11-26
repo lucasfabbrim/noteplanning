@@ -22,6 +22,7 @@ import NetflixIcon from "@/assets/netflix-gr.svg";
 import Hand from "@/assets/hand.png";
 import cell from "@/assets/cell.png";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -38,22 +39,6 @@ export default function Home() {
       transition={{ duration: 0.5 }}
     >
       <GoogleAnalytics gaId="G-FXZJ4HXH96" />
-
-      <motion.div
-        className="absolute top-10 right-60 lg:top-0 lg:left-0 lg:w-[600px] w-[300px] h-[230px] bg-zinc-200 blur[300px] opacity-20"
-        style={{
-          filter: "blur(170px)",
-        }}
-        animate={{
-          opacity: [0.1, 0.2, 0.1],
-          scale: [1, 1.05, 1],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-      />
 
       <motion.main className="flex flex-col relative z-10">
         <motion.section
