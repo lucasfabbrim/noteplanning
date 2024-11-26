@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Footer from "@/components/footer/footer";
 import { Button } from "@/components/ui/button";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -15,23 +16,26 @@ import {
   Settings,
 } from "lucide-react";
 import NotePrivate from "@/assets/note-private.png";
-
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
 import Hand from "@/assets/hand.png";
 import cell from "@/assets/cell.png";
-
 import { Card, CardContent } from "@/components/ui/card";
-import { useState, useEffect } from "react";
+import { ModalForm } from "@/components/Modal";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div className="relative h-screen bg-black font-inter">
       <GoogleAnalytics gaId="G-FXZJ4HXH96" />
 
       <div
-        className="absolute top-10 right-60 lg:top-0 lg:left-0  lg:w-[600px] w-[300px] h-[230px] bg-zinc-200 blur[300px] opacity-20"
+        className="absolute top-10 right-60 lg:top-0 lg:left-0 lg:w-[600px] w-[300px] h-[230px] bg-zinc-200 blur[300px] opacity-20"
         style={{
           filter: "blur(170px)",
         }}
@@ -52,7 +56,10 @@ export default function Home() {
                 de distância.
               </h3>
               <div className="flex justify-center items-center pt-6">
-                <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
+                <Button
+                  onClick={openModal}
+                  className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
+                >
                   <span className="px-4 flex items-center gap-4">
                     Participe da pré-venda
                     <ArrowRight size={8} strokeWidth={2.5} />
@@ -105,7 +112,10 @@ export default function Home() {
               Acesse tudo de forma rápida e organizada com widgets inteligentes.
             </p>
             <div className="flex justify-center items-center pt-8 pb-10">
-              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
+              <Button
+                onClick={openModal}
+                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
+              >
                 <span className="px-4 flex items-center gap-4">
                   Participe da pré-venda
                   <ArrowRight size={8} strokeWidth={2.5} />
@@ -113,7 +123,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <WhatsappPromo />
+          <WhatsappPromo openModal={openModal} />
           <div className="flex flex-col pt-32">
             <h3 className="bg-gradient-to-l from-zinc-500 to-zinc-50 text-transparent bg-clip-text text-lg font-semibold">
               Note Private
@@ -136,23 +146,27 @@ export default function Home() {
               />
             </div>
             <div className="flex justify-center items-center pt-8 pb-10">
-              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white">
+              <Button
+                onClick={openModal}
+                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
+              >
                 <span className="px-4 flex items-center gap-4">
                   Participe da pré-venda
                   <ArrowRight size={8} strokeWidth={2.5} />
                 </span>
               </Button>
             </div>
-            <BlackNovember />
+            <BlackNovember openModal={openModal} />
           </div>
         </section>
       </main>
       <Footer />
+      <ModalForm isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }
 
-function WhatsappPromo() {
+function WhatsappPromo({ openModal }: { openModal: () => void }) {
   return (
     <div className="py-4 bg-black px-2 relative ">
       <div className="max-w-md mx-auto relative">
@@ -175,7 +189,10 @@ function WhatsappPromo() {
               exclusivos para Dezembro!
             </p>
             <div className="flex justify-center items-center pt-10 pb-20">
-              <Button className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-11 rounded-full text-sm text-white">
+              <Button
+                onClick={openModal}
+                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-11 rounded-full text-sm text-white"
+              >
                 <span className="px-4 flex items-center gap-4">
                   Participe da pré-venda
                   <ArrowRight size={8} strokeWidth={2.5} />
@@ -235,7 +252,7 @@ interface TimeLeft {
   seconds: number;
 }
 
-function BlackNovember() {
+function BlackNovember({ openModal }: { openModal: () => void }) {
   const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 25,
@@ -244,7 +261,7 @@ function BlackNovember() {
     seconds: 21,
   });
 
-  useEffect(() => {
+  useState(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev.seconds > 0) {
@@ -316,6 +333,8 @@ function BlackNovember() {
                     ? "border-zinc-900/85"
                     : "border-zinc-950"
                 } transition-all duration-300`}
+                onMouseEnter={() => setHoveredPlan(plan.name)}
+                onMouseLeave={() => setHoveredPlan(null)}
               >
                 <h3 className="gap-3 flex text-2xl font-semibold text-white mb-2 text-start items-center">
                   {plan.name}
@@ -362,6 +381,7 @@ function BlackNovember() {
             template.
           </p>
           <Button
+            onClick={openModal}
             className="bg-white text-black font-semibold hover:bg-white/95 px-8 py-4 rounded-full"
             variant="default"
           >
