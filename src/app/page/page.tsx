@@ -268,7 +268,9 @@ function Dezember() {
       <div className="max-w-2xl mx-auto space-y-12">
         <div className="text-center justify-center space-y-2">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
-            <span className="mx-6 text-white">DEZEMBER</span>
+            <span className="mx-6 bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text">
+              DEZEMBER
+            </span>
           </h1>
           <p className="text-zinc-300 text-sm md:text-base pt-10">
             CONDIÇÃO ESPECIAL SOMENTE PARA{" "}
@@ -335,9 +337,9 @@ function Dezember() {
                 </ul>
                 <div className="pt-2 flex flex-col text-2xl font-bold text-white mb-2 text-center justify-center items-center">
                   <h1>10x de R$ 12,79</h1>
-                  <h1 className="text-sm pt-1 text-zinc-400 font-normal">
-                    Ou <span className="font-bold">R$ 96,99</span> no{" "}
-                    <span className="font-bold">PIX</span>.
+                  <h1 className="text-sm pt-1 text-zinc-100 font-normal">
+                    Ou <span className="font-semibold">R$ 96,99</span> no{" "}
+                    <span className="font-semibold">PIX</span>.
                   </h1>
                 </div>
               </motion.div>
