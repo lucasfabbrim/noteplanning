@@ -44,33 +44,15 @@ interface HeroHeaderProps {
 
 function HeroHeader({ title, subtitle }: HeroHeaderProps) {
   return (
-    <div className="flex flex-col gap-2.5">
-      <motion.h1
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.3 }}
-        className="text-3xl text-white font-bold px-1"
-      >
+    <div className="flex flex-col gap-3">
+      <h1 className="text-4xl text-white font-extrabold tracking-tighter">
         {title}
-      </motion.h1>
-      <motion.h3
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.3 }}
-        className="text-sm text-zinc-400 font-medium px-8"
-      >
+      </h1>
+      <h3 className="text-base text-neutral-400/90 font-medium px-5 tracking-tighter">
         {subtitle}
-      </motion.h3>
+      </h3>
       <ButtonPrimary />
-      <motion.div
-        className="flex justify-center items-center relative pt-14 pb-10 px-6"
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.3 }}
-      >
+      <div className="flex justify-center items-center relative py-10 px-6">
         <Image
           src={Macbook}
           alt="MacBook"
@@ -79,7 +61,7 @@ function HeroHeader({ title, subtitle }: HeroHeaderProps) {
           className="object-contain relative"
           priority
         />
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -92,48 +74,28 @@ interface BrandsProps {
 function Brands({ title, subtitle }: BrandsProps) {
   return (
     <div className="flex flex-col gap-2.5 pt-8">
-      <motion.h1
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.3 }}
-        className="text-2xl text-white font-bold px-2"
-      >
+      <h1 className="text-2xl text-white font-extrabold tracking-tighter">
         {title}
-      </motion.h1>
-      <motion.h3
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.3 }}
-        className="text-sm text-zinc-400 font-medium px-6 pt-2"
-      >
+      </h1>
+      <h3 className="text-base text-neutral-400/90 font-medium px-5 tracking-tighter">
         {subtitle}
-      </motion.h3>
-      <motion.div
-        className="flex items-center text-center justify-center gap-5 pt-2"
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -100 }}
-        transition={{ duration: 0.3 }}
-      >
+      </h3>
+      <div className="flex items-center text-center justify-center gap-5 pt-2">
         <NetflixIcon />
         <DiscordIcon />
         <FigmaIcon />
-      </motion.div>
+      </div>
     </div>
   );
 }
 
 function ButtonPrimary() {
   return (
-    <div className="flex justify-center items-center pt-8">
+    <div className="flex justify-center items-center pt-4">
       <motion.button
-        exit={{ opacity: 0, x: -100 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 1.1 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
         className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 rounded-full h-14 flex items-center gap-3 px-6 shadow-md shadow-neutral-900"
       >
         <span className="bg-white bg-clip-text text-transparent font-semibold">
