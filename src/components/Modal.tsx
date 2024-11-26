@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X } from "lucide-react";
+import { X, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,6 +13,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
 import { motion, AnimatePresence } from "framer-motion";
+import { z } from "zod";
 
 interface ModalFormProps {
   isOpen: boolean;
@@ -26,41 +27,102 @@ const preferences = [
   { id: "goalSetting", label: "Definição de Metas" },
 ];
 
+const formSchema = z.object({
+  fullName: z.string().min(3, "Nome deve ter pelo menos 3 caracteres"),
+  email: z.string().email("Email inválido"),
+  phone: z.string().min(8, "Telefone deve ter pelo menos 8 dígitos"),
+  countryCode: z.string(),
+  preferences: z
+    .array(z.string())
+    .min(1, "Selecione pelo menos uma preferência"),
+});
+
+type FormData = z.infer<typeof formSchema>;
+
 export function ModalForm({ isOpen, onClose }: ModalFormProps) {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     fullName: "",
     email: "",
     phone: "",
     countryCode: "+55",
-    preferences: [] as string[],
+    preferences: [],
   });
+  const [errors, setErrors] = useState<Partial<FormData>>({});
+
+  const validateField = (field: keyof FormData, value: string | string[]) => {
+    try {
+      if (field === "preferences") {
+        formSchema
+          .pick({ [field]: true })
+          .parse({ [field]: value as string[] });
+      } else {
+        formSchema.pick({ [field]: true }).parse({ [field]: value as string });
+      }
+      setErrors((prev) => ({ ...prev, [field]: undefined }));
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        setErrors((prev) => ({ ...prev, [field]: error.errors[0].message }));
+      }
+    }
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    validateField(name as keyof FormData, value);
   };
 
   const handlePreferenceChange = (preferenceId: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      preferences: prev.preferences.includes(preferenceId)
-        ? prev.preferences.filter((id) => id !== preferenceId)
-        : [...prev.preferences, preferenceId],
-    }));
+    const newPreferences = formData.preferences.includes(preferenceId)
+      ? formData.preferences.filter((id) => id !== preferenceId)
+      : [...formData.preferences, preferenceId];
+    setFormData((prev) => ({ ...prev, preferences: newPreferences }));
+    validateField("preferences", newPreferences);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    const whatsappNumber = "19993356780";
-    const message = encodeURIComponent(
-      `Olá! Gostaria de saber mais sobre o Note Private.`,
-    );
-    window.location.href = `https://wa.me/${whatsappNumber}?text=${message}`;
+    try {
+      formSchema.parse(formData);
+      console.log("Form submitted:", formData);
+      const whatsappNumber = "19993356780";
+      const message = encodeURIComponent(
+        `Olá! Gostaria de saber mais sobre o Note Private.`,
+      );
+      window.location.href = `https://wa.me/${whatsappNumber}?text=${message}`;
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const newErrors = error.errors.reduce((acc, curr) => {
+          acc[curr.path[0] as keyof FormData] = curr.message;
+          return acc;
+        }, {} as Partial<FormData>);
+        setErrors(newErrors);
+      }
+    }
   };
 
-  const nextStep = () => setStep((prev) => Math.min(prev + 1, 2));
+  const nextStep = () => {
+    const currentStepFields =
+      step === 1 ? ["fullName", "email", "phone"] : ["preferences"];
+    const currentStepSchema = formSchema.pick(
+      currentStepFields.reduce((acc, field) => ({ ...acc, [field]: true }), {}),
+    );
+
+    try {
+      currentStepSchema.parse(formData);
+      setStep((prev) => Math.min(prev + 1, 2));
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const newErrors = error.errors.reduce((acc, curr) => {
+          acc[curr.path[0] as keyof FormData] = curr.message;
+          return acc;
+        }, {} as Partial<FormData>);
+        setErrors(newErrors);
+      }
+    }
+  };
+
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
 
   useEffect(() => {
@@ -125,9 +187,17 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                           name="fullName"
                           value={formData.fullName}
                           onChange={handleChange}
-                          className="mt-1"
+                          className={`mt-1 ${
+                            errors.fullName ? "border-red-500" : ""
+                          }`}
                           required
                         />
+                        {errors.fullName && (
+                          <p className="text-red-500 text-sm mt-1 flex items-center">
+                            <AlertCircle size={16} className="mr-1" />
+                            {errors.fullName}
+                          </p>
+                        )}
                       </div>
                       <div>
                         <Label htmlFor="email" className="text-gray-700">
@@ -139,9 +209,17 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                           type="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="mt-1"
+                          className={`mt-1 ${
+                            errors.email ? "border-red-500" : ""
+                          }`}
                           required
                         />
+                        {errors.email && (
+                          <p className="text-red-500 text-sm mt-1 flex items-center">
+                            <AlertCircle size={16} className="mr-1" />
+                            {errors.email}
+                          </p>
+                        )}
                       </div>
                       <div>
                         <Label htmlFor="phone" className="text-gray-700">
@@ -172,10 +250,18 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                             type="tel"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="flex-1 ml-2"
+                            className={`flex-1 ml-2 ${
+                              errors.phone ? "border-red-500" : ""
+                            }`}
                             required
                           />
                         </div>
+                        {errors.phone && (
+                          <p className="text-red-500 text-sm mt-1 flex items-center">
+                            <AlertCircle size={16} className="mr-1" />
+                            {errors.phone}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </motion.div>
@@ -214,6 +300,12 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                           </label>
                         </div>
                       ))}
+                      {errors.preferences && (
+                        <p className="text-red-500 text-sm mt-1 flex items-center">
+                          <AlertCircle size={16} className="mr-1" />
+                          {errors.preferences}
+                        </p>
+                      )}
                     </div>
                   </motion.div>
                 )}
