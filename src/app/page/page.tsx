@@ -71,6 +71,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }
@@ -330,7 +331,7 @@ function Dezember() {
                       key={idx}
                       className="flex items-center text-[#A1A1A1] text-xs"
                     >
-                      <feature.icon className="w-4 h-4 text-white mr-3" />
+                      <feature.icon className="w-4 h-4 text-blue-600 mr-3" />
                       {feature.titulo}
                     </motion.li>
                   ))}
@@ -338,7 +339,7 @@ function Dezember() {
                 <div className="pt-2 flex flex-col text-2xl font-bold text-white mb-2 text-center justify-center items-center">
                   <h1>10x de R$ 12,79</h1>
                   <h1 className="text-sm pt-1 text-zinc-100 font-normal">
-                    Ou <span className="font-semibold">R$ 96,99</span> no{" "}
+                    Ou <span className="font-semibold">R$ 97,90</span> no{" "}
                     <span className="font-semibold">PIX</span>.
                   </h1>
                 </div>
@@ -366,6 +367,14 @@ function Dezember() {
         </div>
       </div>
     </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="py-4 bg-zinc-900">
+      <div className="flex flex-col"></div>
+    </footer>
   );
 }
 
