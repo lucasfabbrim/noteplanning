@@ -65,7 +65,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <section id="dezember" className="px-6 text-center">
+        <section id="dezember" className="px-6 pt-20 text-center">
           <div className="flex flex-col justify-between">
             <Dezember />
           </div>
@@ -167,7 +167,7 @@ interface CommunityProps {
 
 function Community({ hashtag, subtitle, title }: CommunityProps) {
   return (
-    <div className="bg-neutral-900/70 w-auto flex flex-col mb-10 rounded-[50px]">
+    <div className="bg-neutral-900/70 w-auto flex flex-col rounded-[50px]">
       <div className="flex flex-col justify-center text-center py-4 gap-4">
         <h4 className="pt-4 text-sm bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tight">
           #{hashtag}
