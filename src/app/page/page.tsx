@@ -96,9 +96,9 @@ function ButtonPrimary() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 1.1 }}
         whileInView={{ opacity: 1 }}
-        className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 rounded-full h-14 flex items-center gap-3 px-6 shadow-md shadow-neutral-900"
+        className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 rounded-full h-14 flex items-center gap-3 px-8 shadow-xl shadow-zinc-600/15"
       >
-        <span className="bg-white bg-clip-text text-transparent font-semibold">
+        <span className="bg-white bg-clip-text text-transparent font-semibold text-base">
           Quero organizar minha vida
         </span>
         <ArrowRight size={16} className="text-zinc-400" strokeWidth={3} />
