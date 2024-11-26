@@ -77,7 +77,7 @@ function Brands({ title, subtitle }: BrandsProps) {
       <h1 className="text-2xl text-white font-extrabold tracking-tighter">
         {title}
       </h1>
-      <h3 className="text-base text-neutral-400/90 font-medium px-5 tracking-tighter">
+      <h3 className="text-sm text-neutral-400/90 font-medium px-5 tracking-tighter">
         {subtitle}
       </h3>
       <div className="flex items-center text-center justify-center gap-5 pt-2">
