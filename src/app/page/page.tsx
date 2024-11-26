@@ -331,7 +331,7 @@ function Dezember() {
                       key={idx}
                       className="flex items-center text-[#A1A1A1] text-xs"
                     >
-                      <feature.icon className="w-4 h-4 text-red-600 mr-3" />
+                      <feature.icon className="w-4 h-4 text-green-500 mr-3" />
                       {feature.titulo}
                     </motion.li>
                   ))}
@@ -343,7 +343,7 @@ function Dezember() {
                     por apenas:
                   </h1>
                   <h1 className="text-2xl">10x de R$ 12,79</h1>
-                  <h1 className="text-base text-red-600 font-normal">
+                  <h1 className="text-base text-green-500 font-normal">
                     Ou R$ 97,90 à vista.
                   </h1>
                 </div>
