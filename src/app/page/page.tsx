@@ -309,7 +309,7 @@ function Dezember() {
             <div key={plan.name} className="relative">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="h-full bg-zinc-900/50 rounded-[10px] px-6 py-6 transition-all duration-300 shadow-xl shadow-zinc-900/20"
+                className="h-full bg-zinc-900/50 rounded-[10px] px-6 py-6 transition-all duration-300 shadow-xl shadow-zinc-900/30"
               >
                 <h3 className="gap-3 flex text-2xl font-semibold text-white mb-2 text-start items-center">
                   {plan.name}
