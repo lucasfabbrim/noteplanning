@@ -44,7 +44,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <div className="py-3 mt-12 mb-8 bg-black border-t border-b border-zinc-900/70 items-center text-zinc-400 justify-center text-center text-xs flex gap-2">
+        <div className="py-3 mt-12 mb-8 bg-black border-t border-b border-zinc-900/90 items-center text-zinc-200 justify-center text-center text-xs flex gap-2">
           Aproveite as condições da pré-venda
           <ArrowDown size={10} className="text-zinc-600" strokeWidth={4} />
         </div>
