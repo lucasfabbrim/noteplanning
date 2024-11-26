@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Footer from "@/components/footer/footer";
-import { Button } from "@/components/ui/button";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Macbook from "@/assets/macbook.png";
 import Image from "next/image";
