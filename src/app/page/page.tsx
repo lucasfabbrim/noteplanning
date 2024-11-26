@@ -338,8 +338,9 @@ function Dezember() {
                 </ul>
                 <div className="pt-2 flex flex-col text-2xl font-bold text-white mb-2 text-center justify-center items-center">
                   <h1 className="text-xs font-normal text-zinc-300 pb-1">
-                    De <span className="line-through">R$ 220,99</span>, por
-                    apenas:
+                    De{" "}
+                    <span className="line-through font-medium">R$ 220,99</span>,
+                    por apenas:
                   </h1>
                   <h1 className="text-2xl">10x de R$ 12,79</h1>
                   <h1 className="text-base text-blue-600 font-normal">
