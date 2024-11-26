@@ -380,13 +380,13 @@ function Footer() {
     <footer className="px-4 py-4 border-t border-t-zinc-900">
       <div className="flex flex-col justify-between text-center">
         <div className="flex flex-col gap-2 py-4">
-          <h1 className="text-white font-bold text-lg">Links</h1>
-          <ul className="text-zinc-400 gap-0.5">
+          <h1 className="text-white font-bold text-base">Links</h1>
+          <ul className="text-zinc-400 gap-0.5 text-sm">
             <li>Central de Ajuda</li>
             <span className="hidden md:block">|</span>
             <li>Canal de Ideias</li>
           </ul>
-          <h1 className="text-white pt-4 font-bold text-lg">
+          <h1 className="text-white pt-4 font-bold text-base">
             Siga o Note Planning!
           </h1>
           <ul className="text-zinc-400 gap-2 flex text-center justify-center items-center pt-1">
