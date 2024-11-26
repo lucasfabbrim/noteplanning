@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, AlertCircle, Check } from "lucide-react";
+import { X, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -28,13 +28,13 @@ const preferences = [
 ];
 
 const formSchema = z.object({
-  fullName: z.string().min(3, "Nome deve ter pelo menos 3 caracteres"),
-  email: z.string().email("Email inválido"),
-  phone: z.string().min(8, "Telefone deve ter pelo menos 8 dígitos"),
+  fullName: z.string().min(3, "Informe um nome válido, por favor."),
+  email: z.string().email("Informe um e-mail válido, por favor."),
+  phone: z.string().min(8, "Informe um número telefone válido, por favor."),
   countryCode: z.string(),
   preferences: z
     .array(z.string())
-    .min(1, "Selecione pelo menos uma preferência"),
+    .min(1, "Selecione pelo menos uma preferência."),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -161,7 +161,7 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50"
+          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4 z-50 backdrop-blur-md"
           onClick={onClose}
         >
           <motion.div
@@ -169,19 +169,20 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="bg-white rounded-lg p-6 w-full max-w-md relative shadow-xl"
+            className="bg-neutral-900 rounded-[10px] p-8 w-full max-w-md relative shadow-xl "
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+              className="absolute top-4 right-4 text-zinc-300 hover:text-zinc-300/85 transition-colors"
             >
               <X size={24} />
             </button>
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
-              Inscreva-se
-            </h2>
-            <Progress value={step === 1 ? 50 : 100} className="mb-6" />
+            <p className="text-white text-base mb-2 pt-10">Passo {step} de 2</p>
+            <Progress
+              value={step === 1 ? 50 : 100}
+              className="mb-6 h-3 border-none "
+            />
             <form onSubmit={handleSubmit} className="space-y-6">
               <AnimatePresence mode="wait">
                 {step === 1 && (
@@ -194,7 +195,10 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                   >
                     <div className="space-y-4">
                       <div>
-                        <Label htmlFor="fullName" className="text-gray-700">
+                        <Label
+                          htmlFor="fullName"
+                          className="text-zinc-100 font-bold"
+                        >
                           Nome Completo
                         </Label>
                         <Input
@@ -202,23 +206,26 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                           name="fullName"
                           value={formData.fullName}
                           onChange={handleChange}
-                          className={`mt-1 ${
+                          className={`mt-1 border border-zinc-800 text-zinc-300 font-medium${
                             touched.fullName && errors.fullName
-                              ? "border-red-500"
+                              ? "border-rose-500"
                               : ""
                           }`}
                           required
                         />
                         {touched.fullName && errors.fullName && (
-                          <p className="text-red-500 text-sm mt-1 flex items-center">
-                            <AlertCircle size={16} className="mr-1" />
+                          <p className="text-rose-600 font-medium text-xs mt-2 flex items-center">
+                            <AlertCircle size={12} className="mr-1" />
                             {errors.fullName}
                           </p>
                         )}
                       </div>
                       <div>
-                        <Label htmlFor="email" className="text-gray-700">
-                          Email
+                        <Label
+                          htmlFor="email"
+                          className="text-zinc-100 font-bold"
+                        >
+                          E-mail
                         </Label>
                         <Input
                           id="email"
@@ -226,23 +233,26 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                           type="email"
                           value={formData.email}
                           onChange={handleChange}
-                          className={`mt-1 ${
+                          className={`mt-1 border border-zinc-800 text-zinc-300 font-medium${
                             touched.email && errors.email
-                              ? "border-red-500"
+                              ? "border-rose-600"
                               : ""
                           }`}
                           required
                         />
                         {touched.email && errors.email && (
-                          <p className="text-red-500 text-sm mt-1 flex items-center">
-                            <AlertCircle size={16} className="mr-1" />
+                          <p className="text-rose-600 font-medium text-xs mt-2 flex items-center">
+                            <AlertCircle size={12} className="mr-1" />
                             {errors.email}
                           </p>
                         )}
                       </div>
                       <div>
-                        <Label htmlFor="phone" className="text-gray-700">
-                          Telefone
+                        <Label
+                          htmlFor="phone"
+                          className="text-zinc-100 font-bold"
+                        >
+                          Número de Telefone
                         </Label>
                         <div className="flex mt-1">
                           <Select
@@ -254,10 +264,10 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                               }))
                             }
                           >
-                            <SelectTrigger className="w-[100px]">
+                            <SelectTrigger className="w-[100px] border-zinc-800 text-zinc-300">
                               <SelectValue placeholder="Código" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent className="bg-zinc-900 border-none text-zinc-300">
                               <SelectItem value="+55">+55 BR</SelectItem>
                               <SelectItem value="+1">+1 US</SelectItem>
                               <SelectItem value="+44">+44 UK</SelectItem>
@@ -269,17 +279,17 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                             type="tel"
                             value={formData.phone}
                             onChange={handleChange}
-                            className={`flex-1 ml-2 ${
+                            className={`flex-1 ml-2 border-zinc-800 text-zinc-300 ${
                               touched.phone && errors.phone
-                                ? "border-red-500"
+                                ? "border-rose-600"
                                 : ""
                             }`}
                             required
                           />
                         </div>
                         {touched.phone && errors.phone && (
-                          <p className="text-red-500 text-sm mt-1 flex items-center">
-                            <AlertCircle size={16} className="mr-1" />
+                          <p className="text-rose-600 font-medium text-xs mt-2 flex items-center">
+                            <AlertCircle size={12} className="mr-1" />
                             {errors.phone}
                           </p>
                         )}
@@ -291,21 +301,27 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                   <motion.div
                     key="step2"
                     variants={contentVariants}
+                    className="py-4"
                     initial="hidden"
                     animate="visible"
                     exit="exit"
                   >
                     <div className="space-y-4">
-                      <Label className="text-gray-700">
-                        O que é mais útil para você?
+                      <Label className="text-base text-zinc-100 font-semibold ">
+                        Quais funcionalidades você mais utilizará?
+                      </Label>
+                      <Label className="text-zinc-400 pb-10">
+                        Selecione as opções que melhor se adequam às suas
+                        necessidades.
                       </Label>
                       {preferences.map((preference) => (
                         <div
                           key={preference.id}
-                          className="flex items-center space-x-2"
+                          className="flex items-center space-x-2 "
                         >
                           <Checkbox
                             id={preference.id}
+                            className="bg-zinc-800 border-none text-white"
                             checked={formData.preferences.includes(
                               preference.id,
                             )}
@@ -315,15 +331,15 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
                           />
                           <label
                             htmlFor={preference.id}
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-gray-700"
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-zinc-100"
                           >
                             {preference.label}
                           </label>
                         </div>
                       ))}
                       {touched.preferences && errors.preferences && (
-                        <p className="text-red-500 text-sm mt-1 flex items-center">
-                          <AlertCircle size={16} className="mr-1" />
+                        <p className="text-rose-500 font-medium text-xs mt-2 flex items-center">
+                          <AlertCircle size={12} className="mr-1" />
                           {errors.preferences}
                         </p>
                       )}
@@ -333,16 +349,28 @@ export function ModalForm({ isOpen, onClose }: ModalFormProps) {
               </AnimatePresence>
               <div className="flex justify-between pt-4">
                 {step === 2 && (
-                  <Button type="button" onClick={prevStep} variant="outline">
+                  <Button
+                    type="button"
+                    onClick={prevStep}
+                    variant="outline"
+                    className="bg-red-600 border-none text-white hover:bg-red-600/90 hover:text-white/80"
+                  >
                     Voltar
                   </Button>
                 )}
                 {step === 1 ? (
-                  <Button type="button" onClick={nextStep} className="ml-auto">
+                  <Button
+                    type="button"
+                    onClick={nextStep}
+                    className="ml-auto bg-white text-black border-none hover:bg-white/90 hover:text-black/80"
+                  >
                     Prosseguir
                   </Button>
                 ) : (
-                  <Button type="submit" className="ml-auto">
+                  <Button
+                    type="submit"
+                    className="ml-auto bg-white text-black border-none hover:bg-white/90 hover:text-black/80"
+                  >
                     Concluir
                   </Button>
                 )}
