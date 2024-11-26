@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "@/components/footer/footer";
 import { Button } from "@/components/ui/button";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -261,7 +261,7 @@ function BlackNovember({ openModal }: { openModal: () => void }) {
     seconds: 21,
   });
 
-  useState(() => {
+  useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => {
         if (prev.seconds > 0) {
