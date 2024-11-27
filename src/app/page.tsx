@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Footer from "@/components/footer/footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Macbook from "@/assets/macbook.png";
 import Image from "next/image";
 import {
+  ArrowDown,
   ArrowRight,
   ChevronDown,
   LayoutGrid,
@@ -14,288 +13,309 @@ import {
   Play,
   Settings,
 } from "lucide-react";
-import NotePrivate from "@/assets/note-private.png";
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
-import Hand from "@/assets/hand.png";
-import cell from "@/assets/cell.png";
-import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: "easeOut" },
-};
+import Widget from "@/assets/hand.png";
+import CommunityPhoto from "@/assets/cell.png";
+import { useState, useEffect } from "react";
+import Carousel from "@/components/carousel/carousel";
 
 export default function Home() {
   return (
-    <motion.div
-      className="relative h-screen bg-black font-inter"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="relative h-screen bg-black font-inter">
       <GoogleAnalytics gaId="G-FXZJ4HXH96" />
+      <Header />
 
-      <motion.main className="flex flex-col relative z-10">
-        <motion.section
-          id="hero"
-          className="pt-10 px-6 text-center"
-          initial="initial"
-          animate="animate"
-          variants={{
-            animate: {
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
-        >
-          <motion.div
-            className="flex flex-col justify-between"
-            variants={fadeInUp}
-          >
-            <div className="flex flex-col">
-              <motion.h1
-                className="text-white text-3xl font-bold md:text-5xl"
-                variants={fadeInUp}
-              >
-                Organize-se e produza{" "}
-                <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text">
-                  mais
-                </span>
-              </motion.h1>
-              <motion.h3
-                className="text-zinc-300/90 text-base text-center pt-3 font-medium md:text-xl"
-                variants={fadeInUp}
-              >
-                Seu novo planejamento totalmente personalizado está a um clique
-                de distância.
-              </motion.h3>
-              <motion.div
-                className="flex justify-center items-center pt-6"
-                variants={fadeInUp}
-              >
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
-                >
-                  <span className="px-8 flex items-center gap-3">
-                    Participe da pré-venda
-                    <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
-                  </span>
-                </motion.button>
-              </motion.div>
-              <motion.div
-                className="flex justify-center items-center relative pt-14"
-                variants={fadeInUp}
-              >
-                <Image
-                  src={Macbook}
-                  alt="MacBook"
-                  width={400}
-                  height={400}
-                  className="object-contain relative"
-                  priority
-                />
-              </motion.div>
-            </div>
-          </motion.div>
-          <motion.div
-            className="text-2xl text-white pt-16 font-semibold px-2 md:text-4xl"
-            variants={fadeInUp}
-          >
-            Faça como empresas líderes do mercado organize usando o{" "}
-            <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text">
-              Notion
-            </span>
-          </motion.div>
-          <motion.div
-            className="text-sm text-zinc-400/90 font-medium px-4 pt-4 md:text-lg"
-            variants={fadeInUp}
-          >
-            O nosso template facilita o controle da sua produtividade e
-            organização.{" "}
-          </motion.div>
-          <motion.div
-            className="flex items-center text-center justify-center gap-5 pt-4"
-            variants={fadeInUp}
-          >
-            <NetflixIcon />
-            <DiscordIcon />
-            <FigmaIcon />
-          </motion.div>
-          <motion.div
-            className="flex flex-col justify-center items-center relative pt-32 pb-20"
-            variants={fadeInUp}
-          >
-            <Image
-              src={Hand}
-              alt="MacBook"
-              width={300}
-              height={400}
-              className="object-contain relative "
-              priority
+      <main className="flex flex-col relative z-10">
+        <section id="hero" className="pt-10 px-2 text-center">
+          <div className="flex flex-col justify-between">
+            <HeroHeader
+              title="Organize-se e aumente a produtividade."
+              subtitle="Seu novo planejamento totalmente personalizado está a um clique
+                de distância."
             />
-            <motion.h3
-              className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-3 z-0 md:text-3xl"
-              variants={fadeInUp}
-            >
-              Widgets
-            </motion.h3>
-            <motion.h1
-              className="text-2xl text-white pt-2 font-semibold px-1 md:text-4xl"
-              variants={fadeInUp}
-            >
-              Tudo ao na palma da sua mão!
-            </motion.h1>
-            <motion.p
-              className="text-zinc-400/90 px-3 pt-3 text-sm md:text-lg"
-              variants={fadeInUp}
-            >
-              Acesse tudo de forma rápida e organizada com widgets inteligentes.
-            </motion.p>
-            <motion.div
-              className="flex justify-center items-center pt-8 pb-10"
-              variants={fadeInUp}
-            >
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
-              >
-                <span className="px-8 flex items-center gap-3">
-                  Participe da pré-venda
-                  <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
-                </span>
-              </motion.button>
-            </motion.div>
-          </motion.div>
-          <WhatsappPromo />
-          <motion.div className="flex flex-col pt-32" variants={fadeInUp}>
-            <motion.h3
-              className="bg-gradient-to-l from-zinc-500 to-zinc-50 text-transparent bg-clip-text text-lg font-semibold"
-              variants={fadeInUp}
-            >
-              Note Private
-            </motion.h3>
-            <motion.h1
-              className="text-white text-3xl font-semibold"
-              variants={fadeInUp}
-            >
-              Mate sua curiosidade.
-            </motion.h1>
-            <motion.p
-              className="text-zinc-400/90 text-base pt-4 px-1"
-              variants={fadeInUp}
-            >
-              Inspire-se nos exemplos do template pré-configuradas que deixamos
-              criados para você.
-            </motion.p>
-            <motion.div
-              className="flex justify-center items-center relative pt-10 px-4"
-              variants={fadeInUp}
-            >
-              <Image
-                src={NotePrivate}
-                alt="MacBook"
-                width={400}
-                height={400}
-                className="object-contain relative rounded-[12px]"
-                priority
-              />
-            </motion.div>
-            <motion.div
-              className="flex justify-center items-center pt-8 pb-10"
-              variants={fadeInUp}
-            >
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 border border-zinc-800 w-auto h-14 rounded-full text-base text-white"
-              >
-                <span className="px-8 flex items-center gap-3">
-                  Participe da pré-venda
-                  <ArrowRight size={14} strokeWidth={2.5} className="mr-1" />
-                </span>
-              </motion.button>
-            </motion.div>
-            <BlackNovember />
-          </motion.div>
-        </motion.section>
-      </motion.main>
+          </div>
+        </section>
+        <section id="brands" className="px-2 text-center">
+          <div className="flex flex-col justify-between">
+            <Brands
+              title="Faça como as grandes empresas do mercado utilizando Notion."
+              subtitle="Com o nosso template, manter sua produtividade e organização nunca foi tão fácil!"
+            />
+          </div>
+        </section>
+        <div className="py-3 mt-12 mb-8 bg-zinc-900 border-t border-b border-zinc-800 items-center text-zinc-200 justify-center text-center text-xs flex gap-2">
+          Aproveite as condições da pré-venda
+          <ArrowDown size={10} className="text-zinc-600" strokeWidth={4} />
+        </div>
+        <section id="widgets" className="px-2 text-center pt-10">
+          <div className="flex flex-col justify-between">
+            <Widgets
+              title="Tudo ao na palma da sua mão!"
+              subtitle="Acesse tudo de forma rápida e organizada com widgets inteligentes."
+            />
+          </div>
+        </section>
+        <section id="community" className="px-10 pt-6 text-center">
+          <div className="flex flex-col justify-between">
+            <Community
+              hashtag="DesafioPlanning"
+              title="Um grupo exclusivo para quem adquirir pré-venda"
+              subtitle="Faça parte da nossa comunidade e acompanhe novidades e desafios exclusivos para Dezembro!"
+            />
+          </div>
+        </section>
+        <section id="template" className="px-4 pt-24 text-center">
+          <div className="flex flex-col justify-between">
+            <TemplateSection
+              title="Mate sua curiosidade"
+              subtitle="Inspire-se nos exemplos do template pré-configuradas que deixamos
+              criados para você."
+            />
+            <div className="text-center pt-16">
+              <Carousel />
+            </div>
+          </div>
+        </section>
+        <section id="december" className="px-6 pt-12 text-center">
+          <div className="flex flex-col justify-between">
+            <December />
+          </div>
+        </section>
+        <section id="suporte" className=" pt-20 text-center">
+          <div className="flex flex-col justify-between">
+            <WhatsAppCTA />
+          </div>
+        </section>
+      </main>
       <Footer />
-    </motion.div>
+    </div>
   );
 }
+type TimeLeft2 = {
+  dias?: number;
+};
 
-function WhatsappPromo() {
+function Header() {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft2>(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  });
+
+  function calculateTimeLeft(): TimeLeft2 {
+    const difference = +new Date("2024-12-05") - +new Date();
+    let timeLeft: TimeLeft2 = {};
+
+    if (difference > 0) {
+      timeLeft = {
+        dias: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      };
+    }
+    return timeLeft;
+  }
+
+  const timerComponents = Object.keys(timeLeft).map((interval) => {
+    if (!timeLeft[interval as keyof TimeLeft2]) {
+      return null;
+    }
+
+    return (
+      <span key={interval}>
+        {timeLeft[interval as keyof TimeLeft2]} {interval}{" "}
+      </span>
+    );
+  });
+
   return (
-    <motion.div
-      className="py-4 bg-black px-2 relative pb-10"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="max-w-md mx-auto relative">
-        <Card className="bg-zinc-900/70 border-none overflow-visible relative h-[633px] rounded-[30px]">
-          <CardContent className="p-5 mt-4">
-            <motion.span
-              className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text font-semibold text-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              #DesafioPlanning
-            </motion.span>
-
-            <motion.h2
-              className="text-2xl text-white font-bold mt-7 px-2"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              Um grupo{" "}
-              <span className="bg-gradient-to-l from-zinc-300 to-zinc-500 text-transparent bg-clip-text">
-                exclusivo{" "}
-              </span>
-              para quem adquirir pré-venda!
-            </motion.h2>
-
-            <motion.p
-              className="text-zinc-400/90 text-xs mt-3"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-            >
-              Faça parte da nossa comunidade e acompanhe novidades e desafios
-              exclusivos para Dezembro!
-            </motion.p>
-            <motion.div
-              className="pt-20 relative"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
-              <Image
-                src={cell}
-                alt="WhatsApp chat preview"
-                width={300}
-                height={400}
-                className="rounded-2xl mx-auto shadow-lg absolute left-0 w-full"
-                priority
-              />
-            </motion.div>
-          </CardContent>
-        </Card>
-      </div>
-    </motion.div>
+    <div className="h-10 bg-neutral-200 mb-4 items-center justify-center text-center pt-2 text-sm ">
+      {timerComponents.length ? (
+        <span className="font-semibold">
+          Falta pouco! A <span className="font-bold">pré-venda</span> começa em{" "}
+          <span className="font-bold">{timerComponents}</span>
+        </span>
+      ) : (
+        <span className="">Time's up!</span>
+      )}
+    </div>
   );
 }
 
+interface TemplateProps {
+  title: string;
+  subtitle: string;
+}
+
+function TemplateSection({ title, subtitle }: TemplateProps) {
+  return (
+    <div className="flex flex-col gap-2.5 pt-8">
+      <h1 className="text-3xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+        {title}
+      </h1>
+      <h3 className="text-sm text-neutral-400/90 font-medium px-5 tracking-tighter">
+        {subtitle}
+      </h3>
+
+      <div className="flex items-center text-center justify-center ">
+        <ButtonPrimary />
+      </div>
+    </div>
+  );
+}
+
+interface HeroHeaderProps {
+  title: string;
+  subtitle: string;
+}
+
+function HeroHeader({ title, subtitle }: HeroHeaderProps) {
+  return (
+    <div className="flex flex-col gap-3">
+      <h1 className="text-4xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+        {title}
+      </h1>
+      <h3 className="text-base text-neutral-400/90 font-medium px-5 tracking-tighter">
+        {subtitle}
+      </h3>
+      <ButtonPrimary />
+      <div className="flex justify-center items-center relative py-10 px-6">
+        <Image
+          src={Macbook}
+          alt="MacBook"
+          width={400}
+          height={400}
+          className="object-contain relative"
+          priority
+        />
+      </div>
+    </div>
+  );
+}
+
+interface BrandsProps {
+  title: string;
+  subtitle: string;
+}
+
+function Brands({ title, subtitle }: BrandsProps) {
+  return (
+    <div className="flex flex-col gap-2.5 pt-8">
+      <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+        {title}
+      </h1>
+      <h3 className="text-sm text-neutral-400/90 font-medium px-5 tracking-tighter">
+        {subtitle}
+      </h3>
+      <div className="flex items-center text-center justify-center gap-5 pt-2">
+        <NetflixIcon />
+        <DiscordIcon />
+        <FigmaIcon />
+      </div>
+    </div>
+  );
+}
+
+interface AboutProps {
+  title: string;
+  subtitle: string;
+}
+
+function About({ title, subtitle }: AboutProps) {
+  return (
+    <div className="flex flex-col gap-2.5 pt-8">
+      <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+        {title}
+      </h1>
+      <h3 className="text-sm text-neutral-400/90 font-medium px-5 tracking-tighter">
+        {subtitle}
+      </h3>
+      <div className="flex items-center text-center justify-center ">
+        <Carousel />
+      </div>
+    </div>
+  );
+}
+
+interface WidgetsProps {
+  title: string;
+  subtitle: string;
+}
+
+function Widgets({ title, subtitle }: WidgetsProps) {
+  return (
+    <div className="flex flex-col gap-2.5 pt-4 relative">
+      <Image
+        src={Widget}
+        alt="Widget"
+        width={300}
+        height={400}
+        className="object-contain relative ml-12"
+        priority
+      />
+      <h3 className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-3 z-0 md:text-3xl">
+        Widgets
+      </h3>
+      <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+        {title}
+      </h1>
+      <h3 className="text-sm text-neutral-400/90 font-medium px-5 tracking-tighter">
+        {subtitle}
+      </h3>
+      <div className="pb-20">
+        <ButtonPrimary />
+      </div>
+    </div>
+  );
+}
+
+interface CommunityProps {
+  hashtag: string;
+  title: string;
+  subtitle: string;
+}
+
+function Community({ hashtag, subtitle, title }: CommunityProps) {
+  return (
+    <div className="bg-neutral-900/70 w-auto flex flex-col rounded-[50px]">
+      <div className="flex flex-col justify-center text-center py-4 gap-4">
+        <h4 className="pt-4 text-sm bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tight">
+          #{hashtag}
+        </h4>
+        <div className="px-4 pt-2">
+          <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+            {title}!
+          </h1>
+          <h3 className="text-xs text-neutral-400/90 font-medium pt-4 tracking-tighter">
+            {subtitle}
+          </h3>
+        </div>
+      </div>
+      <div className="mt-auto pt-10">
+        <Image
+          src={CommunityPhoto}
+          alt="Community"
+          width={260}
+          height={0}
+          className="rounded-b-[14px] mx-auto shadow-lg"
+          priority
+        />
+      </div>
+    </div>
+  );
+}
+
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
 const plans = [
   {
     name: "Note Private",
@@ -325,15 +345,7 @@ const plans = [
   },
 ];
 
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
-
-function BlackNovember() {
-  const [hoveredPlan, setHoveredPlan] = useState<string | null>(null);
+function December() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 25,
     hours: 4,
@@ -367,21 +379,13 @@ function BlackNovember() {
   }, []);
 
   return (
-    <motion.div
-      className="min-h-screen bg-black text-white py-12 px-4 pt-28"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-    >
+    <div className=" bg-black text-white py-12 px-1">
       <div className="max-w-2xl mx-auto space-y-12">
-        <motion.div
-          className="text-center justify-center space-y-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        <div className="text-center justify-center space-y-2">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
-            <span className="mx-6 text-white">DEZEMBER</span>
+            <span className="mx-6 bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text">
+              DECEMBER
+            </span>
           </h1>
           <p className="text-zinc-300 text-sm md:text-base pt-10">
             CONDIÇÃO ESPECIAL SOMENTE PARA{" "}
@@ -391,60 +395,35 @@ function BlackNovember() {
             <p className="flex-1">
               Essa condição terá uma duração até o dia{" "}
               <span className="font-semibold text-zinc-300 ">
-                30 de Dezembro de 2024
+                11 de Dezembro de 2024
               </span>
               !
             </p>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="grid grid-cols-4 text-center px-8 md:px-40"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
+        <div className="grid grid-cols-4 text-center px-6 md:px-40">
           {[
             { value: timeLeft.days, label: "Dias" },
             { value: timeLeft.hours, label: "Horas" },
             { value: timeLeft.minutes, label: "Minutos" },
             { value: timeLeft.seconds, label: "Segundos" },
           ].map((item, index) => (
-            <motion.div
-              key={index}
-              className="space-y-2"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 * index }}
-            >
+            <motion.div key={index} className="space-y-2">
               <div className="text-3xl md:text-4xl font-bold">
                 {String(item.value).padStart(2, "0")}
               </div>
               <div className="text-sm text-neutral-400">{item.label}</div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="grid grid-cols-1 md:px-40 py-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          {plans.map((plan, index) => (
-            <motion.div
-              key={plan.name}
-              className="relative"
-              transition={{ duration: 0.1 }}
-            >
-              <div
-                className={`h-full bg-zinc-900/50 rounded-[10px] px-6 py-6 border-2 ${
-                  plan.name === "Note Private"
-                    ? "border-zinc-900/85"
-                    : "border-zinc-950"
-                } transition-all duration-300`}
-                onMouseEnter={() => setHoveredPlan(plan.name)}
-                onMouseLeave={() => setHoveredPlan(null)}
+        <div className="grid grid-cols-1 md:px-40 py-2">
+          {plans.map((plan) => (
+            <div key={plan.name} className="relative">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                className="h-full bg-zinc-900 rounded-[10px] px-6 py-6 transition-all duration-300 shadow-xl shadow-zinc-900/50"
               >
                 <h3 className="gap-3 flex text-2xl font-semibold text-white mb-2 text-start items-center">
                   {plan.name}
@@ -464,43 +443,30 @@ function BlackNovember() {
                   {plan.features.map((feature, idx) => (
                     <motion.li
                       key={idx}
-                      className="flex items-center text-[#A1A1A1] text-sm"
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.1 * idx }}
+                      className="flex items-center text-[#A1A1A1] text-xs"
                     >
-                      <feature.icon className="w-4 h-4 text-white mr-3" />
+                      <feature.icon className="w-4 h-4 text-green-500 mr-3" />
                       {feature.titulo}
                     </motion.li>
                   ))}
                 </ul>
                 <div className="pt-2 flex flex-col text-2xl font-bold text-white mb-2 text-center justify-center items-center">
-                  <h1>10x de R$ 12,79</h1>
-                  <h1 className="text-sm pt-1 text-zinc-400 font-normal">
-                    Ou <span className="font-bold">R$ 96,99</span> no{" "}
-                    <span className="font-bold">PIX</span>.
+                  <h1 className="text-xs font-normal text-zinc-300 pb-1">
+                    De{" "}
+                    <span className="line-through font-medium">R$ 220,99</span>,
+                    por apenas:
+                  </h1>
+                  <h1 className="text-2xl">10x de R$ 12,79</h1>
+                  <h1 className="text-base text-green-500 font-normal">
+                    Ou R$ 97,90 à vista.
                   </h1>
                 </div>
-              </div>
-              {hoveredPlan === plan.name && (
-                <motion.div
-                  className="absolute inset-0 -z-10 bg-zinc-300 rounded-2xl opacity-20 blur-xl"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.2 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-              )}
-            </motion.div>
+              </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="text-center space-y-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
+        <div className="text-center space-y-6">
           <p className="text-sm text-[#A1A1A1]">
             Entre na página de vendas clicando no botão abaixo, garanta seu
             template.
@@ -508,15 +474,102 @@ function BlackNovember() {
           <div className="flex justify-center items-center text-center w-full ">
             <motion.button
               whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 1.1 }}
+              whileInView={{ opacity: 1 }}
               className="bg-white text-black font-semibold hover:bg-white/95 px-8 py-4 rounded-full h-12 flex items-center text-center gap-2 text-sm"
             >
               QUERO APROVEITAR A CONDIÇÃO
               <ArrowRight size={14} />
             </motion.button>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.div>
+    </div>
+  );
+}
+
+function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  return (
+    <footer className="bg-black border-t border-t-zinc-800 text-white">
+      <div className="container mx-auto px-4 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-3">
+          <div className="text-center md:text-left">
+            <h2 className="font-bold tracking-tight text-xl mb-1">
+              Note Planning
+            </h2>
+            <p className="text-zinc-400 text-sm">
+              Organize suas ideias, planeje seu futuro.
+            </p>
+          </div>
+        </div>
+        <div className="mt-6 pt-4 border-t border-t-zinc-800 text-center text-zinc-400 text-sm">
+          Copyright © {new Date().getFullYear()} Todos os direitos reservados -
+          Note Planning.
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function WhatsAppCTA() {
+  return (
+    <div className="bg-gradient-to-tr from-green-600 via-green-600 to-green-700  flex flex-col items-center text-center space-y-6 max-w-md mx-auto pb-14">
+      <div className="bg-green-500 rounded-full p-4 shadow-2xl inline-block mt-10">
+        <svg
+          className="w-16 h-16 text-white px-0.5"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      </div>
+
+      {/* Text Content */}
+      <div className="text-white space-y-3 pt-4 px-8">
+        <h2 className="text-2xl font-bold">Ainda está com dúvida?</h2>
+        <p className="text-zinc-200 font-medium text-sm ">
+          Fique em paz! Clique no botão abaixo para falar com um consultor do
+          nosso time. Estamos prontos e ansiosos para te atender.
+        </p>
+      </div>
+
+      <div className="flex justify-center items-center pt-4">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 1.1 }}
+          whileInView={{ opacity: 1 }}
+          onClick={() => window.open("https://wa.me/19993356780", "_blank")}
+          className="bg-gradient-to-tl from-green-900 via-green-800 to-green-900 rounded-full h-14 flex items-center gap-3 px-8 shadow-xl shadow-green-800"
+        >
+          <span className="bg-white bg-clip-text text-transparent font-semibold text-base">
+            Quero falar com um especialista
+          </span>
+          <ArrowRight size={16} className="text-green-600" strokeWidth={3} />
+        </motion.button>
+      </div>
+    </div>
+  );
+}
+
+function ButtonPrimary() {
+  return (
+    <div className="flex justify-center items-center pt-4">
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 1.1 }}
+        whileInView={{ opacity: 1 }}
+        className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 rounded-full h-14 flex items-center gap-3 px-8 shadow-xl shadow-zinc-600/15"
+      >
+        <span className="bg-white bg-clip-text text-transparent font-semibold text-base">
+          Quero organizar minha vida
+        </span>
+        <ArrowRight size={16} className="text-zinc-400" strokeWidth={3} />
+      </motion.button>
+    </div>
   );
 }
