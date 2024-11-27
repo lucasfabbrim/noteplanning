@@ -74,7 +74,7 @@ export default function Home() {
             />
           </div>
         </section>
-        <section id="template" className="px-6 pt-14 text-center mb-28">
+        <section id="template" className="px-4 pt-24 text-center">
           <div className="flex flex-col justify-between">
             <TemplateSection
               title="Mate sua curiosidade"

@@ -16,7 +16,7 @@ const images = [Photo4, Photo1, Photo3, Photo2];
 
 export default function Carousel() {
   return (
-    <div className="max-w-sm  mx-auto bg-black">
+    <div className="max-w-lg  mx-auto bg-black">
       <Swiper
         pagination={{
           clickable: true,
@@ -27,15 +27,14 @@ export default function Carousel() {
         className="swiper "
       >
         {images.map((image, index) => (
-          <SwiperSlide key={index} className="pb-6">
+          <SwiperSlide key={index} className="pb-10">
             <div className="w-full h-[300px] relative ">
               <Image
                 src={image}
                 alt={`Post image ${index + 1}`}
                 fill
-                className="object-cover rounded-[10px]"
+                className="object-cover rounded-[2px]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/10" />
             </div>
           </SwiperSlide>
         ))}
