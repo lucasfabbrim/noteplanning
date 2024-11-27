@@ -6,13 +6,18 @@ import Image from "next/image";
 import {
   ArrowDown,
   ArrowRight,
+  ArrowUp,
+  ArrowUpCircle,
   ChevronDown,
+  Facebook,
   Instagram,
   LayoutGrid,
   NotebookPen,
   PenLine,
   Play,
   Settings,
+  Twitter,
+  Youtube,
 } from "lucide-react";
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
@@ -21,6 +26,7 @@ import { motion } from "framer-motion";
 import Widget from "@/assets/hand.png";
 import CommunityPhoto from "@/assets/cell.png";
 import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -429,28 +435,52 @@ function December() {
 }
 
 function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="px-4 py-2 border-t border-t-zinc-900">
-      <div className="flex flex-col justify-between text-center">
-        <div className="flex flex-col gap-2 py-4">
-          <h1 className="text-white font-bold text-sm">Links</h1>
-          <ul className="text-zinc-400 gap-0.5 text-xs">
-            <li>Central de Ajuda</li>
-            <li>Canal de Ideias</li>
-          </ul>
-          <h1 className="text-white pt-4 font-bold text-xs">
-            Siga o Note Planning!
-          </h1>
-          <ul className="text-zinc-400 gap-2 flex text-center justify-center items-center pt-1">
-            <li>
-              <Instagram size={12} />
-            </li>
-          </ul>
-          <div className="items-center text-center">
-            <p className="font-semibold text-xs text-white pt-4">
-              Copyright © 2024 Todos os direitos reservados - Note Planning.
+    <footer className="bg-zinc-900 border-t border-t-zinc-800 text-white">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="text-center md:text-left">
+            <h2 className="font-bold tracking-tight text-2xl mb-4">
+              Note Planning
+            </h2>
+            <p className="text-zinc-400 mb-4">
+              Organize suas ideias, planeje seu futuro.
             </p>
+            <div className="flex justify-center md:justify-start space-x-4">
+              <a href="#" className="hover:text-primary transition-colors">
+                <Instagram size={20} />
+              </a>
+              <a href="#" className="hover:text-primary transition-colors">
+                <Twitter size={20} />
+              </a>
+              <a href="#" className="hover:text-primary transition-colors">
+                <Facebook size={20} />
+              </a>
+            </div>
           </div>
+          <div className="text-center md:text-left">
+            <h3 className="font-semibold text-lg mb-4">Links Rápidos</h3>
+            <ul className=" text-zinc-400">
+              <li>
+                <a href="#" className="hover:text-primary transition-colors">
+                  Início
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-primary transition-colors">
+                  Sobre Nós
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="mt-8 pt-8 border-t border-t-zinc-800 text-center text-zinc-400 text-sm">
+          Copyright © {new Date().getFullYear()} Todos os direitos reservados -
+          Note Planning.
         </div>
       </div>
     </footer>
