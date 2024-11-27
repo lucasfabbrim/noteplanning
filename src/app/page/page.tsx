@@ -524,7 +524,7 @@ function Footer() {
 
 function WhatsAppCTA() {
   return (
-    <div className="bg-gradient-to-tr from-green-600 via-green-600 to-green-700  flex flex-col items-center text-center space-y-6 max-w-md mx-auto pb-8">
+    <div className="bg-gradient-to-tr from-green-600 via-green-600 to-green-700  flex flex-col items-center text-center space-y-6 max-w-md mx-auto pb-14">
       <div className="bg-green-500 rounded-full p-4 shadow-2xl inline-block mt-10">
         <svg
           className="w-16 h-16 text-white px-0.5"
