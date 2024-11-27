@@ -384,7 +384,7 @@ function December() {
         <div className="text-center justify-center space-y-2">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
             <span className="mx-6 bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text">
-              DECEMBER
+              PRÉ-VENDA
             </span>
           </h1>
           <p className="text-zinc-300 text-sm md:text-base pt-10">
@@ -496,8 +496,8 @@ function Footer() {
   return (
     <footer className="bg-black border-t border-t-zinc-800 text-white">
       <div className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3">
-          <div className="text-center md:text-left">
+        <div className="grid grid-cols-1">
+          <div className="text-center">
             <h2 className="font-bold tracking-tight text-xl mb-1">
               Note Planning
             </h2>
@@ -517,7 +517,7 @@ function Footer() {
 
 function WhatsAppCTA() {
   return (
-    <div className="bg-gradient-to-tr from-green-600 via-green-600 to-green-700  flex flex-col items-center text-center space-y-6 max-w-md mx-auto pb-14">
+    <div className="bg-gradient-to-tr from-green-600 via-green-600 to-green-700  flex flex-col items-center text-center space-y-6 w-full mx-auto pb-14">
       <div className="bg-green-500 rounded-full p-4 shadow-2xl inline-block mt-10">
         <svg
           className="w-16 h-16 text-white px-0.5"
