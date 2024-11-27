@@ -26,6 +26,7 @@ export default function Home() {
   return (
     <div className="relative h-screen bg-black font-inter">
       <GoogleAnalytics gaId="G-FXZJ4HXH96" />
+      <Header />
 
       <main className="flex flex-col relative z-10">
         <section id="hero" className="pt-10 px-2 text-center">
@@ -66,13 +67,65 @@ export default function Home() {
             />
           </div>
         </section>
-        <section id="dezember" className="px-6 pt-20 text-center">
+        <section id="december" className="px-6 pt-20 text-center">
           <div className="flex flex-col justify-between">
-            <Dezember />
+            <December />
           </div>
         </section>
       </main>
       <Footer />
+    </div>
+  );
+}
+type TimeLeft2 = {
+  dias?: number;
+};
+
+function Header() {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft2>(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  });
+
+  function calculateTimeLeft(): TimeLeft2 {
+    const difference = +new Date("2024-12-05") - +new Date();
+    let timeLeft: TimeLeft2 = {};
+
+    if (difference > 0) {
+      timeLeft = {
+        dias: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      };
+    }
+    return timeLeft;
+  }
+
+  const timerComponents = Object.keys(timeLeft).map((interval) => {
+    if (!timeLeft[interval as keyof TimeLeft2]) {
+      return null;
+    }
+
+    return (
+      <span key={interval}>
+        {timeLeft[interval as keyof TimeLeft2]} {interval}{" "}
+      </span>
+    );
+  });
+
+  return (
+    <div className="h-10 bg-neutral-200 mb-4 items-center justify-center text-center pt-2 text-sm ">
+      {timerComponents.length ? (
+        <span className="font-semibold">
+          Falta pouco! A <span className="font-bold">pré-venda</span> começa em{" "}
+          <span className="font-bold">{timerComponents}</span>
+        </span>
+      ) : (
+        <span className="">Time's up!</span>
+      )}
     </div>
   );
 }
@@ -232,7 +285,7 @@ const plans = [
   },
 ];
 
-function Dezember() {
+function December() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 25,
     hours: 4,
@@ -271,7 +324,7 @@ function Dezember() {
         <div className="text-center justify-center space-y-2">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
             <span className="mx-6 bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text">
-              DEZEMBER
+              DECEMBER
             </span>
           </h1>
           <p className="text-zinc-300 text-sm md:text-base pt-10">
@@ -383,7 +436,6 @@ function Footer() {
           <h1 className="text-white font-bold text-sm">Links</h1>
           <ul className="text-zinc-400 gap-0.5 text-xs">
             <li>Central de Ajuda</li>
-            <span className="hidden md:block">|</span>
             <li>Canal de Ideias</li>
           </ul>
           <h1 className="text-white pt-4 font-bold text-xs">
