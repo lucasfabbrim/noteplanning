@@ -440,38 +440,44 @@ function Footer() {
   };
 
   return (
-    <footer className="bg-zinc-900 border-t border-t-zinc-800 text-white">
+    <footer className="bg-black border-t border-t-zinc-800 text-white">
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center md:text-left">
-            <h2 className="font-bold tracking-tight text-2xl mb-4">
+            <h2 className="font-bold tracking-tight text-xl mb-1">
               Note Planning
             </h2>
-            <p className="text-zinc-400 mb-4">
+            <p className="text-zinc-400 mb-4 text-sm">
               Organize suas ideias, planeje seu futuro.
             </p>
             <div className="flex justify-center md:justify-start space-x-4">
-              <a href="#" className="hover:text-primary transition-colors">
-                <Instagram size={20} />
+              <a href="#" className="hover:text-white/90 transition-colors">
+                <Instagram size={16} />
               </a>
-              <a href="#" className="hover:text-primary transition-colors">
-                <Twitter size={20} />
+              <a href="#" className="hover:text-white/90 transition-colors">
+                <Twitter size={16} />
               </a>
-              <a href="#" className="hover:text-primary transition-colors">
-                <Facebook size={20} />
+              <a href="#" className="hover:text-white/90 transition-colors">
+                <Facebook size={16} />
               </a>
             </div>
           </div>
-          <div className="text-center md:text-left">
-            <h3 className="font-semibold text-lg mb-4">Links Rápidos</h3>
+          <div className="text-center md:text-left pt-4">
+            <h3 className="font-semibold text-base mb-2">Links Rápidos</h3>
             <ul className=" text-zinc-400">
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a
+                  href="#"
+                  className="hover:text-zinc-400/85 transition-colors"
+                >
                   Início
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors">
+                <a
+                  href="#"
+                  className="hover:text-zinc-400/85 transition-colors"
+                >
                   Sobre Nós
                 </a>
               </li>
