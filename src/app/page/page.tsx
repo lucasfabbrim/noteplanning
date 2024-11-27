@@ -86,7 +86,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="december" className="px-6 pt-20 text-center">
+        <section id="december" className="px-6 pt-12 text-center">
           <div className="flex flex-col justify-between">
             <December />
           </div>
