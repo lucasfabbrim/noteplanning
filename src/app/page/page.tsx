@@ -27,6 +27,7 @@ import Widget from "@/assets/hand.png";
 import CommunityPhoto from "@/assets/cell.png";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import Carousel from "@/components/carousel/carousel";
 
 export default function Home() {
   return (
@@ -71,6 +72,18 @@ export default function Home() {
               title="Um grupo exclusivo para quem adquirir pré-venda"
               subtitle="Faça parte da nossa comunidade e acompanhe novidades e desafios exclusivos para Dezembro!"
             />
+          </div>
+        </section>
+        <section id="template" className="px-6 pt-14 text-center mb-28">
+          <div className="flex flex-col justify-between">
+            <TemplateSection
+              title="Mate sua curiosidade"
+              subtitle="Inspire-se nos exemplos do template pré-configuradas que deixamos
+              criados para você."
+            />
+            <div className="text-center pt-16">
+              <Carousel />
+            </div>
           </div>
         </section>
         <section id="december" className="px-6 pt-20 text-center">
@@ -136,6 +149,28 @@ function Header() {
   );
 }
 
+interface TemplateProps {
+  title: string;
+  subtitle: string;
+}
+
+function TemplateSection({ title, subtitle }: TemplateProps) {
+  return (
+    <div className="flex flex-col gap-2.5 pt-8">
+      <h1 className="text-3xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+        {title}
+      </h1>
+      <h3 className="text-sm text-neutral-400/90 font-medium px-5 tracking-tighter">
+        {subtitle}
+      </h3>
+
+      <div className="flex items-center text-center justify-center ">
+        <ButtonPrimary />
+      </div>
+    </div>
+  );
+}
+
 interface HeroHeaderProps {
   title: string;
   subtitle: string;
@@ -183,6 +218,27 @@ function Brands({ title, subtitle }: BrandsProps) {
         <NetflixIcon />
         <DiscordIcon />
         <FigmaIcon />
+      </div>
+    </div>
+  );
+}
+
+interface AboutProps {
+  title: string;
+  subtitle: string;
+}
+
+function About({ title, subtitle }: AboutProps) {
+  return (
+    <div className="flex flex-col gap-2.5 pt-8">
+      <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+        {title}
+      </h1>
+      <h3 className="text-sm text-neutral-400/90 font-medium px-5 tracking-tighter">
+        {subtitle}
+      </h3>
+      <div className="flex items-center text-center justify-center ">
+        <Carousel />
       </div>
     </div>
   );
