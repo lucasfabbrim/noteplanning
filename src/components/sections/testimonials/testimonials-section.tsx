@@ -73,9 +73,9 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="text-white mx-auto py-20 bg-zinc-950">
+    <section id="testimonials" className="text-white mx-auto py-20">
       <div className="flex flex-col items-center text-center justify-center text-white">
-        <div className="items-center border border-black text-white text-xs rounded-[10px] flex ">
+        <div className="items-center border border-zinc-900 text-white text-xs rounded-[10px] flex ">
           <span className="pl-4 py-1 text-zinc-300">Avaliações</span>
           <div className="h-1.5 w-1.5 bg-white rounded-full mx-2.5 shadow-xl shadow-white/30 animate-pulse" />
         </div>
@@ -118,7 +118,7 @@ export default function Testimonials() {
               </div>
             ))}
           </div>
-          <div className="hidden md:flex flex-col gap-10 mt-10 lg:mt-4 justify-center [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+          <div className="hidden md:flex flex-col gap-10 mt-10 lg:mt-8 justify-center [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
             {secondColumn.map(({ text, imageSrc, name, username }) => (
               <div
                 key={username}
