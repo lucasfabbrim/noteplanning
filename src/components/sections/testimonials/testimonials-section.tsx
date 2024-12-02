@@ -91,7 +91,7 @@ export default function Testimonials() {
             {firstColumn.map(({ text, imageSrc, name, username }) => (
               <div
                 key={username}
-                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-900/30 max-w-xs bg-zinc-950"
+                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-900/30 max-w-xs bg-zinc-900/70"
               >
                 <div className="text-zinc-300 italic text-start text-xs">
                   "{text}"
