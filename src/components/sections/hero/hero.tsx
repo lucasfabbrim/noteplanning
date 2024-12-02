@@ -8,12 +8,6 @@ export default function Hero() {
   return (
     <section id="hero" className="text-white mx-auto pt-10 px-1">
       <div className="flex flex-col items-center text-center justify-center text-white">
-        <div className="items-center border border-zinc-800 text-white text-xs rounded-full flex">
-          <div className="h-2 w-2 bg-green-400 rounded-full mx-2.5 shadow-xl shadow-white/30 animate-pulse" />
-          <span className="pr-4 py-1 text-zinc-300">
-            Organização e Produtividade
-          </span>
-        </div>
         <h1 className="pt-6 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-4xl md:text-4xl font-bold flex flex-col">
           Organize-se e aumente a produtividade.
         </h1>
