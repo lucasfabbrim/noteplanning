@@ -19,7 +19,7 @@ export default function ButtonPrimary() {
         whileTap={{ scale: 0.95 }}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
-        className="relative rounded-full h-12 flex items-center gap-3 px-6 shadow-xl overflow-hidden"
+        className="relative rounded-full h-11 flex items-center gap-3 px-6 shadow-xl overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-50 to-zinc-300" />
         <motion.div
