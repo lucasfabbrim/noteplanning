@@ -25,7 +25,7 @@ export default function Hero() {
         </p>
         <ButtonPrimary />
         <div className="flex justify-center items-center relative py-10 px-6">
-          <div className="bg-green-400 absolute inset-0 blur-3xl h-40 w-60 opacity-5 top-16 left-24 animate-pulse" />
+          <div className="bg-green-500 absolute inset-0 blur-3xl h-40 w-52 opacity-5 top-16 left-24 animate-pulse" />
           <Image
             src={Macbook}
             alt="MacBook"
