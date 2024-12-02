@@ -22,6 +22,7 @@ import CommunityPhoto from "@/assets/cell.png";
 import { useState, useEffect } from "react";
 import Carousel from "@/components/carousel/carousel";
 import Testimonials from "@/components/sections/testimonials/testimonials-section";
+import Faqs from "@/components/sections/faqs/faqs";
 
 export default function Home() {
   return (
@@ -86,6 +87,7 @@ export default function Home() {
             <December />
           </div>
         </section>
+        <Faqs />
         <section id="suporte" className=" pt-20 text-center">
           <div className="flex flex-col justify-between">
             <WhatsAppCTA />

@@ -38,7 +38,7 @@ export default function Faqs() {
   return (
     <section
       id="faqs"
-      className="text-white mx-auto py-20 px-1 bg-gradient-to-b from-transparent via-transparent to-zinc-900/30"
+      className="text-white mx-auto pt-20 px-1 bg-gradient-to-b from-transparent via-transparent to-zinc-900/30"
     >
       <div className="flex flex-col items-center text-center justify-center text-white">
         <div className="items-center border border-zinc-600 text-white text-xs rounded-full flex">
