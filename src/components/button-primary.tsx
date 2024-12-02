@@ -42,7 +42,7 @@ export default function ButtonPrimary() {
           transition={transition}
         />
         <motion.span
-          className="relative z-10 font-medium text-base"
+          className="relative z-10 font-medium text-base text-black"
           animate={{ color: isHover ? "#ffffff" : "#000000" }}
           transition={transition}
         >
