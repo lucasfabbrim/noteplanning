@@ -93,7 +93,7 @@ export default function Testimonials() {
                 key={username}
                 className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-900/30 max-w-xs bg-zinc-900/70"
               >
-                <div className="text-zinc-300 italic text-start text-xs">
+                <div className="text-zinc-300 italic text-start text-sm">
                   "{text}"
                 </div>
                 <div className="flex mt-10 gap-3 items-center text-start">
