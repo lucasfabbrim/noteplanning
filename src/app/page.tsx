@@ -59,7 +59,7 @@ export default function Home() {
           </div>
         </section>
         <section id="community" className="px-10 pt-6 text-center">
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col items-center">
             <Community
               hashtag="DesafioPlanning"
               title="Um grupo exclusivo para quem adquirir pré-venda"
@@ -282,29 +282,48 @@ interface CommunityProps {
 
 function Community({ hashtag, subtitle, title }: CommunityProps) {
   return (
-    <div className="bg-neutral-900/70 w-auto flex flex-col rounded-[50px]">
-      <div className="flex flex-col justify-center text-center py-4 gap-4">
-        <h4 className="pt-4 text-sm bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tight">
-          #{hashtag}
-        </h4>
-        <div className="px-4 pt-2">
-          <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
-            {title}!
-          </h1>
-          <h3 className="text-xs text-neutral-400/90 font-medium pt-4 tracking-tighter">
-            {subtitle}
-          </h3>
+    <div className="relative bg-neutral-900/70 w-auto flex flex-col rounded-[50px] max-w-7xl">
+      <div className="relative flex flex-col justify-center text-center py-4 gap-4 md:justify-between md:flex-row md:items-center md:text-start md:px-20 md:gap-20">
+        <div className="md:items-start md:max-w-sm">
+          <div className="px-4 pt-2 md:items-start">
+            <h4 className="pt-4 text-sm bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tight">
+              #{hashtag}
+            </h4>
+            <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
+              {title}!
+            </h1>
+            <h3 className="text-xs text-neutral-400/90 font-medium pt-4 tracking-tighter">
+              {subtitle}
+            </h3>
+            <div className="justify-center items-center pt-8 hidden md:block">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 1.1 }}
+                whileInView={{ opacity: 1 }}
+                className="bg-gradient-to-tl from-zinc-500/50 via-zinc-200/50 to-zinc-500 rounded-full h-14 flex items-center gap-3 px-8 shadow-xl shadow-zinc-600/15"
+              >
+                <span className="bg-white bg-clip-text text-transparent font-semibold text-base">
+                  Quero participar da comunidade
+                </span>
+                <ArrowRight
+                  size={16}
+                  className="text-zinc-400"
+                  strokeWidth={3}
+                />
+              </motion.button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="mt-auto pt-10">
-        <Image
-          src={CommunityPhoto}
-          alt="Community"
-          width={260}
-          height={0}
-          className="rounded-b-[14px] mx-auto shadow-lg"
-          priority
-        />
+        <div className="mt-auto pt-10 md:pl-10 ">
+          <Image
+            src={CommunityPhoto}
+            alt="Community"
+            width={260}
+            height={0}
+            className="rounded-b-[14px] mx-auto shadow-lg"
+            priority
+          />
+        </div>
       </div>
     </div>
   );
