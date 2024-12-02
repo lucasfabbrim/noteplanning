@@ -23,6 +23,9 @@ import { useState, useEffect } from "react";
 import Carousel from "@/components/carousel/carousel";
 import Testimonials from "@/components/sections/testimonials/testimonials-section";
 import Faqs from "@/components/sections/faqs/faqs";
+import Hero from "@/components/sections/hero/hero";
+import Brands from "@/components/sections/brands/brands";
+import ButtonPrimary from "@/components/button-primary";
 
 export default function Home() {
   return (
@@ -31,26 +34,11 @@ export default function Home() {
       <Header />
 
       <main className="flex flex-col relative z-10">
-        <section id="hero" className="pt-10 px-2 text-center">
-          <div className="flex flex-col justify-between">
-            <HeroHeader
-              title="Organize-se e aumente a produtividade."
-              subtitle="Seu novo planejamento totalmente personalizado está a um clique
-                de distância."
-            />
-          </div>
-        </section>
-        <section id="brands" className="px-2 text-center">
-          <div className="flex flex-col justify-between">
-            <Brands
-              title="Faça como as grandes empresas do mercado utilizando Notion."
-              subtitle="Com o nosso template, manter sua produtividade e organização nunca foi tão fácil!"
-            />
-          </div>
-        </section>
+        <Hero />
+        <Brands />
         <div className="py-3 mt-12 mb-8 bg-zinc-900 border-t border-b border-zinc-800 items-center text-zinc-200 justify-center text-center text-xs flex gap-2">
           Aproveite as condições da pré-venda
-          <ArrowDown size={10} className="text-zinc-600" strokeWidth={4} />
+          <ArrowDown size={10} className="text-green-400" strokeWidth={4} />
         </div>
         <section id="widgets" className="px-2 text-center pt-10">
           <div className="flex flex-col justify-between">
@@ -207,7 +195,7 @@ interface BrandsProps {
   subtitle: string;
 }
 
-function Brands({ title, subtitle }: BrandsProps) {
+function Brandss({ title, subtitle }: BrandsProps) {
   return (
     <div className="flex flex-col gap-2.5 pt-8">
       <h1 className="text-2xl bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent font-extrabold tracking-tighter">
@@ -575,24 +563,6 @@ function WhatsAppCTA() {
           <ArrowRight size={16} className="text-green-600" strokeWidth={3} />
         </motion.button>
       </div>
-    </div>
-  );
-}
-
-function ButtonPrimary() {
-  return (
-    <div className="flex justify-center items-center pt-4">
-      <motion.button
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 1.1 }}
-        whileInView={{ opacity: 1 }}
-        className="bg-gradient-to-tl from-zinc-900/50 via-zinc-600/50 to-zinc-900 rounded-full h-14 flex items-center gap-3 px-8 shadow-xl shadow-zinc-600/15"
-      >
-        <span className="bg-white bg-clip-text text-transparent font-semibold text-base">
-          Quero organizar minha vida
-        </span>
-        <ArrowRight size={16} className="text-zinc-400" strokeWidth={3} />
-      </motion.button>
     </div>
   );
 }

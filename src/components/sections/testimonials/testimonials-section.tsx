@@ -73,11 +73,10 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="text-white mx-auto py-20">
+    <section id="testimonials" className="text-white mx-auto py-20  ">
       <div className="flex flex-col items-center text-center justify-center text-white">
-        <div className="items-center border border-zinc-600 text-white text-xs rounded-full flex ">
+        <div className="items-center border border-zinc-700 text-white text-xs rounded-full flex ">
           <div className="h-2 w-2 bg-green-400 rounded-full mx-2.5 shadow-xl shadow-white/30 animate-pulse" />
-
           <span className="pr-4 py-1 text-zinc-300">Avaliações</span>
         </div>
         <h1 className="pt-4 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl md:text-4xl font-bold">
@@ -92,12 +91,12 @@ export default function Testimonials() {
             {firstColumn.map(({ text, imageSrc, name, username }) => (
               <div
                 key={username}
-                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-800/80 max-w-xs bg-zinc-200"
+                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-800/30 max-w-xs bg-zinc-900/70"
               >
-                <div className="text-black italic text-start text-sm">
+                <div className="text-zinc-300 italic text-start text-sm">
                   "{text}"
                 </div>
-                <div className="flex mt-8 gap-3 items-center text-start">
+                <div className="flex mt-10 gap-3 items-center text-start">
                   <div className="flex items-center gap-2">
                     <Image
                       src={imageSrc}
@@ -108,10 +107,10 @@ export default function Testimonials() {
                     />
                   </div>
                   <div className="flex flex-col ">
-                    <div className="font-medium text-black tracking-tighter leading-4 text-sm">
+                    <div className="font-medium text-zinc-100 tracking-tighter leading-4 text-sm">
                       {name}
                     </div>
-                    <div className="text-zinc-700 tracking-tighter leading-4 text-xs">
+                    <div className="text-zinc-400/90 tracking-tighter leading-4 text-xs">
                       {username}
                     </div>
                   </div>
