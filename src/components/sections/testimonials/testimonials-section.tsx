@@ -17,16 +17,16 @@ const testimonials = [
     username: "@lucasmendesss_10",
   },
   {
-    text: "Desde que comecei a usar o Note Planning, nunca mais perdi um prazo. É perfeito para gerenciar estudos e trabalhos!",
+    text: "Desde que comecei a usar o Note Planning, nunca mais perdi um prazo. É perfeito para gerenciar estudos e trabalhos.",
     imageSrc: avatar2.src,
     name: "Phelipi Ordonhas",
     username: "@oordonhas",
   },
   {
     text: "Este planner transformou minha rotina de estudos. Agora consigo equilibrar tudo com muito mais facilidade!",
-    imageSrc: avatar3.src,
-    name: "Gabriel Lopes",
-    username: "@gabriel_opes_",
+    imageSrc: avatar1.src,
+    name: "Maria Eduarda Briski",
+    username: "@dudaa.briski",
   },
 
   {
