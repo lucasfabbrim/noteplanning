@@ -1,3 +1,4 @@
+import Brands from "@/components/sections/brands/brands";
 import Faqs from "@/components/sections/faqs/faqs";
 import Hero from "@/components/sections/hero/hero";
 import Testimonials from "@/components/sections/testimonials/testimonials-section";
@@ -12,6 +13,7 @@ export default function Home() {
       </header>
       <main className="flex flex-col">
         <Hero />
+        <Brands />
         <Testimonials />
         <Faqs />
       </main>
