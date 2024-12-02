@@ -45,9 +45,9 @@ export default function Faqs() {
           <span className="pl-4 py-1 text-zinc-300">Perguntas Frequentes</span>
           <div className="h-1.5 w-1.5 bg-white rounded-full mx-2.5 shadow-xl shadow-white/30 animate-pulse" />
         </div>
-        <h1 className="pt-6 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-5xl md:text-4xl font-bold flex flex-col">
+        <h1 className="pt-6 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-4xl md:text-4xl font-bold flex flex-col">
           Perguntas?
-          <span className="text-3xl px-4">Estamos aqui para responder!</span>
+          <span className="text-2xl px-4">Estamos aqui para responder!</span>
         </h1>
 
         <div className="text-start items-center mt-12 flex flex-col gap-6 w-full max-w-3xl px-4">
