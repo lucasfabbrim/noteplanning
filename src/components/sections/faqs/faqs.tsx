@@ -36,10 +36,7 @@ export default function Faqs() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   return (
-    <section
-      id="faqs"
-      className="text-white mx-auto pt-20 px-1 bg-gradient-to-b from-transparent via-transparent to-zinc-900/30"
-    >
+    <section id="faqs" className="text-white mx-auto py-20 px-1">
       <div className="flex flex-col items-center text-center justify-center text-white">
         <div className="items-center border border-zinc-600 text-white text-xs rounded-full flex">
           <span className="pl-4 py-1 text-zinc-300">Perguntas Frequentes</span>
