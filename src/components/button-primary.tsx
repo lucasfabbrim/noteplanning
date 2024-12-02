@@ -3,13 +3,24 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function ButtonPrimary() {
   const [isHover, setIsHover] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+  const router = useRouter();
 
   const transition = {
     duration: 0.3,
     ease: [0.43, 0.13, 0.23, 0.96],
+  };
+
+  const handleClick = () => {
+    setIsClicked(true);
+    setTimeout(() => {
+      router.push("#pricing");
+      setIsClicked(false);
+    }, 1200);
   };
 
   return (
@@ -19,6 +30,8 @@ export default function ButtonPrimary() {
         whileTap={{ scale: 0.95 }}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
+        onClick={handleClick}
+        disabled={isClicked}
         className="relative rounded-full h-11 flex items-center gap-3 px-6 shadow-xl overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-50 to-zinc-300" />
@@ -36,7 +49,7 @@ export default function ButtonPrimary() {
           Quero organizar minha vida
         </motion.span>
         <AnimatePresence initial={false} mode="wait">
-          {isHover ? (
+          {isHover || isClicked ? (
             <motion.div
               key="arrow"
               initial={{ x: -20, opacity: 0 }}
