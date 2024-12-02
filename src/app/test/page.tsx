@@ -6,8 +6,8 @@ import Testimonials from "@/components/sections/testimonials/testimonials-sectio
 export default function Home() {
   return (
     <div className="bg-black min-h-screen">
-      <header className="py-1 bg-gradient-to-b from-white to-zinc-300 justify-center text-center">
-        <span className="bg-gradient-to-b from-black to-zinc-900 text-transparent bg-clip-text text-xs font-semibold tracking-tighter">
+      <header className="py-2 bg-gradient-to-b from-white to-zinc-300 justify-center text-center">
+        <span className="bg-gradient-to-b from-black to-zinc-900 text-transparent bg-clip-text text-sm font-semibold tracking-tighter">
           Falta pouco para você organizar sua vida!
         </span>
       </header>
