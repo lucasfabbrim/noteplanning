@@ -73,22 +73,84 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="mt-10 text-white mx-auto pb-20">
+    <section id="testimonials" className="text-white mx-auto py-20 bg-zinc-950">
       <div className="flex flex-col items-center text-center justify-center text-white">
-        <div className="items-center border border-zinc-900 text-white text-xs rounded-[10px] flex ">
+        <div className="items-center border border-black text-white text-xs rounded-[10px] flex ">
           <span className="pl-4 py-1 text-zinc-300">Avaliações</span>
           <div className="h-1.5 w-1.5 bg-white rounded-full mx-2.5 shadow-xl shadow-white/30 animate-pulse" />
         </div>
-        <h1 className="pt-4 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl font-bold">
+        <h1 className="pt-4 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl md:text-4xl font-bold">
           O que nossos usuários dizem
         </h1>
-        <p className="px-2 pt-3 text-sm text-zinc-400/90">
+        <p className="px-2 md:px-16 pt-3 text-sm md:text-base text-zinc-400/90">
           De uma ideia intuitivo a recursos poderosos, nosso planner se tornou
           uma ferramenta essencial para usuários.
         </p>
         <div className="flex justify-center gap-6">
           <div className="flex flex-col gap-10 mt-10 justify-center [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
             {firstColumn.map(({ text, imageSrc, name, username }) => (
+              <div
+                key={username}
+                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-800/30 max-w-xs bg-zinc-900/70"
+              >
+                <div className="text-zinc-300 italic text-start text-sm">
+                  "{text}"
+                </div>
+                <div className="flex mt-10 gap-3 items-center text-start">
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src={imageSrc}
+                      alt={name}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 rounded-full"
+                    />
+                  </div>
+                  <div className="flex flex-col ">
+                    <div className="font-medium text-zinc-100 tracking-tighter leading-4 text-sm">
+                      {name}
+                    </div>
+                    <div className="text-zinc-400/90 tracking-tighter leading-4 text-xs">
+                      {username}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="hidden md:flex flex-col gap-10 mt-10 lg:mt-4 justify-center [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+            {secondColumn.map(({ text, imageSrc, name, username }) => (
+              <div
+                key={username}
+                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-800/30 max-w-xs bg-zinc-900/70"
+              >
+                <div className="text-zinc-300 italic text-start text-sm">
+                  "{text}"
+                </div>
+                <div className="flex mt-10 gap-3 items-center text-start">
+                  <div className="flex items-center gap-2 ">
+                    <Image
+                      src={imageSrc}
+                      alt={name}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 rounded-full"
+                    />
+                  </div>
+                  <div className="flex flex-col ">
+                    <div className="font-medium text-zinc-100 tracking-tighter leading-4 text-sm">
+                      {name}
+                    </div>
+                    <div className="text-zinc-400/90 tracking-tighter leading-4 text-xs">
+                      {username}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="hidden lg:flex flex-col gap-10 mt-10 justify-center [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+            {thirdColumn.map(({ text, imageSrc, name, username }) => (
               <div
                 key={username}
                 className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-800/30 max-w-xs bg-zinc-900/70"

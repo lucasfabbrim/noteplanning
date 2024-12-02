@@ -21,6 +21,7 @@ import Widget from "@/assets/hand.png";
 import CommunityPhoto from "@/assets/cell.png";
 import { useState, useEffect } from "react";
 import Carousel from "@/components/carousel/carousel";
+import Testimonials from "@/components/sections/testimonials/testimonials-section";
 
 export default function Home() {
   return (
@@ -79,7 +80,8 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="december" className="px-6 pt-12 text-center">
+        <Testimonials />
+        <section id="december" className="px-6 text-center">
           <div className="flex flex-col justify-between">
             <December />
           </div>
