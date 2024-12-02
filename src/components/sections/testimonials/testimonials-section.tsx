@@ -77,7 +77,7 @@ export default function Testimonials() {
       <div className="flex flex-col items-center text-center justify-center text-white">
         <div className="items-center border border-zinc-900 text-white text-xs rounded-[10px] flex ">
           <span className="pl-4 py-1 text-zinc-300">Avaliações</span>
-          <div className="h-1 w-1 bg-white rounded-full mx-2.5 shadow-xl shadow-white/30 animate-pulse" />
+          <div className="h-1.5 w-1.5 bg-white rounded-full mx-2.5 shadow-xl shadow-white/30 animate-pulse" />
         </div>
         <h1 className="pt-4 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl font-bold">
           O que nossos usuários dizem
@@ -93,7 +93,9 @@ export default function Testimonials() {
                 key={username}
                 className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-900/30 max-w-xs bg-zinc-950"
               >
-                <div className="text-zinc-300 italic text-start">"{text}"</div>
+                <div className="text-zinc-300 italic text-start text-xs">
+                  "{text}"
+                </div>
                 <div className="flex mt-10 gap-3 items-center text-start">
                   <div className="flex items-center gap-2 ">
                     <Image
@@ -105,10 +107,10 @@ export default function Testimonials() {
                     />
                   </div>
                   <div className="flex flex-col ">
-                    <div className="font-medium text-zinc-100 tracking-tighter leading-5">
+                    <div className="font-medium text-zinc-100 tracking-tighter leading-5 text-sm">
                       {name}
                     </div>
-                    <div className="text-zinc-400/90 tracking-tighter leading-5">
+                    <div className="text-zinc-400/90 tracking-tighter leading-5 text-xs">
                       {username}
                     </div>
                   </div>
