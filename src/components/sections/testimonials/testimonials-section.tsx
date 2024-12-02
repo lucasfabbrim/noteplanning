@@ -107,10 +107,10 @@ export default function Testimonials() {
                     />
                   </div>
                   <div className="flex flex-col ">
-                    <div className="font-medium text-zinc-100 tracking-tighter leading-5 text-sm">
+                    <div className="font-medium text-zinc-100 tracking-tighter leading-4 text-sm">
                       {name}
                     </div>
-                    <div className="text-zinc-400/90 tracking-tighter leading-5 text-xs">
+                    <div className="text-zinc-400/90 tracking-tighter leading-4 text-xs">
                       {username}
                     </div>
                   </div>
