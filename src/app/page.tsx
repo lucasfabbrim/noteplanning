@@ -39,9 +39,9 @@ export default function Home() {
       <main className="flex flex-col">
         <Hero />
         <Brands />
-        <div className="py-3 mt-12 mb-8 bg-transparent border-t border-b border-green-400 items-center text-zinc-200 justify-center text-center text-xs flex gap-2">
+        <div className="py-3 mt-12 mb-8 bg-transparent border-t border-b border-zinc-800 items-center text-zinc-200 justify-center text-center text-xs flex gap-2">
           Aproveite as condições da pré-venda
-          <ArrowDown size={10} className="text-green-400" strokeWidth={4} />
+          <ArrowDown size={10} className="text-green-600" strokeWidth={4} />
         </div>
         <section id="widgets" className="px-2 text-center pt-10">
           <div className="flex flex-col justify-between">
