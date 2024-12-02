@@ -38,7 +38,7 @@ export default function Faqs() {
   return (
     <section id="faqs" className="text-white mx-auto py-20 px-1">
       <div className="flex flex-col items-center text-center justify-center text-white">
-        <div className="items-center border border-zinc-600 text-white text-xs rounded-full flex">
+        <div className="items-center border border-zinc-900 text-white text-xs rounded-full flex">
           <div className="h-2 w-2 bg-green-400 rounded-full mx-2.5 shadow-xl shadow-white/30 animate-pulse" />
           <span className="pr-4 py-1 text-zinc-300">Perguntas Frequentes</span>
         </div>

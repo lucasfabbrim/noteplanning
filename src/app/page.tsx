@@ -17,7 +17,6 @@ import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
 import { motion } from "framer-motion";
-import Widget from "@/assets/hand.png";
 import CommunityPhoto from "@/assets/cell.png";
 import { useState, useEffect } from "react";
 import Carousel from "@/components/carousel/carousel";
@@ -26,6 +25,7 @@ import Faqs from "@/components/sections/faqs/faqs";
 import Hero from "@/components/sections/hero/hero";
 import Brands from "@/components/sections/brands/brands";
 import ButtonPrimary from "@/components/button-primary";
+import Widgets from "@/components/sections/widgets/widgets";
 
 export default function Home() {
   return (
@@ -43,14 +43,7 @@ export default function Home() {
           Aproveite as condições da pré-venda
           <ArrowDown size={10} className="text-green-600" strokeWidth={4} />
         </div>
-        <section id="widgets" className="px-2 text-center pt-10">
-          <div className="flex flex-col justify-between">
-            <Widgets
-              title="Tudo ao na palma da sua mão!"
-              subtitle="Acesse tudo de forma rápida e organizada com widgets inteligentes."
-            />
-          </div>
-        </section>
+        <Widgets />
         <section id="community" className="px-10 pt-6 text-center">
           <div className="flex flex-col items-center">
             <Community
@@ -242,17 +235,9 @@ interface WidgetsProps {
   subtitle: string;
 }
 
-function Widgets({ title, subtitle }: WidgetsProps) {
+function Widgetss({ title, subtitle }: WidgetsProps) {
   return (
     <div className="flex flex-col gap-2.5 pt-4 relative">
-      <Image
-        src={Widget}
-        alt="Widget"
-        width={300}
-        height={400}
-        className="object-contain relative ml-12"
-        priority
-      />
       <h3 className="bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text text-xl font-semibold pt-3 z-0 md:text-3xl">
         Widgets
       </h3>
