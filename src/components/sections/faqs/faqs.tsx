@@ -73,7 +73,7 @@ export default function Faqs() {
                 />
               </button>
               {selectedIndex === index && (
-                <div className="mt-6">
+                <div className="mt-3">
                   <p className="text-zinc-400 text-xs">{faq.answer}</p>
                 </div>
               )}
