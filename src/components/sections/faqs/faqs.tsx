@@ -6,12 +6,12 @@ import { twMerge } from "tailwind-merge";
 
 const faqs = [
   {
-    question: "Como o Layers é diferente de outras ferramentas de design?",
+    question: "Como baixar o Notion?",
     answer:
       "Diferentemente das ferramentas de design tradicionais, o Layers prioriza velocidade e simplicidade sem sacrificar poder. Nossa interface inteligente se adapta ao seu fluxo de trabalho, reduzindo cliques e mantendo você no seu fluxo criativo.",
   },
   {
-    question: "Existe uma curva de aprendizado?",
+    question: "Como utilizar o Notion?",
     answer:
       "O Layers é projetado para ser intuitivo desde o primeiro dia. A maioria dos designers se torna produtiva em horas, não semanas. Também fornecemos tutoriais interativos e documentação abrangente para ajudar você a começar.",
   },

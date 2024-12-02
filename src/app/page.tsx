@@ -31,12 +31,15 @@ export default function Home() {
   return (
     <div className="relative h-screen bg-black font-inter">
       <GoogleAnalytics gaId="G-FXZJ4HXH96" />
-      <Header />
-
-      <main className="flex flex-col relative z-10">
+      <header className="py-2 bg-gradient-to-b from-white to-zinc-300 justify-center text-center">
+        <span className="bg-gradient-to-b from-black to-zinc-900 text-transparent bg-clip-text text-sm font-semibold tracking-tighter">
+          Falta pouco para você organizar sua vida!
+        </span>
+      </header>
+      <main className="flex flex-col">
         <Hero />
         <Brands />
-        <div className="py-3 mt-12 mb-8 bg-zinc-900 border-t border-b border-zinc-800 items-center text-zinc-200 justify-center text-center text-xs flex gap-2">
+        <div className="py-3 mt-12 mb-8 bg-transparent border-t border-b border-green-400 items-center text-zinc-200 justify-center text-center text-xs flex gap-2">
           Aproveite as condições da pré-venda
           <ArrowDown size={10} className="text-green-400" strokeWidth={4} />
         </div>
