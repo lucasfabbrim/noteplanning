@@ -77,7 +77,7 @@ export default function Testimonials() {
       <div className="flex flex-col items-center text-center justify-center text-white">
         <div className="items-center border border-zinc-900 text-white text-xs rounded-[10px] flex ">
           <span className="pl-4 py-1 text-zinc-300">Avaliações</span>
-          <div className="h-2 w-2 bg-white rounded-full mx-2.5 shadow-xl shadow-white/30" />
+          <div className="h-1 w-1 bg-white rounded-full mx-2.5 shadow-xl shadow-white/30 animate-pulse" />
         </div>
         <h1 className="pt-4 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl font-bold">
           O que nossos usuários dizem
