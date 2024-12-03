@@ -39,7 +39,7 @@ export default function Home() {
               </span>
             </Button>
             <div className="flex justify-center items-center relative mt-16">
-              <div className="bg-[#00E472] absolute inset-0 blur-3xl w-[220px] h-[66px] left-20 top-10 animate-pulse" />
+              <div className="bg-[#00E472] absolute inset-0 blur-3xl w-[220px] h-[66px] left-20 top-10" />
               <Image
                 src={HeroPhoto}
                 alt="MacBook"
