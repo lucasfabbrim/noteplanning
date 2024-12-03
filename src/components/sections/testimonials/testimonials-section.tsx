@@ -95,8 +95,8 @@ export default function Testimonials() {
           <Star size={18} className="fill-green-500 text-transparent" />
           <Star size={18} className="fill-green-500 text-transparent" />
         </div>
-        <div className="flex justify-center gap-6">
-          <div className="flex flex-col gap-10 mt-10 justify-center [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
+        <div className="flex justify-center gap-3">
+          <div className="flex flex-col gap-8 mt-10 justify-center [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
             {firstColumn.map(({ text, imageSrc, name, username }) => (
               <div
                 key={username}
