@@ -12,6 +12,7 @@ import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import ButtonPrimary from "@/components/button-primary";
 import { ChatBubble } from "@/components/chat";
 import Testimonials from "@/components/sections/testimonials/testimonials-section";
+import FrequentlyAsked from "@/components/sections/faqs/faqs";
 
 export default function Home() {
   return (
@@ -62,6 +63,7 @@ export default function Home() {
         <section id="pre-order" className="text-white mx-auto my-10">
           <DecemberCountdown />
         </section>
+        <FrequentlyAsked />
         <section id="suporte" className=" pt-20 text-center">
           <div className="flex flex-col justify-between">
             <WhatsAppCTA />
