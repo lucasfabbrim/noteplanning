@@ -9,7 +9,6 @@ import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
 import Widgets from "@/components/sections/widgets/widgets";
 import { DecemberCountdown } from "@/components/DecemberCountdown";
-import { motion } from "framer-motion";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 
 export default function Home() {
