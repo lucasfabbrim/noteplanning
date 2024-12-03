@@ -25,7 +25,7 @@ const testimonials = [
   },
   {
     text: "Este planner transformou minha rotina de estudos. Agora consigo equilibrar tudo com muito mais facilidade!",
-    imageSrc: avatar1.src,
+    imageSrc: avatar8.src,
     name: "Maria Eduarda Briski",
     username: "@dudaa.briski",
   },
@@ -56,7 +56,7 @@ const testimonials = [
   },
   {
     text: "With this app, we can easily assign tasks, track progress, and manage documents all in one place.",
-    imageSrc: avatar8.src,
+    imageSrc: avatar1.src,
     name: "Sam Dawson",
     username: "@dawsontechtips",
   },
