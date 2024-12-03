@@ -62,7 +62,7 @@ export default function PhoneSection() {
                     height={300}
                     className="rounded-[10px] object-cover relative z-10"
                   />
-                  <div className="bg-[#00E472] opacity-70 absolute inset-0 blur-3xl w-[150px] h-[340px] left-14 top-10" />
+                  <div className="bg-[#00E472] opacity-30 absolute inset-0 blur-3xl w-[150px] h-[340px] left-14 top-10" />
                 </div>
               </div>
             </div>
