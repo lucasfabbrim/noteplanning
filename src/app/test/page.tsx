@@ -32,7 +32,7 @@ export default function Home() {
             </p>
             <ButtonPrimary />
             <div className="flex justify-center items-center relative mt-16">
-              <div className="bg-[#00E472] absolute inset-0 blur-3xl w-[220px] h-[66px] left-20 top-10" />
+              <div className="bg-[#00E472] absolute inset-0 blur-3xl w-[220px] h-[50px] left-20 top-10" />
               <Image
                 src={HeroPhoto}
                 alt="MacBook"
@@ -67,7 +67,7 @@ export default function Home() {
         </section>
       </main>
       <footer className="py-8 border-t border-t-green-800">
-        <div className="flex flex-col justify-between border-b border-b-zinc-800 mx-6 pb-8">
+        <div className="flex flex-col justify-between border-b border-t border-zinc-800 mx-6 pb-8 mt-6">
           <div className="flex flex-col items-center gap-1 text-sm">
             <h1 className="text-white font-semibold pb-3 pt-6">Políticas</h1>
             <h3 className="text-zinc-500 font-medium">

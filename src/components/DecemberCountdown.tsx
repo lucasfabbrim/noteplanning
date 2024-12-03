@@ -69,7 +69,7 @@ export function DecemberCountdown() {
   endDateFormatted.setDate(endDateFormatted.getDate() + 7);
 
   return (
-    <div className="py-12 px-6">
+    <div className="py-9 px-6">
       <div className="max-w-4xl mx-auto space-y-8 ">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -115,7 +115,7 @@ export function DecemberCountdown() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="bg-zinc-900/40 rounded-2xl p-8 shadow-xl"
+          className="bg-zinc-900/60 rounded-2xl p-8 shadow-xl"
         >
           {plans.map((plan) => (
             <div key={plan.name} className="relative">
@@ -150,14 +150,14 @@ export function DecemberCountdown() {
               <div className="text-center space-y-2 pt-8 tracking-tighter">
                 <p className="text-zinc-400 text-sm">
                   De{" "}
-                  <span className="line-through text-green-400 font-medium">
-                    R$ 227,99
+                  <span className="line-through text-red-400 font-medium">
+                    R$ 197,99
                   </span>
                   , por apenas:
                 </p>
                 <p className="text-4xl font-bold text-white">10x de R$ 9,79</p>
                 <p className="text-xl text-green-400 font-semibold">
-                  Ou R$ 87,90 à vista
+                  Ou R$ 97,90 à vista
                 </p>
               </div>
             </div>
