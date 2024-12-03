@@ -7,6 +7,7 @@ import avatar6 from "@/assets/avatares/avatar-6.png";
 import avatar7 from "@/assets/avatares/avatar-7.png";
 import avatar8 from "@/assets/avatares/avatar-8.png";
 import avatar9 from "@/assets/avatares/avatar-9.png";
+import { Star } from "lucide-react";
 import Image from "next/image";
 
 const testimonials = [
@@ -85,14 +86,21 @@ export default function Testimonials() {
         </h1>
         <p className="px-2 md:px-16 pt-3 text-sm md:text-base text-zinc-400/90">
           De uma ideia intuitivo a recursos poderosos, nosso planner se tornou
-          uma ferramenta essencial para usuários.
+          uma ferramenta essencial.
         </p>
+        <div className="flex items-center pt-4">
+          <Star size={18} className="fill-green-500 text-transparent" />
+          <Star size={18} className="fill-green-500 text-transparent" />
+          <Star size={18} className="fill-green-500 text-transparent" />
+          <Star size={18} className="fill-green-500 text-transparent" />
+          <Star size={18} className="fill-green-500 text-transparent" />
+        </div>
         <div className="flex justify-center gap-6">
           <div className="flex flex-col gap-10 mt-10 justify-center [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
             {firstColumn.map(({ text, imageSrc, name, username }) => (
               <div
                 key={username}
-                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-green-800/15 max-w-xs bg-zinc-900/70"
+                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-green-800/15 max-w-xs bg-zinc-900/40"
               >
                 <div className="text-zinc-300 italic text-start text-sm">
                   "{text}"
