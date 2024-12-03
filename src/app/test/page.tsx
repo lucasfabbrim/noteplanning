@@ -42,7 +42,7 @@ export default function Home() {
                 alt="MacBook"
                 width={400}
                 height={400}
-                className="object-contain relative z-10"
+                className="object-contain relative z-10 px-4"
                 priority
               />
             </div>
