@@ -1,7 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Instagram, Youtube } from "lucide-react";
+import { Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
 import HeroPhoto from "@/assets/hero-photo.png";
 import DiscordIcon from "@/assets/discord-gr.svg";
@@ -11,6 +10,7 @@ import Widgets from "@/components/sections/widgets/widgets";
 import { DecemberCountdown } from "@/components/DecemberCountdown";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import ButtonPrimary from "@/components/button-primary";
+import { ChatBubble } from "@/components/chat";
 
 export default function Home() {
   return (
@@ -86,6 +86,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <ChatBubble />
     </div>
   );
 }
