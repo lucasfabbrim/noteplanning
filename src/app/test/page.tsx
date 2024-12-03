@@ -10,6 +10,7 @@ import NetflixIcon from "@/assets/netflix-gr.svg";
 import Widgets from "@/components/sections/widgets/widgets";
 import { DecemberCountdown } from "@/components/DecemberCountdown";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
+import ButtonPrimary from "@/components/button-primary";
 
 export default function Home() {
   return (
@@ -29,15 +30,7 @@ export default function Home() {
               Seu novo planejamento totalmente personalizado está a um clique de
               distância.
             </p>
-            <Button
-              variant="default"
-              className="bg-[#00E472] mt-8 rounded-full items-center shadow-xl shadow-[#00E472]/10"
-            >
-              <span className="px-2 text-black text-sm font-medium flex items-center gap-2">
-                Eu quero organizar minha vida
-                <ArrowRight size={10} className="text-black w-2 h-2" />
-              </span>
-            </Button>
+            <ButtonPrimary />
             <div className="flex justify-center items-center relative mt-16">
               <div className="bg-[#00E472] absolute inset-0 blur-3xl w-[220px] h-[66px] left-20 top-10" />
               <Image

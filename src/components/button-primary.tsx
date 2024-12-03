@@ -24,7 +24,7 @@ export default function ButtonPrimary() {
   };
 
   return (
-    <div className="flex justify-center items-center pt-6 pb-4">
+    <div className="flex justify-center items-center pt-8">
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -32,7 +32,7 @@ export default function ButtonPrimary() {
         onMouseLeave={() => setIsHover(false)}
         onClick={handleClick}
         disabled={isClicked}
-        className="relative rounded-full h-11 flex items-center gap-3 px-6 shadow-xl overflow-hidden"
+        className="relative rounded-full h-10 flex items-center gap-3 px-6 shadow-xl overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-50 to-zinc-300" />
         <motion.div
@@ -46,7 +46,7 @@ export default function ButtonPrimary() {
           animate={{ color: isHover ? "#ffffff" : "#000000" }}
           transition={transition}
         >
-          Quero organizar minha vida
+          Eu quero organizar minha vida
         </motion.span>
         <AnimatePresence initial={false} mode="wait">
           {isHover || isClicked ? (
