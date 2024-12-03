@@ -70,7 +70,7 @@ export default function Home() {
           </div>
         </section>
         <Widgets />
-        <section id="pricing" className="text-white mx-auto my-10">
+        <section id="pre-order" className="text-white mx-auto my-10">
           <DecemberCountdown />
         </section>
         <section id="suporte" className=" pt-20 text-center">
