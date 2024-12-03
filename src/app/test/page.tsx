@@ -28,7 +28,7 @@ export default function Home() {
             </p>
             <Button
               variant="default"
-              className="bg-[#00E472] mt-8 rounded-full items-center"
+              className="bg-[#00E472] mt-8 rounded-full items-center shadow-xl shadow-[#00E472]/10"
             >
               <span className="px-2 text-black text-sm font-medium flex items-center gap-2">
                 Eu quero organizar minha vida
