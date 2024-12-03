@@ -7,6 +7,7 @@ import HeroPhoto from "@/assets/hero-photo.png";
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
+import Widgets from "@/components/sections/widgets/widgets";
 
 export default function Home() {
   return (
@@ -60,6 +61,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <Widgets />
       </main>
     </div>
   );
