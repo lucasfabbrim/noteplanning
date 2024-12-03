@@ -32,7 +32,7 @@ export function ChatBubble() {
           Comece o ano com organização
         </p>
       </div>
-      <div className="relative">
+      <div className="relative animate-pulse">
         <Image
           src={Avatar}
           alt="Support Avatar"
