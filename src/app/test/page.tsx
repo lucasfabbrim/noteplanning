@@ -19,7 +19,7 @@ export default function Home() {
                 Alguns passos para uma vida mais organizada e produtiva.
               </span>
             </div>
-            <h1 className="pt-6 max-w-sm tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-4xl/8 font-bold">
+            <h1 className="pt-6 px-2 max-w-sm tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-4xl/8 font-bold">
               Organize-se e aumente a produtividade.
             </h1>
             <p className="pt-4 px-6 max-w-xs text-xs text-zinc-400/90">
@@ -46,7 +46,7 @@ export default function Home() {
                 priority
               />
             </div>
-            <h1 className="pt-16 max-w-sm tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl/6 font-bold">
+            <h1 className="pt-16 px-2 max-w-sm tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl/6 font-bold">
               Faça como as grandes empresas do mercado utilizando Notion.
             </h1>
             <p className="pt-4 px-6 max-w-xs text-xs text-zinc-400/90">
