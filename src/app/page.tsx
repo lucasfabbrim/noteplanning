@@ -13,6 +13,7 @@ import ButtonPrimary from "@/components/button-primary";
 import { ChatBubble } from "@/components/chat";
 import Testimonials from "@/components/sections/testimonials/testimonials-section";
 import FrequentlyAsked from "@/components/sections/faqs/faqs";
+import PhoneSection from "@/components/phone-section";
 
 export default function Home() {
   return (
@@ -59,6 +60,7 @@ export default function Home() {
           </div>
         </section>
         <Widgets />
+        <PhoneSection />
         <Testimonials />
         <section id="pre-order" className="text-white mx-auto my-10">
           <DecemberCountdown />
