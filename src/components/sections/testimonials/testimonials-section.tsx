@@ -75,9 +75,10 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="text-white mx-auto py-20  ">
       <div className="flex flex-col items-center text-center justify-center text-white">
-        <div className="items-center border border-zinc-900 text-white text-xs rounded-full flex ">
-          <div className="h-2 w-2 bg-green-400 rounded-full mx-2.5 shadow-xl shadow-white/30 animate-pulse" />
-          <span className="pr-4 py-1 text-zinc-300">Avaliações</span>
+        <div className="items-center border border-[#141414] text-white rounded-full flex">
+          <span className="px-3 py-1 text-[#767676] text-xs">
+            Seja você o próximo a experimentar!
+          </span>
         </div>
         <h1 className="pt-4 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl md:text-4xl font-bold">
           O que nossos usuários dizem
@@ -91,7 +92,7 @@ export default function Testimonials() {
             {firstColumn.map(({ text, imageSrc, name, username }) => (
               <div
                 key={username}
-                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-800/30 max-w-xs bg-zinc-900/70"
+                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-green-800/15 max-w-xs bg-zinc-900/70"
               >
                 <div className="text-zinc-300 italic text-start text-sm">
                   "{text}"

@@ -11,6 +11,7 @@ import { DecemberCountdown } from "@/components/DecemberCountdown";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import ButtonPrimary from "@/components/button-primary";
 import { ChatBubble } from "@/components/chat";
+import Testimonials from "@/components/sections/testimonials/testimonials-section";
 
 export default function Home() {
   return (
@@ -57,6 +58,7 @@ export default function Home() {
           </div>
         </section>
         <Widgets />
+        <Testimonials />
         <section id="pre-order" className="text-white mx-auto my-10">
           <DecemberCountdown />
         </section>
