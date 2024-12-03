@@ -8,20 +8,6 @@ export default function PhoneSection() {
   return (
     <section className="bg-black py-16 px-4 md:py-20 ">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h1 className="pt-6 max-w-md tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-xl/8 font-bold">
-              Você acompanha a{" "}
-              <span className="text-green-500">todo momento</span>!
-            </h1>
-          </motion.div>
-        </div>
-
         <div className="grid gap-8 md:gap-12 px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -42,7 +28,9 @@ export default function PhoneSection() {
               </div>
               <div className="space-y-4">
                 <div className="items-center gap-3 border-b border-b-zinc-800/70 text-center justify-center flex flex-col">
-                  <h4 className="text-green-400 pb-6">#DesafioPlanning</h4>
+                  <h4 className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent font-bold tracking-tighter text-base pb-3">
+                    #DesafioPlanning
+                  </h4>
                   <h3 className="text-2xl/8 items-center gap-4 md:text-3xl font-bold text-white pb-4 text-center tracking-tighter">
                     Um grupo de <span className="text-green-400">WhatsApp</span>{" "}
                     exclusivo para pré-venda.
