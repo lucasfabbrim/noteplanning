@@ -27,6 +27,13 @@ export default function Hero() {
             priority
           />
         </div>
+        <h1 className="pt-6 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-4xl md:text-4xl font-bold flex flex-col">
+          Organize-se e aumente a produtividade.
+        </h1>
+        <p className="px-2 md:px-16 pt-3 text-sm md:text-base text-zinc-400/90">
+          Seu novo planejamento totalmente personalizado está a um clique de
+          distância.
+        </p>
       </div>
     </section>
   );

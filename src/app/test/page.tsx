@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import HeroPhoto from "@/assets/hero-photo.png";
+import DiscordIcon from "@/assets/discord-gr.svg";
+import FigmaIcon from "@/assets/figma-gr.svg";
+import NetflixIcon from "@/assets/netflix-gr.svg";
 
 export default function Home() {
   return (
@@ -33,7 +36,7 @@ export default function Home() {
               </span>
             </Button>
             <div className="flex justify-center items-center relative mt-16">
-              <div className="bg-[#00E472] absolute inset-0 blur-3xl w-[184px] h-[66px] left-24 top-10" />
+              <div className="bg-[#00E472] absolute inset-0 blur-3xl w-[220px] h-[66px] left-20 top-10 animate-pulse" />
               <Image
                 src={HeroPhoto}
                 alt="MacBook"
@@ -42,6 +45,18 @@ export default function Home() {
                 className="object-contain relative z-10"
                 priority
               />
+            </div>
+            <h1 className="pt-16 max-w-sm tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl/6 font-bold">
+              Faça como as grandes empresas do mercado utilizando Notion.
+            </h1>
+            <p className="pt-4 px-6 max-w-xs text-xs text-zinc-400/90">
+              Com o nosso template, manter sua produtividade e organização nunca
+              foi tão fácil!
+            </p>
+            <div className="flex items-center text-center justify-center gap-5 pt-2">
+              <NetflixIcon />
+              <DiscordIcon />
+              <FigmaIcon />
             </div>
           </div>
         </section>
