@@ -1,14 +1,29 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Instagram, Youtube } from "lucide-react";
+import {
+  ArrowRight,
+  Badge,
+  Check,
+  Instagram,
+  Youtube,
+  Zap,
+} from "lucide-react";
 import Image from "next/image";
 import HeroPhoto from "@/assets/hero-photo.png";
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
 import Widgets from "@/components/sections/widgets/widgets";
-import { WhatsAppCTA } from "../page";
+import { DecemberCountdown, WhatsAppCTA } from "../page";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -63,6 +78,9 @@ export default function Home() {
           </div>
         </section>
         <Widgets />
+        <section id="pricing" className="text-white mx-auto my-10">
+          <DecemberCountdown />
+        </section>
         <section id="suporte" className=" pt-20 text-center">
           <div className="flex flex-col justify-between">
             <WhatsAppCTA />

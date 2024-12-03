@@ -3,16 +3,7 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Macbook from "@/assets/macbook.png";
 import Image from "next/image";
-import {
-  ArrowDown,
-  ArrowRight,
-  ChevronDown,
-  LayoutGrid,
-  NotebookPen,
-  PenLine,
-  Play,
-  Settings,
-} from "lucide-react";
+import { ArrowDown, ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
@@ -68,7 +59,7 @@ export default function Home() {
         <Testimonials />
         <section id="december" className="px-6 text-center">
           <div className="flex flex-col justify-between">
-            <December />
+            <DecemberCountdown />
           </div>
         </section>
         <Faqs />
@@ -309,179 +300,187 @@ function Community({ hashtag, subtitle, title }: CommunityProps) {
   );
 }
 
+import { Button } from "@/components/ui/button";
+
 interface TimeLeft {
   days: number;
   hours: number;
   minutes: number;
   seconds: number;
 }
+
+const calculateTimeLeft = (endDate: Date): TimeLeft => {
+  const difference = +endDate - +new Date();
+  let timeLeft: TimeLeft = {
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  };
+
+  if (difference > 0) {
+    timeLeft = {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / 1000 / 60) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
+  }
+
+  return timeLeft;
+};
+
 const plans = [
   {
     name: "Note Private",
-    price: "R$ 127,98",
     features: [
-      {
-        titulo: "Template Note Private",
-        icon: LayoutGrid,
-      },
-      {
-        titulo: "Aulas de como utilizar",
-        icon: Play,
-      },
-      {
-        titulo: "Template Canva",
-        icon: PenLine,
-      },
-      {
-        titulo: "Ferramentas Extras",
-        icon: Settings,
-      },
-      {
-        titulo: "Desafio de 21 dias de Organização",
-        icon: NotebookPen,
-      },
+      { icon: CheckCircle2, titulo: "Template Note Private" },
+      { icon: CheckCircle2, titulo: "Aulas de como utilizar" },
+      { icon: CheckCircle2, titulo: "Template Canva" },
+      { icon: CheckCircle2, titulo: "Ferramentas Extras" },
+      { icon: CheckCircle2, titulo: "Desafio de 21 dias de Organização" },
     ],
   },
 ];
 
-function December() {
+export function DecemberCountdown() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
-    days: 25,
-    hours: 4,
-    minutes: 1,
-    seconds: 21,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
   });
 
   useEffect(() => {
+    const endDate = new Date();
+    endDate.setDate(endDate.getDate() + 10);
+
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        } else if (prev.days > 0) {
-          return {
-            ...prev,
-            days: prev.days - 1,
-            hours: 23,
-            minutes: 59,
-            seconds: 59,
-          };
-        }
-        return prev;
-      });
+      setTimeLeft(calculateTimeLeft(endDate));
     }, 1000);
 
     return () => clearInterval(timer);
   }, []);
 
+  const endDateFormatted = new Date();
+  endDateFormatted.setDate(endDateFormatted.getDate() + 7);
+
   return (
-    <div className=" bg-black text-white py-12 px-1">
-      <div className="max-w-2xl mx-auto space-y-12">
-        <div className="text-center justify-center space-y-2">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter flex flex-col">
-            <span className="mx-6 bg-gradient-to-l from-zinc-700 to-zinc-300 text-transparent bg-clip-text">
+    <div className="py-12 px-6">
+      <div className="max-w-4xl mx-auto space-y-8 ">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center space-y-2"
+        >
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter">
+            <span className="bg-white text-transparent bg-clip-text">
               PRÉ-VENDA
             </span>
           </h1>
-          <p className="text-zinc-300 text-sm md:text-base pt-10">
+          <p className="text-zinc-400 text-sm tracking-tighter md:text-xl font-medium">
             CONDIÇÃO ESPECIAL SOMENTE PARA{" "}
-            <span className="font-bold">PRÉ-VENDA</span>!
+            <span className="font-bold text-green-400 ">PRÉ-VENDA</span>!
           </p>
-          <div className="flex items-center text-xs text-zinc-400 md:text-sm ">
-            <p className="flex-1">
-              Essa condição terá uma duração até o dia{" "}
-              <span className="font-semibold text-zinc-300 ">
-                11 de Dezembro de 2024
-              </span>
-              !
-            </p>
-          </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-4 text-center px-6 md:px-40">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="grid grid-cols-4 text-center px-6"
+        >
           {[
             { value: timeLeft.days, label: "Dias" },
             { value: timeLeft.hours, label: "Horas" },
             { value: timeLeft.minutes, label: "Minutos" },
             { value: timeLeft.seconds, label: "Segundos" },
           ].map((item, index) => (
-            <motion.div key={index} className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold">
+            <div key={index} className="p-2">
+              <div className="text-4xl md:text-5xl font-bold text-white tracking-tighter">
                 {String(item.value).padStart(2, "0")}
               </div>
-              <div className="text-sm text-neutral-400">{item.label}</div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:px-40 py-2">
-          {plans.map((plan) => (
-            <div key={plan.name} className="relative">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="h-full bg-zinc-900 rounded-[10px] px-6 py-6 transition-all duration-300 shadow-xl shadow-zinc-900/50"
-              >
-                <h3 className="gap-3 flex text-2xl font-semibold text-white mb-2 text-start items-center">
-                  {plan.name}
-                  <div className="w-auto bg-white border border-white/5 text-black text-xs font-medium py-1 px-3 rounded-full">
-                    Popular
-                  </div>
-                </h3>
-                <p className="text-[#A1A1A1] text-sm w-60 text-start">
-                  Compre agora e tenha seu template para{" "}
-                  <span className="text-white">sempre</span>!
-                </p>
-                <p className="flex gap-2 items-center text-white text-sm pt-7">
-                  Tudo o que você terá acesso
-                  <ChevronDown size={14} strokeWidth={3} />
-                </p>
-                <ul className="space-y-2 mb-8 pt-4">
-                  {plan.features.map((feature, idx) => (
-                    <motion.li
-                      key={idx}
-                      className="flex items-center text-[#A1A1A1] text-xs"
-                    >
-                      <feature.icon className="w-4 h-4 text-green-500 mr-3" />
-                      {feature.titulo}
-                    </motion.li>
-                  ))}
-                </ul>
-                <div className="pt-2 flex flex-col text-2xl font-bold text-white mb-2 text-center justify-center items-center">
-                  <h1 className="text-xs font-normal text-zinc-300 pb-1">
-                    De{" "}
-                    <span className="line-through font-medium">R$ 220,99</span>,
-                    por apenas:
-                  </h1>
-                  <h1 className="text-2xl">10x de R$ 12,79</h1>
-                  <h1 className="text-base text-green-500 font-normal">
-                    Ou R$ 97,90 à vista.
-                  </h1>
-                </div>
-              </motion.div>
+              <div className="text-sm text-zinc-400 mt-2 tracking-tighter">
+                {item.label}
+              </div>
             </div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="text-center space-y-6">
-          <p className="text-sm text-[#A1A1A1]">
-            Entre na página de vendas clicando no botão abaixo, garanta seu
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="bg-zinc-900/40 rounded-2xl p-8 shadow-xl"
+        >
+          {plans.map((plan) => (
+            <div key={plan.name} className="relative">
+              <h3 className="flex items-center text-3xl font-bold text-white mb-2">
+                {plan.name}
+                <span className="ml-3 bg-green-500 text-white text-xs font-medium py-1 px-3 rounded-full">
+                  Popular
+                </span>
+              </h3>
+              <p className="text-zinc-400 text-sm mb-8 tracking-tighter">
+                Compre agora e tenha seu template para{" "}
+                <span className="text-green-400 font-semibold">sempre</span>!
+              </p>
+              <div className="flex items-center text-white text-base font-medium mb-4 tracking-tighter">
+                Tudo o que você terá acesso
+                <ChevronDown size={20} className="ml-2 text-green-400" />
+              </div>
+              <ul className="space-y-3 mb-8">
+                {plan.features.map((feature, idx) => (
+                  <motion.li
+                    key={idx}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 * idx }}
+                    className="flex items-center text-zinc-400 text-sm tracking-tighter"
+                  >
+                    <feature.icon className="w-4 h-4 text-green-500 mr-3" />
+                    {feature.titulo}
+                  </motion.li>
+                ))}
+              </ul>
+              <div className="text-center space-y-2 pt-8 tracking-tighter">
+                <p className="text-zinc-400 text-sm">
+                  De{" "}
+                  <span className="line-through text-green-400 font-medium">
+                    R$ 227,99
+                  </span>
+                  , por apenas:
+                </p>
+                <p className="text-4xl font-bold text-white">10x de R$ 9,79</p>
+                <p className="text-xl text-green-400 font-semibold">
+                  Ou R$ 87,90 à vista
+                </p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="text-center space-y-6 pt-6"
+        >
+          <p className="text-sm px-4 text-zinc-400">
+            Entre na página de vendas clicando no botão abaixo e garanta seu
             template.
           </p>
-          <div className="flex justify-center items-center text-center w-full ">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 1.1 }}
-              whileInView={{ opacity: 1 }}
-              className="bg-white text-black font-semibold hover:bg-white/95 px-8 py-4 rounded-full h-12 flex items-center text-center gap-2 text-sm"
-            >
-              QUERO APROVEITAR A CONDIÇÃO
-              <ArrowRight size={14} />
-            </motion.button>
-          </div>
-        </div>
+          <Button
+            variant="default"
+            className="bg-white mt-8 h-12 rounded-full items-center shadow-xl shadow-[#00E472]/10"
+          >
+            <span className="px-2 text-black text-base font-medium flex items-center gap-3">
+              Eu quero organizar minha vida
+              <ArrowRight size={10} className="text-black w-2 h-2" />
+            </span>
+          </Button>
+        </motion.div>
       </div>
     </div>
   );
