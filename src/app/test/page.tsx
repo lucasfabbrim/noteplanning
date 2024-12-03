@@ -1,13 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
 import HeroPhoto from "@/assets/hero-photo.png";
 import DiscordIcon from "@/assets/discord-gr.svg";
 import FigmaIcon from "@/assets/figma-gr.svg";
 import NetflixIcon from "@/assets/netflix-gr.svg";
 import Widgets from "@/components/sections/widgets/widgets";
+import { WhatsAppCTA } from "../page";
 
 export default function Home() {
   return (
@@ -62,7 +63,32 @@ export default function Home() {
           </div>
         </section>
         <Widgets />
+        <section id="suporte" className=" pt-20 text-center">
+          <div className="flex flex-col justify-between">
+            <WhatsAppCTA />
+          </div>
+        </section>
       </main>
+      <footer className="py-8 border-t border-t-green-800">
+        <div className="flex flex-col justify-between border-b border-b-zinc-800 mx-6 pb-8">
+          <div className="flex flex-col items-center gap-1 text-sm">
+            <h1 className="text-white font-semibold pb-3 pt-6">Políticas</h1>
+            <h3 className="text-zinc-500 font-medium">
+              Política de Privacidade
+            </h3>
+            <h3 className="text-zinc-500 font-medium">Termos de uso</h3>
+          </div>
+        </div>
+        <div className="pt-8">
+          <h1 className="text-zinc-500 font-semibold text-xs text-center px-6">
+            © NOTE PLANNING® 2024. Todos os direitos reservados.
+          </h1>
+          <div className="flex flex-row gap-3 text-zinc-400 text-center justify-center py-4">
+            <Instagram size={20} />
+            <Youtube size={20} />
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
