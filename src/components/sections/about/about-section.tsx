@@ -1,8 +1,5 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import Image from "next/image";
 import ButtonPrimary from "@/components/button-primary";
 
 import "swiper/css";
@@ -26,14 +23,10 @@ export default function AboutSection() {
           Inspire-se nos exemplos de áreas de membros pré-configuradas que
           deixamos criados para você.
         </p>
-
-        <div className="mt-4 -mb-10">
+        <div className="mt-4 -mb-16">
           <Carousel />
         </div>
-
-        <div className="mt-8">
-          <ButtonPrimary />
-        </div>
+        <ButtonPrimary />
       </div>
     </section>
   );

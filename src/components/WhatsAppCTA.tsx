@@ -29,7 +29,7 @@ export function WhatsAppCTA() {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 1.1 }}
           whileInView={{ opacity: 1 }}
-          onClick={() => window.open("https://wa.me/19993356780", "_blank")}
+          onClick={() => window.open("https://wa.me/19994980028", "_blank")}
           className="bg-gradient-to-tl from-green-900 via-green-800 to-green-900 rounded-full h-14 flex items-center gap-3 px-8 shadow-xl shadow-green-800"
         >
           <span className="bg-white bg-clip-text text-transparent font-semibold text-base">

@@ -38,7 +38,7 @@ export default function Home() {
             </p>
             <ButtonPrimary />
             <div className="flex justify-center items-center relative mt-16">
-              <div className="bg-[#00E472] absolute inset-0 blur-3xl w-[220px] h-[50px] left-20 top-10" />
+              <div className="bg-white absolute inset-0 blur-3xl w-[220px] h-[50px] left-20 top-10" />
               <Image
                 src={HeroPhoto}
                 alt="MacBook"
