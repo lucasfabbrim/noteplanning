@@ -16,7 +16,7 @@ import FrequentlyAsked from "@/components/sections/faqs/faqs";
 import PhoneSection from "@/components/phone-section";
 
 import IconProfile from "@/app/icon.jpg";
-import VideoSection from "@/components/sections/video/video-section";
+import AboutSection from "@/components/sections/about/about-section";
 
 export default function Home() {
   return (
@@ -64,7 +64,7 @@ export default function Home() {
         </section>
         <Widgets />
         <PhoneSection />
-        <VideoSection />
+        <AboutSection />
         <Testimonials />
         <section id="pre-order" className="text-white mx-auto my-10">
           <DecemberCountdown />
