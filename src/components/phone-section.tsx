@@ -24,7 +24,7 @@ export default function PhoneSection() {
                   height={300}
                   className="rounded-[10px] object-cover z-10 relative"
                 />
-                <div className="bg-[#00E472] opacity-30 absolute inset-0 blur-3xl w-[190px] h-[500px] left-8 top-10" />
+                <div className="bg-white opacity-30 absolute inset-0 blur-3xl w-[190px] h-[500px] left-8 top-10" />
               </div>
               <div className="space-y-4">
                 <div className="items-center gap-3 border-b border-b-zinc-800/70 text-center justify-center flex flex-col">
@@ -49,7 +49,7 @@ export default function PhoneSection() {
                     height={300}
                     className="rounded-[10px] relative z-10"
                   />
-                  <div className="bg-[#00E472] opacity-30 absolute inset-0 blur-3xl w-[200px] h-[340px] left-5 top-10" />
+                  <div className="bg-white opacity-20 absolute inset-0 blur-3xl w-[200px] h-[340px] left-5 top-10" />
                 </div>
               </div>
             </div>

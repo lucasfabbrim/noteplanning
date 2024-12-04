@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
+import ButtonPrimary from "./button-primary";
 
 // Definição única de TimeLeft
 interface TimeLeft {
@@ -158,7 +159,7 @@ export function DecemberCountdown() {
                 </span>
                 , por apenas:
               </p>
-              <p className="text-4xl font-bold text-white">10x de R$ 9,79</p>
+              <p className="text-4xl font-bold text-white">10x de R$ 10,79</p>
               <p className="text-xl text-green-400 font-semibold">
                 Ou R$ 97,90 à vista
               </p>
@@ -173,20 +174,11 @@ export function DecemberCountdown() {
         transition={{ duration: 0.5, delay: 0.6 }}
         className="text-center space-y-6 pt-6"
       >
-        <p className="text-sm px-4 text-zinc-400">
+        <p className="text-sm px-4 text-zinc-400 -mb-6">
           Entre na página de vendas clicando no botão abaixo e garanta seu
           template.
         </p>
-        <Button
-          variant="default"
-          type="button"
-          className="bg-white mt-8 h-12 rounded-full items-center shadow-xl shadow-[#00E472]/10"
-        >
-          <span className="px-2 text-black text-base font-medium flex items-center gap-3">
-            Eu quero organizar minha vida
-            <ArrowRight size={10} className="text-black w-2 h-2" />
-          </span>
-        </Button>
+        <ButtonPrimary />
       </motion.div>
     </div>
   );

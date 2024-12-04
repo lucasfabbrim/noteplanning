@@ -1,70 +1,69 @@
-import avatar1 from "@/assets/avatares/avatar-1.png";
-import avatar2 from "@/assets/avatares/avatar-2.png";
-import avatar3 from "@/assets/avatares/avatar-3.png";
-import avatar4 from "@/assets/avatares/avatar-4.png";
-import avatar5 from "@/assets/avatares/avatar-5.png";
-import avatar6 from "@/assets/avatares/avatar-6.png";
-import avatar7 from "@/assets/avatares/avatar-7.png";
-import avatar8 from "@/assets/avatares/avatar-8.png";
-import avatar9 from "@/assets/avatares/avatar-9.png";
+import avatar1 from "@/assets/testimonials/avatar-1.jpg";
+import avatar2 from "@/assets/testimonials/avatar-2.jpg";
+import avatar3 from "@/assets/testimonials/avatar-3.jpg";
+import avatar4 from "@/assets/testimonials/avatar-4.jpg";
+import avatar5 from "@/assets/testimonials/avatar-5.jpg";
+import avatar6 from "@/assets/testimonials/avatar-6.jpg";
+import avatar7 from "@/assets/testimonials/avatar-7.jpg";
+import avatar8 from "@/assets/testimonials/avatar-8.jpg";
+import avatar9 from "@/assets/testimonials/avatar-9.jpg";
 import { Star } from "lucide-react";
 import Image from "next/image";
 
 const testimonials = [
   {
     text: "Como estudante, o Note Planning tem sido essencial para organizar minhas aulas e prazos. Simplesmente indispensável!",
-    imageSrc: avatar9.src,
-    name: "Lucas Mendes",
-    username: "@lucasmendesss_10",
+    imageSrc: avatar1.src,
+    name: "Larissa Fabbri",
+    username: "@larissafabbri",
   },
   {
     text: "Desde que comecei a usar o Note Planning, nunca mais perdi um prazo. É perfeito para gerenciar estudos e trabalhos.",
     imageSrc: avatar2.src,
-    name: "Phelipi Ordonhas",
-    username: "@oordonhas",
+    name: "Gabriel Rezende",
+    username: "@ga.rzd",
   },
   {
     text: "Este planner transformou minha rotina de estudos. Agora consigo equilibrar tudo com muito mais facilidade!",
-    imageSrc: avatar8.src,
+    imageSrc: avatar3.src,
     name: "Maria Eduarda Briski",
     username: "@dudaa.briski",
   },
-
   {
-    text: "I was amazed at how quickly we were able to integrate this app into our workflow.",
+    text: "Fiquei impressionada com a rapidez com que consegui integrar o Note Planning na minha rotina. Agora tudo flui muito melhor!",
     imageSrc: avatar4.src,
-    name: "Casey Jordan",
-    username: "@caseyj",
+    name: "Elaine Cristina",
+    username: "@elainebrisque",
   },
   {
-    text: "Planning and executing events has never been easier. This app helps me keep track of all the moving parts, ensuring nothing slips through the cracks.",
+    text: "Organizar e executar eventos ficou muito mais fácil. O Note Planning me ajuda a acompanhar tudo e não deixar nada passar despercebido.",
     imageSrc: avatar5.src,
-    name: "Taylor Kim",
-    username: "@taylorkimm",
+    name: "Mateus Eler",
+    username: "@ma_eler",
   },
   {
-    text: "The customizability and integration capabilities of this app are top-notch.",
+    text: "A personalização e a praticidade deste planner são incríveis. Ele se adapta exatamente às minhas necessidades!",
     imageSrc: avatar6.src,
-    name: "Riley Smith",
-    username: "@rileysmith1",
+    name: "Zé Felipe",
+    username: "@zeefelipee",
   },
   {
-    text: "Adopting this app for our team has streamlined our project management and improved communication across the board.",
+    text: "Adotar o Note Planning na nossa equipe melhorou muito a organização e a comunicação entre todos. Simplesmente essencial!",
     imageSrc: avatar7.src,
-    name: "Jordan Patels",
-    username: "@jpatelsdesign",
+    name: "Vitor Navarro",
+    username: "@vitornavarro_",
   },
   {
-    text: "With this app, we can easily assign tasks, track progress, and manage documents all in one place.",
-    imageSrc: avatar1.src,
-    name: "Sam Dawson",
-    username: "@dawsontechtips",
+    text: "Com o Note Planning, consigo gerenciar tarefas, acompanhar o progresso e organizar documentos, tudo em um só lugar.",
+    imageSrc: avatar8.src,
+    name: "Caio Porfirio",
+    username: "@caiohfp",
   },
   {
-    text: "Its user-friendly interface and robust features support our diverse needs.",
+    text: "A interface simples e os recursos robustos do Note Planning atendem perfeitamente às minhas necessidades no dia a dia.",
     imageSrc: avatar9.src,
-    name: "Casey Harper",
-    username: "@casey09",
+    name: "Guilherme Godoy",
+    username: "@gui.godoy04",
   },
 ];
 

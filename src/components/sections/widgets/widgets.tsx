@@ -2,6 +2,7 @@ import Image from "next/image";
 import WidgetImage from "@/assets/hand.png";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import ButtonPrimary from "@/components/button-primary";
 
 export default function Widgets() {
   return (
@@ -24,15 +25,7 @@ export default function Widgets() {
         <p className="px-8 md:px-16 pt-2 text-sm md:text-base text-zinc-400/90">
           Afesse tudo de forma rápida e organizada com widgets inteligentes.
         </p>
-        <Button
-          variant="default"
-          className="bg-[#00E472] mt-8 rounded-full items-center shadow-xl shadow-[#00E472]/10"
-        >
-          <span className="px-2 text-black text-sm font-medium flex items-center gap-2">
-            Eu quero organizar minha vida
-            <ArrowRight size={10} className="text-black w-2 h-2" />
-          </span>
-        </Button>
+        <ButtonPrimary />
       </div>
     </section>
   );

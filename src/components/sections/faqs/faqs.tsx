@@ -9,13 +9,13 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "Terei mais algum custo depois de comprar?",
+    question: "Preciso pagar alguma assinatura do Notion?",
     answer:
-      "Os únicos investimentos que você fará é na academia (que você provavelmente já paga) e na sua alimentação. Sempre sugerimos alimentos de fácil acesso, para que você não enfrente dificuldade de seguir a dieta.",
+      "Não. O template pode ser utilizado com 100% dos seus recursos na versão gratuita do Notion.",
   },
   {
     question: "O Notion é gratuito?",
-    answer: "Não, todos os aplicativos necessários são gratuitos.",
+    answer: "Sim, todos os aplicativos necessários são gratuitos.",
   },
   {
     question: "Não sei utilizar o Notion, consiguirei utilizar?",
@@ -25,12 +25,11 @@ const faqData: FAQItem[] = [
   {
     question: "Quanto tempo de acesso eu tenho?",
     answer:
-      "Sim, todas as aulas ficam gravadas e disponíveis para você assistir quando quiser.",
+      "Pensando que Templates são como “planilhas” ou “arquivos” dentro do Notion, uma vez adicionado à sua conta, ele permanece até que você o exclua. Porém, o acesso às aulas, área de membros, comunidade e ao suporte no WhatsApp possuem duração de 1 ano.",
   },
   {
     question: "Eu consigo personalizar o template?",
-    answer:
-      "Sim, todas as aulas ficam gravadas e disponíveis para você assistir quando quiser.",
+    answer: "Sim, é totalmente personalizável.",
   },
 ];
 

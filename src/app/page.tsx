@@ -15,6 +15,9 @@ import Testimonials from "@/components/sections/testimonials/testimonials-sectio
 import FrequentlyAsked from "@/components/sections/faqs/faqs";
 import PhoneSection from "@/components/phone-section";
 
+import IconProfile from "@/app/icon.jpg";
+import VideoSection from "@/components/sections/video/video-section";
+
 export default function Home() {
   return (
     <div className="bg-black min-h-screen">
@@ -61,6 +64,7 @@ export default function Home() {
         </section>
         <Widgets />
         <PhoneSection />
+        <VideoSection />
         <Testimonials />
         <section id="pre-order" className="text-white mx-auto my-10">
           <DecemberCountdown />
@@ -73,6 +77,19 @@ export default function Home() {
         </section>
       </main>
       <footer className="py-8 border-t border-t-green-800">
+        <div className="justify-center text-center items-center flex gap-2">
+          <Image
+            src={IconProfile}
+            alt="icon"
+            width={40}
+            height={40}
+            priority
+            className="items-center text-center rounded-full"
+          />
+          <h1 className="text-white tracking-tighter font-semibold text-lg">
+            Note Planning
+          </h1>
+        </div>
         <div className="flex flex-col justify-between border-b border-t border-zinc-800 mx-6 pb-8 mt-6">
           <div className="flex flex-col items-center gap-1 text-sm">
             <h1 className="text-white font-semibold pb-3 pt-6">Políticas</h1>
