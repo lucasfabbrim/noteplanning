@@ -18,9 +18,9 @@ export default function VideoSection() {
           deixamos criados para você.
         </p>
         <div className="mt-8 relative">
-          <div className="bg-green-500 absolute z-0 inset-0 blur-3xl h-16 w-60 left-4 top-4" />
+          <div className="bg-green-500 opacity-60 absolute z-0 inset-0 blur-3xl h-16 w-60 left-8 top-4" />
 
-          <Card className="w-full rounded-lg flex mx-auto mx-auto overflow-hidden border-transparent bg-transparent relative z-10">
+          <Card className="w-full rounded-lg flex mx-auto overflow-hidden border-transparent bg-transparent relative z-10">
             <CardContent className="p-0 relative">
               <div className="aspect-w-16 aspect-h-9 relative">
                 <iframe
