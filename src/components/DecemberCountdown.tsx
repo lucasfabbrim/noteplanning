@@ -155,13 +155,13 @@ export function DecemberCountdown() {
               <p className="text-zinc-400 text-sm">
                 De{" "}
                 <span className="line-through text-red-400 font-medium">
-                  R$ 197,99
+                  R$ 197,90
                 </span>
                 , por apenas:
               </p>
-              <p className="text-4xl font-bold text-white">10x de R$ 10,79</p>
+              <p className="text-4xl font-bold text-white">10x de R$ 12,96</p>
               <p className="text-xl text-green-400 font-semibold">
-                Ou R$ 97,90 à vista
+                Ou R$ 97,11 à vista
               </p>
             </div>
           </div>
