@@ -1,16 +1,43 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import Confetti from "react-confetti";
 
 import Logo from "@/assets/icon.png";
 
 export default function ThankYouPayment() {
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
+      <Confetti
+        width={windowDimensions.width}
+        height={windowDimensions.height}
+        opacity={1}
+        recycle={false}
+        numberOfPieces={600}
+      />
       <Card className="w-full max-w-md border-0 shadow-xl shadow-white/10">
-        <CardContent className="flex flex-col items-center space-y-6 pt-6">
+        <CardContent className="flex flex-col items-center space-y-6 pt-6 pb-10">
           {/* Logo */}
           <div className="w-16 h-16 flex items-center">
             <Image
@@ -33,24 +60,6 @@ export default function ThankYouPayment() {
               curso disponível, você encontrará um documento com o passo a passo
               para realizar o download!
             </p>
-          </div>
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3 w-full pt-4">
-            <Button
-              variant="outline"
-              onClick={() =>
-                window.open("https://instagram.com/noteplanning", "_blank")
-              }
-              className="w-full sm:w-1/2 text-white bg-rose-600 hover:bg-rose-600/90 hover:text-white/90"
-            >
-              ← INSTAGRAM
-            </Button>
-            <Button
-              className="w-full sm:w-1/2 bg-green-500 hover:bg-green-500/90"
-              onClick={() => window.open("https://wa.me/19994980028", "_blank")}
-            >
-              WHATSAPP →
-            </Button>
           </div>
         </CardContent>
       </Card>
