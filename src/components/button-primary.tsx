@@ -18,7 +18,8 @@ export default function ButtonPrimary() {
   const handleClick = () => {
     setIsClicked(true);
     setTimeout(() => {
-      router.push("#pricing");
+      window.location.href =
+        "https://pagamentos.noteplanning.com/checkout/166499588:1";
       setIsClicked(false);
     }, 1200);
   };

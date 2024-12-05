@@ -1,7 +1,5 @@
 import Image from "next/image";
 import WidgetImage from "@/assets/hand.png";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import ButtonPrimary from "@/components/button-primary";
 
 export default function Widgets() {
