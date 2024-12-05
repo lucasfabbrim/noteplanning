@@ -26,7 +26,6 @@ export default function AboutSection() {
         <div className="mt-4 -mb-16">
           <Carousel />
         </div>
-        <ButtonPrimary />
       </div>
     </section>
   );
