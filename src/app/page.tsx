@@ -141,10 +141,6 @@ export default function Page() {
           <h1 className="text-zinc-800 font-semibold text-xs text-center px-6">
             © NOTE PLANNING® 2024. Todos os direitos reservados.
           </h1>
-          <div className="flex flex-row gap-3 text-zinc-800 text-center justify-center py-4">
-            <Instagram size={20} />
-            <Youtube size={20} />
-          </div>
         </div>
       </footer>
       <ChatBubble />
