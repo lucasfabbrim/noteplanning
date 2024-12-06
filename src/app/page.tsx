@@ -21,6 +21,11 @@ import AboutSection from "@/components/sections/about/about-section";
 export default function Home() {
   return (
     <div className="bg-black min-h-screen">
+      <header className="h-10 bg-white flex justify-center items-center text-center">
+        <h1 className="text-black text-xs font-semibold tracking-tighter">
+          Cupom "PREVENDA" com 10% de desconto!
+        </h1>
+      </header>
       <main className="flex flex-col">
         <section id="hero" className="text-white mx-auto pt-10">
           <div className="flex flex-col items-center text-center justify-between">
