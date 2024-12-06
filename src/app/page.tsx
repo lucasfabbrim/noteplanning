@@ -47,10 +47,11 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="h-10 bg-black text-white flex justify-center items-center text-center">
-        <h1 className="text-xs md:text-sm font-medium">
-          Cupom de "<span className="underline font-bold">PREVENDA</span>" com{" "}
-          <span className="font-bold">10% de desconto</span>!
+      <header className="h-12 bg-black text-white flex justify-center items-center text-center">
+        <h1 className="text-sm md:text-base font-medium">
+          Cupom "
+          <span className="underline font-bold text-green-400">PREVENDA</span>"
+          com <span className="font-bold">10% de desconto</span>!
         </h1>
       </header>
       <main className="flex flex-col">
