@@ -50,7 +50,7 @@ export default function Page() {
       <header className="h-12 bg-black text-white flex justify-center items-center text-center">
         <h1 className="text-sm md:text-base font-medium">
           Cupom "
-          <span className="underline font-bold text-blue-600">PREVENDA</span>"
+          <span className="underline font-bold text-green-500">PREVENDA</span>"
           com <span className="font-bold">10% de desconto</span>!
         </h1>
       </header>
