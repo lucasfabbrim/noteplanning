@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Carousel from "@/components/carousel/carousel";
-import Image from "next/image";
 
 export default function AboutSection() {
   return (
