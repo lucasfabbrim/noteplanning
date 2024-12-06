@@ -73,35 +73,30 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="text-white mx-auto py-20  ">
-      <div className="flex flex-col items-center text-center justify-center text-white">
-        <div className="items-center border border-[#141414] text-white rounded-full flex">
-          <span className="px-3 py-1 text-[#767676] text-xs">
-            Seja você o próximo a experimentar!
-          </span>
-        </div>
-        <h1 className="pt-4 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl md:text-4xl font-bold">
+    <section id="testimonials" className="text-white mx-auto py-10">
+      <div className="flex flex-col items-center text-center justify-center text-black">
+        <h1 className="pt-4 tracking-tighter bg-gradient-to-r from-neutral-500 to-stone-950 bg-clip-text text-transparent text-2xl md:text-4xl font-bold">
           O que nossos usuários dizem
         </h1>
-        <p className="px-2 md:px-16 pt-3 text-sm md:text-base text-zinc-400/90">
+        <p className="px-2 md:px-16 pt-3 text-sm md:text-base text-zinc-800/90">
           De uma ideia intuitivo a recursos poderosos, nosso planner se tornou
           uma ferramenta essencial.
         </p>
         <div className="flex items-center pt-4">
-          <Star size={18} className="fill-green-500 text-transparent" />
-          <Star size={18} className="fill-green-500 text-transparent" />
-          <Star size={18} className="fill-green-500 text-transparent" />
-          <Star size={18} className="fill-green-500 text-transparent" />
-          <Star size={18} className="fill-green-500 text-transparent" />
+          <Star size={18} className="fill-black text-transparent" />
+          <Star size={18} className="fill-black text-transparent" />
+          <Star size={18} className="fill-black text-transparent" />
+          <Star size={18} className="fill-black text-transparent" />
+          <Star size={18} className="fill-black text-transparent" />
         </div>
         <div className="flex justify-center gap-3">
           <div className="flex flex-col gap-8 mt-10 justify-center [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
             {firstColumn.map(({ text, imageSrc, name, username }) => (
               <div
                 key={username}
-                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-green-800/15 max-w-xs bg-zinc-900/40"
+                className="p-10 border border-none rounded-3xl shadow-xl shadow-black/10 max-w-xs bg-zinc-100"
               >
-                <div className="text-zinc-300 italic text-start text-sm">
+                <div className="text-zinc-950 italic text-start text-sm">
                   "{text}"
                 </div>
                 <div className="flex mt-10 gap-3 items-center text-start">
@@ -115,10 +110,10 @@ export default function Testimonials() {
                     />
                   </div>
                   <div className="flex flex-col ">
-                    <div className="font-medium text-zinc-100 tracking-tighter leading-4 text-sm">
+                    <div className="font-medium text-black tracking-tighter leading-4 text-sm">
                       {name}
                     </div>
-                    <div className="text-zinc-400/90 tracking-tighter leading-4 text-xs">
+                    <div className="text-zinc-800/90 tracking-tighter leading-4 text-xs">
                       {username}
                     </div>
                   </div>
@@ -130,9 +125,9 @@ export default function Testimonials() {
             {secondColumn.map(({ text, imageSrc, name, username }) => (
               <div
                 key={username}
-                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-800/30 max-w-xs bg-zinc-900/70"
+                className="p-10 border border-none rounded-3xl shadow-xl shadow-black/10 max-w-xs bg-zinc-100"
               >
-                <div className="text-zinc-300 italic text-start text-sm">
+                <div className="text-zinc-950 italic text-start text-sm">
                   "{text}"
                 </div>
                 <div className="flex mt-10 gap-3 items-center text-start">
@@ -146,10 +141,10 @@ export default function Testimonials() {
                     />
                   </div>
                   <div className="flex flex-col ">
-                    <div className="font-medium text-zinc-100 tracking-tighter leading-4 text-sm">
+                    <div className="font-medium text-black tracking-tighter leading-4 text-sm">
                       {name}
                     </div>
-                    <div className="text-zinc-400/90 tracking-tighter leading-4 text-xs">
+                    <div className="text-zinc-800/90 tracking-tighter leading-4 text-xs">
                       {username}
                     </div>
                   </div>
@@ -161,9 +156,9 @@ export default function Testimonials() {
             {thirdColumn.map(({ text, imageSrc, name, username }) => (
               <div
                 key={username}
-                className="p-10 border border-zinc-900 rounded-3xl shadow-xl shadow-zinc-800/30 max-w-xs bg-zinc-900/70"
+                className="p-10 border border-none rounded-3xl shadow-xl shadow-black/10 max-w-xs bg-zinc-100"
               >
-                <div className="text-zinc-300 italic text-start text-sm">
+                <div className="text-zinc-950 italic text-start text-sm">
                   "{text}"
                 </div>
                 <div className="flex mt-10 gap-3 items-center text-start">
@@ -177,10 +172,10 @@ export default function Testimonials() {
                     />
                   </div>
                   <div className="flex flex-col ">
-                    <div className="font-medium text-zinc-100 tracking-tighter leading-4 text-sm">
+                    <div className="font-medium text-black tracking-tighter leading-4 text-sm">
                       {name}
                     </div>
-                    <div className="text-zinc-400/90 tracking-tighter leading-4 text-xs">
+                    <div className="text-zinc-800/90 tracking-tighter leading-4 text-xs">
                       {username}
                     </div>
                   </div>

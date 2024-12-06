@@ -1,59 +1,39 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 import Phone2 from "@/assets/iPhone 14 Pro.png";
+import ButtonPrimary from "./button-primary";
 
 export default function PhoneSection() {
   return (
-    <section className="bg-black py-16 px-4 md:py-20 ">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid gap-8 md:gap-12 px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative bg-zinc-900/50 rounded-[35px] border border-zinc-900 p-6 md:p-8 overflow-hidden"
-          >
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="hidden lg:block relative aspect-[4/3] md:aspect-auto top-9 left-36">
-                <Image
-                  src={Phone2}
-                  alt="Discord community screenshot"
-                  width={300}
-                  height={300}
-                  className="rounded-[10px] object-cover z-10 relative"
-                />
-                <div className="bg-white opacity-30 absolute inset-0 blur-3xl w-[190px] h-[500px] left-8 top-10" />
-              </div>
-              <div className="space-y-4">
-                <div className="items-center gap-3 border-b border-b-zinc-800/70 text-center justify-center flex flex-col">
-                  <h4 className="bg-green-400 bg-clip-text text-transparent font-extrabold tracking-tighter text-base pb-3">
-                    #DesafioPlanning
-                  </h4>
-                  <h3 className="text-2xl/8 items-center gap-4 md:text-3xl font-semibold text-white pb-4 text-center tracking-tighter">
-                    Um grupo de WhatsApp exclusivo para pré-venda.
-                  </h3>
-                </div>
-                <p className="text-zinc-400 text-sm md:text-base leading-normal tracking-tighter items-center text-center">
-                  Faça parte da nossa comunidade e acompanhe novidades e
-                  desafios exclusivos para Dezembro!
-                </p>
-              </div>
-              <div className="block lg:hidden ">
-                <div className="relative aspect-[8/4] md:aspect-auto top-7 left-7">
-                  <Image
-                    src={Phone2}
-                    alt="Discord community screenshot"
-                    width={230}
-                    height={300}
-                    className="rounded-[10px] relative z-10"
-                  />
-                  <div className="bg-white opacity-20 absolute inset-0 blur-3xl w-[200px] h-[340px] left-5 top-10" />
-                </div>
-              </div>
-            </div>
-          </motion.div>
+    <section
+      id="hero"
+      className="text-white mx-auto bg-white w-full pt-10 pb-10"
+    >
+      <div className="flex flex-col-reverse md:flex-row-reverse items-center md:items-center md:text-start text-center justify-center text-white gap-32">
+        <div className="relative aspect-auto top-10 md:top-10 -mt-32 md:-mt-4">
+          <Image
+            src={Phone2}
+            alt="Widget"
+            width={200}
+            height={400}
+            className="object-contain relative "
+            priority
+          />
+        </div>
+
+        <div className="flex flex-col pt-4 md:pt-10">
+          <h1 className="pt-3 tracking-tighter pb-2 bg-gradient-to-r from-neutral-500 to-stone-950 bg-clip-text text-transparent text-xl md:text-4xl font-bold flex flex-col">
+            Widgets
+          </h1>
+          <h1 className="md:pt-2 tracking-tighter bg-gradient-to-r from-neutral-600 to-stone-900 bg-clip-text text-transparent text-3xl md:text-5xl font-bold flex flex-col">
+            Tudo na palma da sua mão!
+          </h1>
+          <p className="px-8 md:px-0 pt-2 text-sm md:text-base text-zinc-700/90">
+            Acesse tudo de forma rápida e organizada com widgets inteligentes.
+          </p>
+          <div className="flex items-center justify-center md:justify-start pb-10">
+            <ButtonPrimary />
+          </div>
         </div>
       </div>
     </section>

@@ -78,11 +78,11 @@ export function DecemberCountdown() {
           className="text-center space-y-2"
         >
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter">
-            <span className="bg-white text-transparent bg-clip-text">
+            <span className="bg-gradient-to-r from-neutral-500 to-stone-950 text-transparent bg-clip-text">
               PRÉ-VENDA
             </span>
           </h1>
-          <p className="text-zinc-400 text-sm tracking-tighter md:text-xl font-medium">
+          <p className="text-zinc-800/90 text-sm tracking-tighter md:text-base font-medium">
             CONDIÇÃO ESPECIAL SOMENTE PARA{" "}
             <span className="font-bold text-green-400">PRÉ-VENDA</span>!
           </p>
@@ -101,10 +101,10 @@ export function DecemberCountdown() {
             { value: timeLeft.seconds, label: "Segundos" },
           ].map((item, index) => (
             <div key={index} className="p-2">
-              <div className="text-4xl md:text-5xl font-bold text-white tracking-tighter">
+              <div className="text-4xl md:text-5xl font-bold text-black tracking-tighter">
                 {String(item.value).padStart(2, "0")}
               </div>
-              <div className="text-sm text-zinc-400 mt-2 tracking-tighter">
+              <div className="text-sm text-zinc-800/90 mt-2 tracking-tighter">
                 {item.label}
               </div>
             </div>
@@ -116,21 +116,21 @@ export function DecemberCountdown() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="bg-zinc-900/60 rounded-2xl p-8 shadow-xl"
+        className="bg-zinc-100 rounded-2xl p-8 shadow-xl shadow-black/15"
       >
         {plans.map((plan) => (
           <div key={plan.name} className="relative">
-            <h3 className="flex items-center text-3xl font-bold text-white mb-2">
+            <h3 className="flex items-center text-3xl font-bold text-black mb-2">
               {plan.name}
               <span className="ml-3 bg-green-500 text-white text-xs font-medium py-1 px-3 rounded-full">
                 Popular
               </span>
             </h3>
-            <p className="text-zinc-400 text-sm mb-8 tracking-tighter">
+            <p className="text-zinc-800/90 text-sm mb-8 tracking-tighter">
               Compre agora e tenha seu template para{" "}
               <span className="text-green-400 font-semibold">sempre</span>!
             </p>
-            <div className="flex items-center text-white text-base font-medium mb-4 tracking-tighter">
+            <div className="flex items-center text-black text-base font-medium mb-4 tracking-tighter">
               Tudo o que você terá acesso
               <ChevronDown size={20} className="ml-2 text-green-400" />
             </div>
@@ -159,7 +159,7 @@ export function DecemberCountdown() {
                 </span>
                 , por apenas:
               </p>
-              <p className="text-4xl font-bold text-white">10x de R$ 12,96</p>
+              <p className="text-4xl font-bold text-black">10x de R$ 12,96</p>
               <p className="text-xl text-green-400 font-semibold">
                 Ou R$ 97,11 à vista
               </p>
@@ -168,18 +168,9 @@ export function DecemberCountdown() {
         ))}
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-        className="text-center space-y-6 pt-6"
-      >
-        <p className="text-sm px-4 text-zinc-400 -mb-6">
-          Entre na página de vendas clicando no botão abaixo e garanta seu
-          template.
-        </p>
+      <div className="flex items-center justify-center  pb-10">
         <ButtonPrimary />
-      </motion.div>
+      </div>
     </div>
   );
 }

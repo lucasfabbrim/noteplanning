@@ -89,7 +89,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${inter.variable} font-inter antialiased bg-black`}>
+      <body className={` ${inter.variable} font-inter antialiased `}>
         {children}
         <Analytics />
         <GoogleAnalytics gaId="G-FXZJ4HXH96" />

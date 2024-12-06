@@ -6,25 +6,29 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Carousel from "@/components/carousel/carousel";
+import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <section id="testimonials" className="text-white mx-auto py-10">
-      <div className="flex flex-col items-center text-center justify-center text-white">
-        <div className="items-center border border-[#141414] text-white rounded-full flex">
-          <span className="px-3 py-1 text-[#767676] text-xs">
-            Conheça de perto nosso template pré-personalizado!
-          </span>
-        </div>
-        <h1 className="pt-4 tracking-tighter bg-gradient-to-r from-neutral-100 to-stone-400 bg-clip-text text-transparent text-2xl md:text-4xl font-bold">
-          Mate sua curiosidade
-        </h1>
-        <p className="px-2 md:px-16 pt-3 text-sm md:text-base text-zinc-400/90 mb-8">
-          Inspire-se nos exemplos de áreas de membros pré-configuradas que
-          deixamos criados para você.
-        </p>
-        <div className="mt-4 -mb-16">
+    <section
+      id="about"
+      className="text-white mx-auto bg-zinc-200/50 w-full pt-14 md:pt-4"
+    >
+      <div className="flex flex-col-reverse md:flex-row items-center md:items-center md:text-start text-center justify-center text-white md:gap-24">
+        <div className="md:pt-20">
           <Carousel />
+        </div>
+        <div className="flex flex-col mt-10 md:-mt-14">
+          <h1 className="md:pt-2 tracking-tighter bg-gradient-to-r from-neutral-600 to-stone-900 bg-clip-text text-transparent text-3xl md:text-4xl font-bold flex flex-col md:max-w-xl">
+            Mate sua curiosidade.
+          </h1>
+          <p className="px-10 md:px-0 pt-4 md:pb-2 text-sm md:text-base text-zinc-700/90 font-medium md:max-w-lg">
+            Inspire-se nos exemplos de áreas de membros pré-configuradas que
+            deixamos criados para você.
+          </p>
+          <div className="px-10 md:px-0 pb-10 flex">
+            <ButtonPrimary />
+          </div>
         </div>
       </div>
     </section>
