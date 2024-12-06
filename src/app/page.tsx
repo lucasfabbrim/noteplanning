@@ -23,7 +23,7 @@ export default function Home() {
     <div className="bg-black min-h-screen">
       <header className="h-10 bg-white flex justify-center items-center text-center">
         <h1 className="text-black text-xs font-semibold tracking-tighter">
-          Cupom "PREVENDA" com 10% de desconto!
+          Cupom de "PREVENDA" com 10% de desconto!
         </h1>
       </header>
       <main className="flex flex-col">
