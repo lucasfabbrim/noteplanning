@@ -58,7 +58,7 @@ export default function Page() {
         <section
           ref={targetRef}
           id="hero"
-          className="mx-auto flex flex-col md:flex-row mt-10 md:mt-20 px-4 md:px-8 lg:px-36"
+          className="mx-auto flex flex-col md:flex-row mt-10 md:mt-20 px-4 md:px-8 lg:px-48"
         >
           <motion.div
             style={{ opacity, scale }}
