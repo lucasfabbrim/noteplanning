@@ -141,26 +141,26 @@ export function DecemberCountdown() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 * idx }}
-                  className="flex items-center text-zinc-400 text-sm tracking-tighter"
+                  className="flex items-center text-zinc-800 text-sm tracking-tighter"
                 >
                   <feature.icon
                     aria-label="Ícone de verificação"
-                    className="w-4 h-4 text-green-500 mr-3"
+                    className="w-4 h-4 text-green-500 mr-2"
                   />
                   {feature.titulo}
                 </motion.li>
               ))}
             </ul>
             <div className="text-center space-y-2 pt-8 tracking-tighter">
-              <p className="text-zinc-400 text-sm">
+              <p className="text-zinc-800 text-sm">
                 De{" "}
-                <span className="line-through text-red-400 font-medium">
+                <span className="line-through text-red-500 font-medium">
                   R$ 197,90
                 </span>
                 , por apenas:
               </p>
               <p className="text-4xl font-bold text-black">10x de R$ 12,96</p>
-              <p className="text-xl text-green-400 font-semibold">
+              <p className="text-xl text-green-500 font-semibold">
                 Ou R$ 97,11 à vista
               </p>
             </div>
