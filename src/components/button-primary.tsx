@@ -80,7 +80,8 @@ export default function ButtonPrimary() {
         </AnimatePresence>
       </motion.button>
       <span className="text-xs font-medium pt-3 text-green-400">
-        APROVEITE! CUPOM DE PRÉ-VENDA COM 10% DE DESCONTO
+        APROVEITE! CUPOM DE <span className="font-semibold">"PREVENDA"</span>{" "}
+        COM <span className="font-semibold">10% DE DESCONTO</span>
       </span>
     </div>
   );
