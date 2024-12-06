@@ -25,7 +25,7 @@ export default function ButtonPrimary() {
   };
 
   return (
-    <div className="flex justify-center items-center pt-8">
+    <div className="flex flex-col justify-center items-center pt-8">
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -79,6 +79,9 @@ export default function ButtonPrimary() {
           )}
         </AnimatePresence>
       </motion.button>
+      <span className="text-xs font-medium pt-3 text-green-400">
+        APROVEITE! CUPOM DE PRÉ-VENDA COM 10% DE DESCONTO
+      </span>
     </div>
   );
 }
