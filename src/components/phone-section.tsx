@@ -23,13 +23,14 @@ export default function PhoneSection() {
 
         <div className="flex flex-col pt-4 md:pt-10">
           <h1 className="pt-3 tracking-tighter pb-2 bg-gradient-to-r from-neutral-500 to-stone-950 bg-clip-text text-transparent text-xl md:text-4xl font-bold flex flex-col">
-            Widgets
+            #DESAFIOPLANNING
           </h1>
-          <h1 className="md:pt-2 tracking-tighter bg-gradient-to-r from-neutral-600 to-stone-900 bg-clip-text text-transparent text-3xl md:text-5xl font-bold flex flex-col">
-            Tudo na palma da sua mão!
+          <h1 className="md:pt-2 tracking-tighter bg-gradient-to-r from-neutral-600 to-stone-900 bg-clip-text text-transparent text-3xl md:text-5xl font-bold flex flex-col max-w-2xl">
+            Um grupo de WhatsApp exclusivo para pré-venda.
           </h1>
-          <p className="px-8 md:px-0 pt-2 text-sm md:text-base text-zinc-700/90">
-            Acesse tudo de forma rápida e organizada com widgets inteligentes.
+          <p className="px-8 md:px-0 pt-2 text-sm md:text-base text-zinc-700/90 max-w-md">
+            Faça parte da nossa comunidade e acompanhe novidades e desafios
+            exclusivos para Dezembro!
           </p>
           <div className="flex items-center justify-center md:justify-start pb-10">
             <ButtonPrimary />
