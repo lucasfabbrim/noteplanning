@@ -25,7 +25,7 @@ export default function AboutSection() {
             Inspire-se nos exemplos de áreas de membros pré-configuradas que
             deixamos criados para você.
           </p>
-          <div className="px-10 md:px-0 pb-10 flex items-center justify-center">
+          <div className="px-10 md:px-0 pb-10 flex items-center justify-center md:justify-start">
             <ButtonPrimary />
           </div>
         </div>
