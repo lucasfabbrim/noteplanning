@@ -6,6 +6,7 @@ import Image from "next/image";
 import Confetti from "react-confetti";
 
 import Logo from "@/assets/icon.png";
+import { AlertCircle } from "lucide-react";
 
 export default function ThankYouPayment() {
   const [windowDimensions, setWindowDimensions] = useState({
@@ -28,15 +29,15 @@ export default function ThankYouPayment() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
+    <div className="min-h-screen bg-zinc-200/60 flex items-center justify-center p-4">
       <Confetti
         width={windowDimensions.width}
         height={windowDimensions.height}
-        opacity={1}
+        opacity={100}
         recycle={false}
         numberOfPieces={600}
       />
-      <Card className="w-full max-w-md border-0 shadow-xl shadow-white/10">
+      <Card className="bg-white w-full max-w-md border-0 shadow-xl shadow-black/15">
         <CardContent className="flex flex-col items-center space-y-6 pt-6 pb-10">
           {/* Logo */}
           <div className="w-16 h-16 flex items-center">
@@ -60,6 +61,12 @@ export default function ThankYouPayment() {
               curso disponível, você encontrará um documento com o passo a passo
               para realizar o download!
             </p>
+            <div className=" pt-4 px-2 flex items-center gap-2 text-center justify-center">
+              <AlertCircle size={12} className="text-rose-600" />
+              <span className="text-rose-600 text-xs">
+                Se o login não chegar, verifique a caixa de spam.
+              </span>
+            </div>
           </div>
         </CardContent>
       </Card>
