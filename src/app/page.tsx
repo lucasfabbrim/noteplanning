@@ -13,9 +13,8 @@ import PhoneSection from "@/components/phone-section";
 import AboutSection from "@/components/sections/about/about-section";
 import Testimonials from "@/components/sections/testimonials/testimonials-section";
 import { ChatBubble } from "@/components/chat";
-import { Instagram, Youtube } from "lucide-react";
 import IconProfile from "@/app/icon.jpg";
-import { DecemberCountdown } from "@/components/DecemberCountdown";
+import { PricingCard } from "@/components/DecemberCountdown";
 
 export default function Page() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -106,7 +105,7 @@ export default function Page() {
         <AboutSection />
         <Testimonials />
         <section id="pre-order" className="text-black mx-auto my-10">
-          <DecemberCountdown />
+          <PricingCard />
         </section>
       </main>
       <footer className="py-8 border-t border-t-zinc-200 bg-zinc-100">
