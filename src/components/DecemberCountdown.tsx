@@ -1,18 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
+import { CheckCircle2, ChevronDown } from "lucide-react";
 import ButtonPrimary from "./button-primary";
-
-// Definição única de TimeLeft
-interface TimeLeft {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
 
 const plans = [
   {
@@ -22,96 +12,14 @@ const plans = [
       { icon: CheckCircle2, titulo: "Aulas de como utilizar" },
       { icon: CheckCircle2, titulo: "Template Canva" },
       { icon: CheckCircle2, titulo: "Ferramentas Extras" },
-      { icon: CheckCircle2, titulo: "Desafio de 21 dias de Organização" },
+      { icon: CheckCircle2, titulo: "Comunidade" },
     ],
   },
 ];
 
-const calculateTimeLeft = (endDate: Date): TimeLeft => {
-  const difference = +endDate - +new Date();
-  let timeLeft: TimeLeft = {
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  };
-
-  if (difference > 0) {
-    timeLeft = {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60),
-    };
-  }
-
-  return timeLeft;
-};
-
 export function DecemberCountdown() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    const endDate = new Date(
-      Date.UTC(new Date().getFullYear(), 11, 12, 0, 0, 0),
-    );
-
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft(endDate));
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="py-9 px-6">
-      <div className="max-w-4xl mx-auto space-y-8 pb-10">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center space-y-2"
-        >
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tighter">
-            <span className="bg-gradient-to-r from-neutral-500 to-stone-950 text-transparent bg-clip-text">
-              PRÉ-VENDA
-            </span>
-          </h1>
-          <p className="text-zinc-800/90 text-sm tracking-tighter md:text-base font-medium">
-            CONDIÇÃO ESPECIAL SOMENTE PARA{" "}
-            <span className="font-bold text-green-400">PRÉ-VENDA</span>!
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="grid grid-cols-4 text-center px-6"
-        >
-          {[
-            { value: timeLeft.days, label: "Dias" },
-            { value: timeLeft.hours, label: "Horas" },
-            { value: timeLeft.minutes, label: "Minutos" },
-            { value: timeLeft.seconds, label: "Segundos" },
-          ].map((item, index) => (
-            <div key={index} className="p-2">
-              <div className="text-4xl md:text-5xl font-bold text-black tracking-tighter">
-                {String(item.value).padStart(2, "0")}
-              </div>
-              <div className="text-sm text-zinc-800/90 mt-2 tracking-tighter">
-                {item.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
-      </div>
-
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -155,13 +63,13 @@ export function DecemberCountdown() {
               <p className="text-zinc-800 text-sm">
                 De{" "}
                 <span className="line-through text-red-500 font-medium">
-                  R$ 197,90
+                  R$ 127,90
                 </span>
                 , por apenas:
               </p>
-              <p className="text-4xl font-bold text-black">10x de R$ 12,96</p>
+              <p className="text-4xl font-bold text-black">10x de R$ 9,35</p>
               <p className="text-xl text-green-500 font-semibold">
-                Ou R$ 97,11 à vista
+                Ou R$ 77,90 à vista
               </p>
             </div>
           </div>
