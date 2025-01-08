@@ -131,7 +131,6 @@ export default function Page() {
                 allowFullScreen={true}
                 width="350"
                 height="350"
-                fetchpriority="high"
                 className="rounded-lg shadow-lg"
               ></iframe>
             </motion.div>
