@@ -19,7 +19,7 @@ export default function ButtonPrimary() {
     setIsClicked(true);
     setTimeout(() => {
       window.location.href =
-        "https://pagamentos.noteplanning.com/checkout/166499588:1";
+        "https://abacatepay.com/pay/bill_SJuywsM6yxwT0NnYzMuC0ads";
       setIsClicked(false);
     }, 1200);
   };

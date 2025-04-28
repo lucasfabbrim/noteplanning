@@ -19,7 +19,7 @@ export default function ButtonPrimaryLucas() {
     setIsClicked(true);
     setTimeout(() => {
       window.location.href =
-        "https://note-planning2.pay.yampi.com.br/r/PSUW871FL0";
+        "https://abacatepay.com/pay/bill_SJuywsM6yxwT0NnYzMuC0ads";
       setIsClicked(false);
     }, 1200);
   };
