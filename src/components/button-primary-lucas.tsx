@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function ButtonPrimaryLucas() {
   const [isHover, setIsHover] = useState(false);
@@ -20,6 +21,10 @@ export default function ButtonPrimaryLucas() {
     setTimeout(() => {
       window.location.href =
         "https://abacatepay.com/pay/bill_SJuywsM6yxwT0NnYzMuC0ads";
+      sendGAEvent({
+        event: "buttonClicked",
+        value: "Clique no botão",
+      });
       setIsClicked(false);
     }, 1200);
   };
