@@ -19,8 +19,6 @@ export default function ButtonPrimaryLucas() {
   const handleClick = () => {
     setIsClicked(true);
     setTimeout(() => {
-      window.location.href =
-        "https://abacatepay.com/pay/bill_SJuywsM6yxwT0NnYzMuC0ads";
       sendGAEvent({
         event: "buttonClicked",
         value: "Clique no botão",
