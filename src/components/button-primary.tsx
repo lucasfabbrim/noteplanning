@@ -21,8 +21,7 @@ export default function ButtonPrimary() {
     setTimeout(() => {
       window.location.href =
         "https://abacatepay.com/pay/bill_SJuywsM6yxwT0NnYzMuC0ads";
-      sendGAEvent({
-        event: "buttonClicked",
+      sendGAEvent("buttonClicked", {
         value: "Clique no botão",
       });
       setIsClicked(false);
