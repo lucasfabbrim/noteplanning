@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function ButtonPrimary() {
   const [isHover, setIsHover] = useState(false);
@@ -18,10 +18,20 @@ export default function ButtonPrimary() {
 
   const handleClick = () => {
     setIsClicked(true);
+    // Send GA event before navigation
+    sendGAEvent({
+      event: "begin_checkout",
+      currency: "BRL",
+      value: 47.90,
+      items: [{
+        item_name: "Note Private",
+        price: 47.90,
+        quantity: 1
+      }]
+    });
+    
     setTimeout(() => {
-      window.location.href =
-        "https://abacatepay.com/pay/bill_SJuywsM6yxwT0NnYzMuC0ads";
-      sendGTMEvent({ event: "buttonClicked", value: "xyz" });
+      router.push("/checkout");
       setIsClicked(false);
     }, 1200);
   };

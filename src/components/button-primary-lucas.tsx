@@ -18,11 +18,21 @@ export default function ButtonPrimaryLucas() {
 
   const handleClick = () => {
     setIsClicked(true);
+    // Send GA event before navigation
+    sendGAEvent({
+      event: "begin_checkout",
+      currency: "BRL",
+      value: 47.90,
+      items: [{
+        item_name: "Note Private",
+        price: 47.90,
+        quantity: 1
+      }],
+      variant: "lucas" // Adding a variant to distinguish this button's events
+    });
+    
     setTimeout(() => {
-      sendGAEvent({
-        event: "buttonClicked",
-        value: "Clique no botão",
-      });
+      router.push("/checkout");
       setIsClicked(false);
     }, 1200);
   };
