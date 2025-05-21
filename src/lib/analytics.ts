@@ -12,7 +12,12 @@ class Analytics {
   constructor() {
     if (typeof window !== "undefined") {
       try {
-        amplitude.init(process.env.SECRET_KEY_AMPLITUDE || "", {
+        const apiKey = process.env.NEXT_PUBLIC_AMPLITUDE_API_KEY;
+        if (!apiKey) {
+          throw new Error("NEXT_PUBLIC_AMPLITUDE_API_KEY não está definida");
+        }
+
+        amplitude.init(apiKey, {
           defaultTracking: {
             attribution: true,
             pageViews: false,
@@ -23,7 +28,6 @@ class Analytics {
           userId: this.userId,
         });
         console.log("Analytics inicializado com sucesso");
-        console.log(process.env.SECRET_KEY_AMPLITUDE);
       } catch (error) {
         console.error("[Analytics] Erro na inicialização:", error);
       }
@@ -84,6 +88,7 @@ class Analytics {
       };
 
       amplitude.track(name, eventData);
+      console.log("Evento enviado com sucesso:", name, eventData);
     } catch (error) {
       console.error("[Analytics] Erro ao enviar evento:", {
         erro: error instanceof Error ? error.message : "Erro desconhecido",
