@@ -1,46 +1,38 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ArrowLeft, CreditCard, QrCode, ShoppingCart } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import { sendGAEvent } from "@next/third-parties/google"
+import { useState } from "react";
+import { ArrowLeft, CreditCard, QrCode, ShoppingCart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { sendGAEvent } from "@next/third-parties/google";
 
-import Logo from '@/assets/macbook-1.png';
+import Logo from "@/assets/macbook-1.png";
+import { analytics } from "@/lib/analytics";
 
 export default function CheckoutPage() {
-  const [paymentMethod, setPaymentMethod] = useState<string | null>(null)
-  const [privateNote, setPrivateNote] = useState("")
+  const [paymentMethod, setPaymentMethod] = useState<string | null>(null);
+  const [privateNote, setPrivateNote] = useState("");
 
   const handlePaymentMethodSelect = (method: string) => {
-    setPaymentMethod(method)
+    setPaymentMethod(method);
     sendGAEvent({
       event: "select_payment_method",
       payment_method: method,
       currency: "BRL",
-      value: 47.90
-    })
-  }
+      value: 47.9,
+    });
+  };
 
   const handleContinue = () => {
     if (paymentMethod === "pix") {
-      sendGAEvent({
-        event: "begin_checkout",
-        payment_method: "pix",
-        currency: "BRL",
-        value: 47.90
-      })
-      window.location.href = "https://www.abacatepay.com/pay/bill_SJuywsM6yxwT0NnYzMuC0ads"
+      analytics.rastrearEventoAmplitude("Checkout - Pix");
+      window.location.href =
+        "https://www.abacatepay.com/pay/bill_SJuywsM6yxwT0NnYzMuC0ads";
     } else if (paymentMethod === "credit-card") {
-      sendGAEvent({
-        event: "begin_checkout",
-        payment_method: "credit_card",
-        currency: "BRL",
-        value: 47.90
-      })
-      window.location.href = "https://buy.stripe.com/aFacN7fDI8zm4ljc5DcZa00"
+      analytics.rastrearEventoAmplitude("Checkout - Cartão de Crédito");
+      window.location.href = "https://buy.stripe.com/aFacN7fDI8zm4ljc5DcZa00";
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center p-4">
@@ -63,7 +55,9 @@ export default function CheckoutPage() {
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
               <div className="p-6 space-y-6">
                 <div className="space-y-4">
-                  <h2 className="text-lg font-medium text-black">Método de pagamento</h2>
+                  <h2 className="text-lg font-medium text-black">
+                    Método de pagamento
+                  </h2>
 
                   <div className="grid gap-3">
                     <div
@@ -78,17 +72,25 @@ export default function CheckoutPage() {
                         <CreditCard className="h-5 w-5 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-medium text-black">Cartão de crédito</h3>
-                        <p className="text-sm text-gray-500">Pague com seu cartão de crédito.</p>
+                        <h3 className="font-medium text-black">
+                          Cartão de crédito
+                        </h3>
+                        <p className="text-sm text-gray-500">
+                          Pague com seu cartão de crédito.
+                        </p>
                       </div>
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 rounded-full border-2 flex items-center justify-center">
-                        {paymentMethod === "credit-card" && <div className="h-3 w-3 bg-black rounded-full" />}
+                        {paymentMethod === "credit-card" && (
+                          <div className="h-3 w-3 bg-black rounded-full" />
+                        )}
                       </div>
                     </div>
 
                     <div
                       className={`relative flex items-center p-4 rounded-lg border-2 transition-all duration-200 cursor-pointer ${
-                        paymentMethod === "pix" ? "border-black bg-gray-50" : "border-gray-200 hover:border-gray-300"
+                        paymentMethod === "pix"
+                          ? "border-black bg-gray-50"
+                          : "border-gray-200 hover:border-gray-300"
                       }`}
                       onClick={() => handlePaymentMethodSelect("pix")}
                     >
@@ -97,10 +99,14 @@ export default function CheckoutPage() {
                       </div>
                       <div>
                         <h3 className="font-medium text-black">Pix</h3>
-                        <p className="text-sm text-gray-500">Pagamento instantâneo.</p>
+                        <p className="text-sm text-gray-500">
+                          Pagamento instantâneo.
+                        </p>
                       </div>
                       <div className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 rounded-full border-2 flex items-center justify-center">
-                        {paymentMethod === "pix" && <div className="h-3 w-3 bg-black rounded-full" />}
+                        {paymentMethod === "pix" && (
+                          <div className="h-3 w-3 bg-black rounded-full" />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -138,28 +144,35 @@ export default function CheckoutPage() {
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden sticky top-8">
               <div className="p-6 space-y-6">
                 <div className="relative h-48 w-full rounded-lg overflow-hidden mb-4">
-                  <Image 
-                    src={Logo} 
-                    alt="Produto" 
-                    fill 
-                    className="object-contain" 
+                  <Image
+                    src={Logo}
+                    alt="Note Private"
+                    fill
+                    className="object-contain"
                     priority
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <h2 className="text-xl font-bold text-black">Note Private 1.0</h2>
-                  <p className="text-gray-600 text-sm">
-                    Acesso completo a todos os recursos do nosso template de produtividade e organização.
+                <div className="space-y-3">
+                  <h2 className="text-xl font-bold text-black">
+                    Note Private 1.0
+                  </h2>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Acesso completo a todos os recursos do nosso template de
+                    produtividade e organização.
                   </p>
                 </div>
 
-                  <div className="flex justify-between font-medium text-black mt-4 pt-4 border-t border-gray-100">
-                    <span>Total</span>
-                    <span>R$ 47,90</span>
+                <div className="border-t border-gray-100 pt-4">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-900 font-medium">Total</span>
+                    <span className="text-xl font-bold text-black">
+                      R$ 47,90
+                    </span>
                   </div>
                 </div>
               </div>
+            </div>
           </div>
         </div>
 
@@ -172,5 +185,5 @@ export default function CheckoutPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

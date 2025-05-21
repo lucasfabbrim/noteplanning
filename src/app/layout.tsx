@@ -3,6 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
+import * as amplitude from "@amplitude/analytics-browser";
+import path from "path";
 
 const inter = localFont({
   src: [
@@ -82,6 +85,15 @@ export const metadata: Metadata = {
     "O maior template de organização e produtividade! Um ecosistema dentro do Notion de organização e produtividade!",
 };
 
+// Initialize Amplitude on the client side
+if (typeof window !== "undefined") {
+  amplitude.init("b6dea72913009f27a05b5fce377adf3b", {
+    defaultTracking: true,
+    autocapture: true,
+    logLevel: amplitude.Types.LogLevel.Debug,
+  });
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -89,7 +101,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${inter.variable} font-inter antialiased `}>
+      <body className={`${inter.variable} font-inter antialiased`}>
         {children}
         <Analytics />
         <GoogleAnalytics gaId="G-FXZJ4HXH96" />
