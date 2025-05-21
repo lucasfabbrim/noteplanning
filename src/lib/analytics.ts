@@ -2,7 +2,7 @@ import * as amplitude from "@amplitude/analytics-browser";
 
 const ANALYTICS_CONFIG = {
   DEBOUNCE_TIME: 3000, // Tempo mínimo (em ms) entre eventos iguais
-  DEFAULT_USER_ID: "USER_DEFAULT",
+  DEFAULT_USER_ID: "USER_NOTE",
 } as const;
 
 class Analytics {
