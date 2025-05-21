@@ -22,6 +22,8 @@ class Analytics {
           },
           userId: this.userId,
         });
+        console.log("Analytics inicializado com sucesso");
+        console.log(process.env.SECRET_KEY_AMPLITUDE);
       } catch (error) {
         console.error("[Analytics] Erro na inicialização:", error);
       }
