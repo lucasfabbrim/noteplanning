@@ -36,7 +36,7 @@ export default function ButtonPrimary() {
   };
 
   return (
-    <div className="flex flex-col pt-8">
+    <div className="flex flex-col pt-5">
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -44,7 +44,7 @@ export default function ButtonPrimary() {
         onMouseLeave={() => setIsHover(false)}
         onClick={handleClick}
         disabled={isClicked}
-        className="relative rounded-full h-12 flex items-center gap-3 px-6 shadow-xl shadow-black/40 overflow-hidden"
+        className="relative rounded-full h-14 flex items-center gap-3 px-6 shadow-xl shadow-black/40 overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-600 to-zinc-800" />
         <motion.div
@@ -54,7 +54,7 @@ export default function ButtonPrimary() {
           transition={transition}
         />
         <motion.span
-          className="relative z-10 font-medium text-base text-white"
+          className="relative z-10 font-medium text-lg text-white"
           animate={{ color: isHover ? "#ffffff" : "#ffffff" }}
           transition={transition}
         >

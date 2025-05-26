@@ -18,8 +18,6 @@ import { PricingCard } from "@/components/DecemberCountdown";
 import { Banner } from "./_components/banner";
 import { AnimatedTooltipPreview } from "./_components/reviews-tooltip";
 
-import { Button } from "@/components/ui/moving-border";
-
 export default function Page() {
   const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -55,28 +53,28 @@ export default function Page() {
         <section
           ref={targetRef}
           id="hero"
-          className="mx-auto mt-10 md:mt-20 px-4 md:px-8 lg:px-48"
+          className="mx-auto mt-10 md:mt-20 px-2 md:px-8 lg:px-48"
         >
           <div className="flex flex-col md:flex-row">
             <motion.div
               style={{ opacity, scale }}
               className="flex flex-col items-center text-center justify-center md:text-start md:justify-between md:items-start "
             >
-              <h1 className="tracking-tighter bg-gradient-to-r from-neutral-700 to-stone-900 bg-clip-text text-transparent text-3xl/8 md:text-5xl xl:text-6xl font-bold">
+              <h1 className="tracking-tighter bg-gradient-to-r from-neutral-700 to-stone-900 bg-clip-text text-transparent text-4xl/8 md:text-5xl xl:text-6xl font-bold pb-2">
                 Organize-se e aumente a produtividade.
               </h1>
-              <p className="pt-4 px-2 md:px-0 max-w-lg text-sm md:text-base lg:text-lg text-zinc-700/90">
+              <p className="pt-3 px-4 md:px-0 max-w-lg text-base/5 md:text-base lg:text-lg text-zinc-700/90 tracking-tighter">
                 A organização e clareza que você estava buscando. Ser produtivo
-                é método, e nós criamos um para você.
+                é método, e nós criamos para você.
               </p>
-              <div className="flex flex-col items-center gap-6 justify-center pb-10">
+              <div className="flex flex-col items-center gap-5 justify-center pt-2 pb-10">
                 <ButtonPrimary />
                 <AnimatedTooltipPreview />
               </div>
             </motion.div>
             <motion.div
               style={{ opacity, scale }}
-              className="flex justify-center items-center relative mt-8 md:mt-0 fade-in-section"
+              className="flex justify-center items-center relative  md:mt-0 fade-in-section"
             >
               <Image
                 src={HeroPhoto}
@@ -91,7 +89,7 @@ export default function Page() {
         </section>
         <section
           id="brand"
-          className="px-4 flex flex-col mt-10 md:mt-16 lg:mt-20 items-center"
+          className="px-4 flex flex-col mt-10 md:mt-16 lg:mt-20 items-center justify-center text-center"
         >
           <h1 className="tracking-tighter bg-gradient-to-r from-neutral-600 to-stone-900 bg-clip-text text-transparent text-2xl md:text-4xl font-bold">
             Faça como as grandes empresas do mercado utilizando Notion.
