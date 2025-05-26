@@ -1,48 +1,48 @@
 "use client";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
-import React from "react";
+import avatar1 from "@/assets/testimonials/avatar-1.jpg";
+import avatar3 from "@/assets/testimonials/avatar-3.jpg";
+import avatar4 from "@/assets/testimonials/avatar-4.jpg";
+import avatar5 from "@/assets/testimonials/avatar-5.jpg";
+import avatar7 from "@/assets/testimonials/avatar-7.jpg";
+import avatar9 from "@/assets/testimonials/avatar-9.jpg";
+
 const people = [
   {
     id: 1,
-    name: "John Doe",
+    name: "Vitor Navarro",
     designation: "Software Engineer",
-    image:
-      "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+    image: avatar7,
   },
   {
     id: 2,
-    name: "Robert Johnson",
-    designation: "Product Manager",
-    image:
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    name: "Guilherme Godoy",
+    designation: "Software Engineer",
+    image: avatar9,
   },
   {
     id: 3,
-    name: "Jane Smith",
-    designation: "Data Scientist",
-    image:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    name: "Elaine Briski",
+    designation: "Product Manager",
+    image: avatar4,
   },
   {
     id: 4,
-    name: "Emily Davis",
+    name: "Larissa Fabbri",
     designation: "UX Designer",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    image: avatar1,
   },
   {
     id: 5,
-    name: "Tyler Durden",
-    designation: "Soap Developer",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    name: "Matheus Eler",
+    designation: "Developer",
+    image: avatar5,
   },
   {
     id: 6,
-    name: "Dora",
-    designation: "The Explorer",
-    image:
-      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80",
+    name: "Maria Eduarda",
+    designation: "Product Manager",
+    image: avatar3,
   },
 ];
 
