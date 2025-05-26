@@ -53,7 +53,7 @@ export function AnimatedTooltipPreview() {
         <AnimatedTooltip items={people} />
       </div>
       <span className="text-xs mt-1 text-zinc-700">
-        <b>+300</b> pessoas organizadas.
+        <b className="text-rose-600">+300</b> pessoas organizadas.
       </span>
     </div>
   );

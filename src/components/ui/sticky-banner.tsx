@@ -44,19 +44,6 @@ export const StickyBanner = ({
       }}
     >
       {children}
-
-      <motion.button
-        initial={{
-          scale: 0,
-        }}
-        animate={{
-          scale: 1,
-        }}
-        className="absolute top-1/2 right-2 -translate-y-1/2 cursor-pointer"
-        onClick={() => setOpen(!open)}
-      >
-        <CloseIcon className="h-5 w-5 text-white" />
-      </motion.button>
     </motion.div>
   );
 };
