@@ -69,7 +69,7 @@ export default function Page() {
               </p>
               <div className="flex flex-col items-center gap-5 justify-center pt-2 pb-10">
                 <ButtonPrimary />
-                <AnimatedTooltipPreview />
+                {/* <AnimatedTooltipPreview /> */}
               </div>
             </motion.div>
             <motion.div
@@ -89,7 +89,7 @@ export default function Page() {
         </section>
         <section
           id="brand"
-          className="px-4 flex flex-col mt-10 md:mt-16 lg:mt-20 items-center justify-center text-center"
+          className="px-4 flex flex-col mt-10 md:mt-16 lg:mt-20 items-center justify-center text-center pb-32"
         >
           <h1 className="tracking-tighter bg-gradient-to-r from-neutral-600 to-stone-900 bg-clip-text text-transparent text-2xl md:text-4xl font-bold">
             Faça como as grandes empresas do mercado utilizando Notion.
@@ -104,13 +104,13 @@ export default function Page() {
             <FigmaIcon />
           </div>
         </section>
-        <Widgets />
+        {/* <Widgets />
         <PhoneSection />
         <AboutSection />
         <Testimonials />
         <section id="pre-order" className="text-black mx-auto my-10">
           <PricingCard />
-        </section>
+        </section> */}
       </main>
       <footer className="py-8 border-t border-t-zinc-200 bg-zinc-100">
         <div className="justify-center text-center items-center flex gap-2">

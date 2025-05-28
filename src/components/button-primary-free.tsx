@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-export default function ButtonPrimaryFree() {
+export default function ButtonPrimary() {
   const [isHover, setIsHover] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const router = useRouter();
@@ -29,12 +29,8 @@ export default function ButtonPrimaryFree() {
 
     analytics.rastrearEventoAmplitude("Botão de Comprar");
 
-    window.open(
-      "https://boom-fan-681.notion.site/Note-Tracker-For-Developers-1fd326cd14a7802091cafc5b0868aa52?pvs=74",
-      "_blank",
-    );
-
     setTimeout(() => {
+      router.push("/checkout");
       setIsClicked(false);
     }, 1200);
   };

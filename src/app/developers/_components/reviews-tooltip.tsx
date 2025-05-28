@@ -49,9 +49,9 @@ const people = [
 export function AnimatedTooltipPreview() {
   return (
     <div className="flex flex-col gap-1">
-      <div className="flex flex-row items-center justify-center w-full">
+      {/* <div className="flex flex-row items-center justify-center w-full md:justify-start md:text-start md:items-start">
         <AnimatedTooltip items={people} />
-      </div>
+      </div> */}
       <span className="text-xs mt-1 text-zinc-700">
         <b className="text-rose-600">+300</b> pessoas organizadas.
       </span>
