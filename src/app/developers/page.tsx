@@ -55,10 +55,10 @@ export default function Page() {
           id="hero"
           className="mx-auto mt-10 md:mt-20 px-2 md:px-8 lg:px-48"
         >
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row max-w-2xl">
             <motion.div
               style={{ opacity, scale }}
-              className="flex flex-col items-center text-center justify-center md:text-start md:justify-between md:items-start "
+              className="flex flex-col items-center text-center justify-center "
             >
               <h1 className="tracking-tighter bg-gradient-to-r from-neutral-700 to-stone-900 bg-clip-text text-transparent text-4xl/8 md:text-5xl xl:text-6xl font-bold pb-2">
                 Organize-se e aumente a produtividade.
@@ -71,19 +71,6 @@ export default function Page() {
                 <ButtonPrimary />
                 {/* <AnimatedTooltipPreview /> */}
               </div>
-            </motion.div>
-            <motion.div
-              style={{ opacity, scale }}
-              className="flex justify-center items-center relative  md:mt-0 fade-in-section"
-            >
-              <Image
-                src={HeroPhoto}
-                alt="MacBook"
-                width={600}
-                height={400}
-                className="object-contain px-4"
-                priority
-              />
             </motion.div>
           </div>
         </section>
