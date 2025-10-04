@@ -28,12 +28,8 @@ export default function ButtonPrimaryFree() {
     setIsClicked(true);
 
     analytics.rastrearEventoAmplitude("Botão de Comprar");
-
-    window.open(
-      "https://boom-fan-681.notion.site/Note-Tracker-For-Developers-1fd326cd14a7802091cafc5b0868aa52?pvs=74",
-      "_blank",
-    );
-
+    router.push("/checkout");
+    
     setTimeout(() => {
       setIsClicked(false);
     }, 1200);
