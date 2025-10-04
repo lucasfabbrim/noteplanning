@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import Script from "next/script";
 import * as amplitude from "@amplitude/analytics-browser";
-import path from "path";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = localFont({
   src: [
@@ -80,10 +78,10 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Note Planning - Pré-venda",
+  title: "Note Planning - Templates",
   description:
     "O maior template de organização e produtividade! Um ecosistema dentro do Notion de organização e produtividade!",
-};
+};  
 
 // Initialize Amplitude on the client side
 if (typeof window !== "undefined") {
@@ -104,7 +102,7 @@ export default function RootLayout({
       <body className={`${inter.variable} font-inter antialiased`}>
         {children}
         <Analytics />
-        <GoogleAnalytics gaId="G-FXZJ4HXH96" />
+        <SpeedInsights />
       </body>
     </html>
   );
