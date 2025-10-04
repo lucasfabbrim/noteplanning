@@ -33,8 +33,8 @@ export function PricingCard() {
           {/* Price */}
           <div className="text-center mb-8">
             <div className="text-base text-zinc-500 mb-1">10x</div>
-            <div className="text-zinc-500 text-5xl font-bold mb-2">R$ 9,35</div>
-            <div className="text-sm text-zinc-600">Ou R$ 77,90 à vista.</div>
+            <div className="text-zinc-500 text-5xl font-bold mb-2">R$ 4,79</div>
+            <div className="text-sm text-zinc-600">Ou R$ 47,90 à vista.</div>
           </div>
 
           {/* Features */}
